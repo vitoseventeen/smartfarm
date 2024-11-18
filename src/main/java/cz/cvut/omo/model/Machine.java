@@ -5,14 +5,17 @@ public class Machine {
     protected String name;
     protected String type;
     protected MachineStatus machineStatus;
+    protected int fuelAmount;
 
-    public Machine(String name, String type, MachineStatus machineStatus) {
+    public Machine(String name, String type, MachineStatus machineStatus, int fuelAmount) {
         this.name = name;
         this.type = type;
         this.machineStatus = machineStatus;
+        this.fuelAmount = 0;
     }
 
     public void refuel(int fuelAmount) {
+        this.fuelAmount += fuelAmount;
         System.out.println(name + " refueled with " + fuelAmount + " liters.");
     }
 

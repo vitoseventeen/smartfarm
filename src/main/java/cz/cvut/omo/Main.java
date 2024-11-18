@@ -10,7 +10,7 @@ public class Main {
         // Test configuration
         Farmer farmer = new Farmer("John", 32, FarmerActionStatus.RESTING);
         Field field = new Field("Corn Field", 10, FieldStatus.FREE);
-        Machine tractor = new Machine("Tractor", "John Deere", MachineStatus.OFF);
+        Machine tractor = new Machine("Tractor", "John Deere", MachineStatus.OFF, 0);
         Animal cow = new Animal("Cow", 3);
         Building barn = new Building("Main barn", 100, "Barn");
         Farm farm = new Farm("John's farm",List.of(field), List.of(farmer), List.of(barn), List.of(tractor), List.of(cow));
