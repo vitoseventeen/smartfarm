@@ -1,7 +1,7 @@
 package cz.cvut.omo.model;
 
-public abstract class Machine {
-    //TODO: Создать новые классы на основе его (пример: трактор, комбайн, сеялка)
+public class Machine {
+    //TODO: Создать новые классы на основе его (пример: трактор, комбайн, сеялка), сделать абстрактным
     protected String name;
     protected String type;
     protected MachineStatus machineStatus;
@@ -11,6 +11,15 @@ public abstract class Machine {
         this.type = type;
         this.machineStatus = machineStatus;
     }
+
+    public void refuel(int fuelAmount) {
+        System.out.println(name + " refueled with " + fuelAmount + " liters.");
+    }
+
+    public void diagnose() {
+        System.out.println(name + " is currently " + machineStatus + ".");
+    }
+
 
     @Override
     public String toString() {
@@ -37,11 +46,11 @@ public abstract class Machine {
         this.type = type;
     }
 
-    public MachineStatus getMachineStatus() {
+    public MachineStatus getStatus() {
         return machineStatus;
     }
 
-    public void setMachineStatus(MachineStatus machineStatus) {
+    public void setStatus(MachineStatus machineStatus) {
         this.machineStatus = machineStatus;
     }
 }

@@ -3,13 +3,15 @@ package cz.cvut.omo.model;
 import java.util.List;
 
 public class Farm {
+    private String name;
     private List<Field> fields;
     private List<Farmer> farmers;
     private List<Building> buildings;
     private List<Machine> machines;
     private List<Animal> animals;
 
-    public Farm(List<Field> fields, List<Farmer> farmers, List<Building> buildings, List<Machine> machines, List<Animal> animals) {
+    public Farm(String name, List<Field> fields, List<Farmer> farmers, List<Building> buildings, List<Machine> machines, List<Animal> animals) {
+        this.name = name;
         this.fields = fields;
         this.farmers = farmers;
         this.buildings = buildings;
@@ -19,13 +21,21 @@ public class Farm {
 
     @Override
     public String toString() {
-        return "Farm{" +
-                "fields=" + fields +
-                ", farmers=" + farmers +
-                ", buildings=" + buildings +
-                ", machines=" + machines +
-                ", animals=" + animals +
+        return "Farm " + name + " {" +
+                "\nfields=" + fields +
+                ", \nfarmers=" + farmers +
+                ", \nbuildings=" + buildings +
+                ", \nmachines=" + machines +
+                ", \banimals=" + animals +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Field> getFields() {

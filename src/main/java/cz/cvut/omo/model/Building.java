@@ -1,7 +1,7 @@
 package cz.cvut.omo.model;
 
-public abstract class Building {
-    //TODO: Создать новые классы на основе его (пример: хлев, сарай...)
+public class Building {
+    //TODO: Создать новые классы на основе его (пример: хлев, сарай...), сделать абстрактным
     private double area; // площадь в метрах квадратных
     private String name;
     private String type;
@@ -11,6 +11,15 @@ public abstract class Building {
         this.area = area;
         this.type = type;
     }
+
+    public void storeItems(String item, int quantity) {
+        System.out.println(quantity + " units of " + item + " stored in the building.");
+    }
+
+    public void upgrade() {
+        System.out.println("Building " + name + " has been upgraded to a higher level.");
+    }
+
 
     @Override
     public String toString() {

@@ -11,6 +11,7 @@ public class Field {
         this.fieldStatus = fieldStatus;
     }
 
+
     @Override
     public String toString() {
         return "Field{" +
@@ -36,11 +37,11 @@ public class Field {
         this.fieldSize = fieldSize;
     }
 
-    public FieldStatus getFieldStatus() {
+    public FieldStatus getStatus() {
         return fieldStatus;
     }
 
-    public void setFieldStatus(FieldStatus fieldStatus) {
+    public void setStatus(FieldStatus fieldStatus) {
         this.fieldStatus = fieldStatus;
     }
 }

@@ -1,5 +1,5 @@
 package cz.cvut.omo.model;
 
 public enum MachineStatus {
-    ACTIVE, WAITING, OFF
+    ON, OFF, BROKEN, REPAIRED
 }
