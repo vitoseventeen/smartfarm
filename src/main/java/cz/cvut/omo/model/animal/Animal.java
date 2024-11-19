@@ -1,0 +1,39 @@
+package cz.cvut.omo.model.animal;
+
+public abstract class Animal {
+    private String type;
+    private final int takesPlaces;
+    private final int dailyFoodIntake;
+
+    public Animal(String type, int takesPlaces, int dailyFoodIntake) {
+        this.type = type;
+        this.takesPlaces = takesPlaces;
+        this.dailyFoodIntake = dailyFoodIntake;
+    }
+    
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "type='" + type + '\'' +
+                ", takesPlaces=" + takesPlaces +
+                '}';
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getTakesPlaces() {
+        return takesPlaces;
+    }
+
+    public int getDailyFoodIntake() {
+        return dailyFoodIntake;
+    }
+
+    public abstract void produce();
+}

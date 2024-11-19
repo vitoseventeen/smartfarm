@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>cz.cvut.omo.model.build.Building</OriginalElement>
+  <nodes>
+    <node x="33.0" y="1975.0">cz.cvut.omo.model.equipment.Tool</node>
+    <node x="1051.0" y="1179.5">cz.cvut.omo.model.build.Building</node>
+    <node x="-90.5" y="2315.0">cz.cvut.omo.model.equipment.Machine</node>
+    <node x="210.5" y="2350.0">cz.cvut.omo.model.animal.Cow</node>
+    <node x="161.0" y="917.5">cz.cvut.omo.model.animal.Animal</node>
+    <node x="613.0" y="2326.5">cz.cvut.omo.model.build.Stable</node>
+    <node x="412.0" y="1306.0">cz.cvut.omo.model.field.Field</node>
+    <node x="1047.5" y="566.0">cz.cvut.omo.model.build.BuildingType</node>
+    <node x="510.5" y="2010.0">cz.cvut.omo.model.animal.Chicken</node>
+    <node x="-86.0" y="1340.5">cz.cvut.omo.model.equipment.Equipment</node>
+    <node x="406.0" y="2338.5">cz.cvut.omo.model.animal.Horse</node>
+    <node x="721.5" y="1271.5">cz.cvut.omo.model.farmer.Farmer</node>
+    <node x="413.0" y="352.0">cz.cvut.omo.model.field.FieldStatus</node>
+    <node x="797.5" y="1791.0">cz.cvut.omo.model.Farm</node>
+    <node x="626.0" y="623.5">cz.cvut.omo.model.farmer.FarmerStatus</node>
+    <node x="-85.0" y="612.0">cz.cvut.omo.model.equipment.EquipmentStatus</node>
+    <node x="768.5" y="-14.0">cz.cvut.omo.model.task.TaskType</node>
+    <node x="1084.0" y="2350.0">cz.cvut.omo.model.build.Barn</node>
+    <node x="772.0" y="340.5">cz.cvut.omo.model.task.Task</node>
+    <node x="310.5" y="2010.0">cz.cvut.omo.model.animal.Pig</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cz.cvut.omo.model.build.Stable" target="cz.cvut.omo.model.animal.Animal" relationship="TO_MANY">
+      <point x="-54.0" y="-50.5" />
+      <point x="667.0" y="1957.0" />
+      <point x="581.0" y="1957.0" />
+      <point x="581.0" y="1637.0" />
+      <point x="311.0" y="1637.0" />
+      <point x="50.0" y="119.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.field.Field" target="cz.cvut.omo.model.field.FieldStatus" relationship="TO_ONE">
+      <point x="0.0" y="-131.0" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="cz.cvut.omo.model.Farm" target="cz.cvut.omo.model.equipment.Equipment" relationship="TO_MANY">
+      <point x="0.0" y="-246.0" />
+      <point x="981.0" y="1757.0" />
+      <point x="701.0" y="1757.0" />
+      <point x="701.0" y="1617.0" />
+      <point x="381.0" y="1617.0" />
+      <point x="381.0" y="897.0" />
+      <point x="41.0" y="897.0" />
+      <point x="0.0" y="-96.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.Farm" target="cz.cvut.omo.model.build.Building" relationship="TO_MANY">
+      <point x="0.0" y="-246.0" />
+      <point x="981.0" y="1757.0" />
+      <point x="701.0" y="1757.0" />
+      <point x="701.0" y="1617.0" />
+      <point x="1021.0" y="1617.0" />
+      <point x="1021.0" y="1157.0" />
+      <point x="1161.0" y="1157.0" />
+      <point x="0.0" y="-257.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.animal.Chicken" target="cz.cvut.omo.model.animal.Animal" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="581.0" y="1977.0" />
+      <point x="381.0" y="1977.0" />
+      <point x="381.0" y="1657.0" />
+      <point x="211.0" y="1657.0" />
+      <point x="-50.0" y="119.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.Farm" target="cz.cvut.omo.model.animal.Animal" relationship="TO_MANY">
+      <point x="0.0" y="-246.0" />
+      <point x="981.0" y="1757.0" />
+      <point x="701.0" y="1757.0" />
+      <point x="701.0" y="1657.0" />
+      <point x="581.0" y="1657.0" />
+      <point x="581.0" y="1637.0" />
+      <point x="311.0" y="1637.0" />
+      <point x="50.0" y="119.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.build.Stable" target="cz.cvut.omo.model.build.Building" relationship="GENERALIZATION">
+      <point x="54.0" y="-50.5" />
+      <point x="775.0" y="1777.0" />
+      <point x="1161.0" y="1777.0" />
+      <point x="0.0" y="257.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.Farm" target="cz.cvut.omo.model.field.Field" relationship="TO_MANY">
+      <point x="0.0" y="-246.0" />
+      <point x="981.0" y="1757.0" />
+      <point x="701.0" y="1757.0" />
+      <point x="701.0" y="1617.0" />
+      <point x="661.0" y="1617.0" />
+      <point x="661.0" y="1277.0" />
+      <point x="521.0" y="1277.0" />
+      <point x="0.0" y="-131.0" />
+    </edge>
+    <edge source="cz.cvut.omo.model.equipment.Tool" target="cz.cvut.omo.model.equipment.Equipment" relationship="GENERALIZATION">
+      <point x="0.0" y="-62.0" />
+      <point x="141.0" y="1937.0" />
+      <point x="41.0" y="1937.0" />
+      <point x="0.0" y="96.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.build.Building" target="cz.cvut.omo.model.build.BuildingType" relationship="TO_ONE">
+      <point x="0.0" y="-257.5" />
+      <point x="0.0" y="131.0" />
+    </edge>
+    <edge source="cz.cvut.omo.model.animal.Pig" target="cz.cvut.omo.model.animal.Animal" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="381.0" y="1657.0" />
+      <point x="211.0" y="1657.0" />
+      <point x="-50.0" y="119.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.equipment.Machine" target="cz.cvut.omo.model.equipment.Equipment" relationship="GENERALIZATION">
+      <point x="0.0" y="-62.0" />
+      <point x="1.0" y="1937.0" />
+      <point x="41.0" y="1937.0" />
+      <point x="0.0" y="96.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.task.Task" target="cz.cvut.omo.model.task.TaskType" relationship="TO_ONE">
+      <point x="0.0" y="-96.5" />
+      <point x="0.0" y="131.0" />
+    </edge>
+    <edge source="cz.cvut.omo.model.animal.Cow" target="cz.cvut.omo.model.animal.Animal" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="281.0" y="1977.0" />
+      <point x="381.0" y="1977.0" />
+      <point x="381.0" y="1657.0" />
+      <point x="211.0" y="1657.0" />
+      <point x="-50.0" y="119.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.farmer.Farmer" target="cz.cvut.omo.model.farmer.FarmerStatus" relationship="TO_ONE">
+      <point x="0.0" y="-165.5" />
+      <point x="861.0" y="797.0" />
+      <point x="741.0" y="797.0" />
+      <point x="0.0" y="73.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.Farm" target="cz.cvut.omo.model.farmer.Farmer" relationship="TO_MANY">
+      <point x="0.0" y="-246.0" />
+      <point x="981.0" y="1757.0" />
+      <point x="701.0" y="1757.0" />
+      <point x="701.0" y="1237.0" />
+      <point x="861.0" y="1237.0" />
+      <point x="0.0" y="-165.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.equipment.Equipment" target="cz.cvut.omo.model.equipment.EquipmentStatus" relationship="TO_ONE">
+      <point x="0.0" y="-96.5" />
+      <point x="0.0" y="85.0" />
+    </edge>
+    <edge source="cz.cvut.omo.model.build.Barn" target="cz.cvut.omo.model.build.Building" relationship="GENERALIZATION">
+      <point x="0.0" y="-27.0" />
+      <point x="1181.0" y="1777.0" />
+      <point x="1161.0" y="1777.0" />
+      <point x="0.0" y="257.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.animal.Horse" target="cz.cvut.omo.model.animal.Animal" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="481.0" y="1977.0" />
+      <point x="381.0" y="1977.0" />
+      <point x="381.0" y="1657.0" />
+      <point x="211.0" y="1657.0" />
+      <point x="-50.0" y="119.5" />
+    </edge>
+    <edge source="cz.cvut.omo.model.farmer.Farmer" target="cz.cvut.omo.model.task.Task" relationship="TO_MANY">
+      <point x="0.0" y="-165.5" />
+      <point x="861.0" y="797.0" />
+      <point x="1021.0" y="797.0" />
+      <point x="1021.0" y="317.0" />
+      <point x="881.0" y="317.0" />
+      <point x="0.0" y="-96.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.3610998786898504" showDependencies="true" x="603.5" y="1222.5" />
+  <SelectedNodes>
+    <node>cz.cvut.omo.model.equipment.Tool</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
