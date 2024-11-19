@@ -1,11 +1,12 @@
-package cz.cvut.omo.model;
+package cz.cvut.omo.model.field;
 
 public class Field {
-    private String cropType; // crop это культура (пример: пшеница, подсолнух)
-    private double fieldSize; // в гектарах
+    // crop это культура (пример: пшеница, подсолнух)
+    private int fieldSize;
+    private String cropType;
     private FieldStatus fieldStatus;
 
-    public Field(String cropType, double fieldSize, FieldStatus fieldStatus) {
+    public Field(String cropType, int fieldSize, FieldStatus fieldStatus) {
         this.cropType = cropType;
         this.fieldSize = fieldSize;
         this.fieldStatus = fieldStatus;
@@ -33,7 +34,11 @@ public class Field {
         return fieldSize;
     }
 
-    public void setFieldSize(double fieldSize) {
+    public void setFieldSize(int fieldSize) {
+        if (fieldSize < 0) {
+            return;
+        }
+
         this.fieldSize = fieldSize;
     }
 

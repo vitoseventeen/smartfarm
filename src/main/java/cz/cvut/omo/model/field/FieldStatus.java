@@ -1,4 +1,4 @@
-package cz.cvut.omo.model;
+package cz.cvut.omo.model.field;
 
 public enum FieldStatus {
     FREE, // свободно
