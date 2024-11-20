@@ -1,6 +1,5 @@
-# Используем образ Maven с OpenJDK
-image: maven:3-openjdk-8
-
+# Используем образ Maven с OpenJD
+image: maven:3-eclipse-temurin-21
 # Переменные для Maven
 variables:
   MAVEN_OPTS: >-
