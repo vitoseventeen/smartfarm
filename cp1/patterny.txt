@@ -1,0 +1,9 @@
+Budeme využívat následující patterny:
+- State
+- Visitor
+- Factory
+- Builder
+- Chain Of Responsibility 
+- Observer
+- Singleton
+- Repository
