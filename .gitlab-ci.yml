@@ -1,0 +1,44 @@
+# Используем образ Maven с OpenJD
+image: maven:3-eclipse-temurin-21
+# Переменные для Maven
+variables:
+  MAVEN_OPTS: >-
+    -Dhttps.protocols=TLSv1.2
+    -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
+    -Dorg.slf4j.simpleLogger.showDateTime=true
+    -Djava.awt.headless=true
+  MAVEN_CLI_OPTS: >-
+    --batch-mode
+    --errors
+    --fail-at-end
+    --show-version
+    --no-transfer-progress
+
+# Кэш для зависимостей Maven
+cache:
+  paths:
+    - .m2/repository
+
+# Определение этапов
+stages:
+  - build
+  - test
+
+# Этап сборки
+build:
+  stage: build
+  script:
+    - echo "Сборка проекта..."
+    - mvn $MAVEN_CLI_OPTS clean compile
+  only:
+    - branches # Выполнять на любой ветке
+
+# Этап тестирования (выполняется после сборки)
+test:
+  stage: test
+  script:
+    - echo "Запуск тестов..."
+    - mvn $MAVEN_CLI_OPTS test
+  only:
+    - branches # Выполнять на любой ветке
+
