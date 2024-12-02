@@ -7,11 +7,6 @@ public class Horse extends Animal {
     }
 
     @Override
-    public String toString() {
-        return String.format("Horse{type='%s', takesPlaces=%d, health=%d}", getType(), getTakesPlaces());
-    }
-
-    @Override
     public void produce() {
         System.out.println("The horse produces manure.");
     }
