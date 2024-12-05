@@ -1,22 +1,22 @@
 package cz.cvut.omo.model.task;
 
+import cz.cvut.omo.state.task.TaskState;
+
 public class Task {
-    private TaskType type;
+    private TaskState state;  // Текущее состояние задачи
     private String description;
 
-
-    public Task(TaskType type, String description) {
-        this.type = type;
+    public Task(TaskState state, String description) {
+        this.state = state;
         this.description = description;
     }
 
-
-    public TaskType getType() {
-        return type;
+    public void setState(TaskState state) {
+        this.state = state;
     }
 
-    public void setType(TaskType type) {
-        this.type = type;
+    public TaskState getState() {
+        return state;
     }
 
     public String getDescription() {
@@ -27,10 +27,14 @@ public class Task {
         this.description = description;
     }
 
+    public void performAction() {
+        state.performAction(this);
+    }
+
     @Override
     public String toString() {
         return "Task{" +
-                "type=" + type +
+                "state=" + state.getClass().getSimpleName() +
                 ", description='" + description + '\'' +
                 '}';
     }

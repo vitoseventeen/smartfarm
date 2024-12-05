@@ -1,55 +1,116 @@
 package model;
 
-import cz.cvut.omo.model.equipment.Equipment;
-import cz.cvut.omo.model.equipment.EquipmentStatus;
-import cz.cvut.omo.model.equipment.Machine;
-import cz.cvut.omo.model.equipment.Tool;
+import cz.cvut.omo.model.equipment.*;
+import cz.cvut.omo.state.equipment.BrokenState;
+import cz.cvut.omo.state.equipment.OffState;
+import cz.cvut.omo.state.equipment.OnState;
+import cz.cvut.omo.state.equipment.RepairedState;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EquipmentTest {
-
     @Test
-    public void testMachine() {
-        Machine machine = new Machine("Tractor", EquipmentStatus.OFF,100);
-        assertEquals("Tractor", machine.getName());
-        assertEquals(EquipmentStatus.OFF, machine.getStatus());
-        assertEquals(100, machine.getFuelLevel());
+    public void testMachineInitialization() {
+        Equipment machine = new Machine("Tractor", 100);
+        assertTrue(machine.getState() instanceof OffState, "Machine should initialize in OffState.");
     }
 
     @Test
-    public void testMachineSetFuelLevel() {
-        Machine machine = new Machine("Tractor", EquipmentStatus.OFF,100);
-        machine.setFuelLevel(200);
-        assertEquals(200, machine.getFuelLevel());
+    public void testMachineTurnOn() {
+        Equipment machine = new Machine("Tractor", 100);
+        machine.turnOn();
+        assertTrue(machine.getState() instanceof OnState, "Machine should transition to OnState after turning ON.");
     }
 
     @Test
-    public void testMachineStatus() {
-        Machine machine = new Machine("Tractor", EquipmentStatus.OFF,100);
-        assertEquals(EquipmentStatus.OFF, machine.getStatus());
-        machine.setStatus(EquipmentStatus.ON);
-        assertEquals(EquipmentStatus.ON, machine.getStatus());
-        machine.setStatus(EquipmentStatus.BROKEN);
-        assertEquals(EquipmentStatus.BROKEN, machine.getStatus());
-        machine.setStatus(EquipmentStatus.REPAIRED);
-        assertEquals(EquipmentStatus.REPAIRED, machine.getStatus());
+    public void testMachineBreakDown() {
+        Equipment machine = new Machine("Tractor", 100);
+        machine.breakDown();
+        assertTrue(machine.getState() instanceof BrokenState, "Machine should transition to BrokenState after breaking down.");
     }
 
     @Test
-    public void testTool() {
-        Tool tool = new Tool("Hammer", EquipmentStatus.OFF, "Hand");
-        assertEquals("Hammer", tool.getName());
-        assertEquals(EquipmentStatus.OFF, tool.getStatus());
-        assertEquals("Hand", tool.getUsageType());
+    public void testMachineRepair() {
+        Equipment machine = new Machine("Tractor", 100);
+        machine.breakDown();
+        machine.repair();
+        assertTrue(machine.getState() instanceof RepairedState, "Machine should transition to RepairedState after being repaired.");
     }
 
     @Test
-    public void testToolSetUsageType() {
-        Tool tool = new Tool("Hammer", EquipmentStatus.OFF, "Hand");
-        tool.setUsageType("Electric");
-        assertEquals("Electric", tool.getUsageType());
+    public void testMachinePerformActionWhileOff() {
+        Equipment machine = new Machine("Tractor", 100);
+        machine.performAction();
+        assertTrue(machine.getState() instanceof OffState, "Machine should remain in OffState after trying to perform an action while OFF.");
     }
 
+    @Test
+    public void testMachinePerformActionWhileOn() {
+        Equipment machine = new Machine("Tractor", 100);
+        machine.turnOn();
+        machine.performAction();
+        assertTrue(machine.getState() instanceof OnState, "Machine should remain in OnState after performing an action.");
+    }
+
+
+    @Test
+    public void testToolInitialization() {
+        Equipment tool = new Tool("Hammer", "Manual");
+        assertTrue(tool.getState() instanceof OffState, "Tool should initialize in OffState.");
+    }
+
+    @Test
+    public void testToolTurnOn() {
+        Equipment tool = new Tool("Drill", "Electric");
+        tool.turnOn();
+        assertTrue(tool.getState() instanceof OnState, "Tool should transition to OnState after turning ON.");
+    }
+
+    @Test
+    public void testToolBreakDown() {
+        Equipment tool = new Tool("Drill", "Electric");
+        tool.breakDown();
+        assertTrue(tool.getState() instanceof BrokenState, "Tool should transition to BrokenState after breaking down.");
+    }
+
+    @Test
+    public void testToolRepair() {
+        Equipment tool = new Tool("Drill", "Electric");
+        tool.breakDown();
+        tool.repair();
+        assertTrue(tool.getState() instanceof RepairedState, "Tool should transition to RepairedState after being repaired.");
+    }
+
+    @Test
+    public void testToolPerformActionWhileOff() {
+        Equipment tool = new Tool("Hammer", "Manual");
+        tool.performAction();
+        assertTrue(tool.getState() instanceof OffState, "Tool should remain in OffState after trying to perform an action while OFF.");
+    }
+
+    @Test
+    public void testToolPerformActionWhileOn() {
+        Equipment tool = new Tool("Drill", "Electric");
+        tool.turnOn();
+        tool.performAction();
+        assertTrue(tool.getState() instanceof OnState, "Tool should remain in OnState after performing an action.");
+    }
+
+    @Test
+    public void testEquipmentCannotBeRepairedIfAlreadyRepaired() {
+        Equipment machine = new Machine("Tractor", 100);
+        machine.breakDown();
+        machine.repair();
+        machine.repair();
+        assertTrue(machine.getState() instanceof RepairedState, "Machine should remain in RepairedState after trying to repair again.");
+    }
+
+    @Test
+    public void testEquipmentCannotTurnOnIfBroken() {
+        Equipment tool = new Tool("Drill", "Electric");
+        tool.breakDown();
+        tool.turnOn();
+        assertTrue(tool.getState() instanceof BrokenState, "Tool should remain in BrokenState after trying to turn ON while broken.");
+    }
 }

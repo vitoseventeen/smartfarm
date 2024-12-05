@@ -1,37 +1,45 @@
 package cz.cvut.omo.model.equipment;
 
-// Базовый класс для оборудования
+import cz.cvut.omo.state.equipment.EquipmentState;
+
 public abstract class Equipment {
     private String name;
-    private EquipmentStatus status; // "Активный", "В ожидании", "Выключен"
+    private EquipmentState currentState;
 
-    public Equipment(String name, EquipmentStatus status) {
+    public Equipment(String name, EquipmentState initialState) {
         this.name = name;
-        this.status = status;
+        this.currentState = initialState;
     }
-
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public EquipmentState getState() {
+        return currentState;
     }
 
-    public EquipmentStatus getStatus() {
-        return status;
+    public void setState(EquipmentState state) {
+        this.currentState = state;
     }
 
-    public void setStatus(EquipmentStatus status) {
-        this.status = status;
+    public void turnOn() {
+        currentState.turnOn(this);
     }
 
+    public void turnOff() {
+        currentState.turnOff(this);
+    }
 
-    public abstract void performAction();
+    public void repair() {
+        currentState.repair(this);
+    }
+
+    public void breakDown() {
+        currentState.breakDown(this);
+    }
+
+    public void performAction() {
+        currentState.performAction(this);
+    }
 }
-
-// Подкласс для машин
-
-
-// Подкласс для другого оборудования

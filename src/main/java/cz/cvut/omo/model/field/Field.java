@@ -1,25 +1,25 @@
 package cz.cvut.omo.model.field;
 
+import cz.cvut.omo.state.field.FieldState;
+import cz.cvut.omo.state.field.FreeState;
+
 public class Field {
-    // crop это культура (пример: пшеница, подсолнух)
     private int fieldSize;
     private String cropType;
-    private FieldStatus fieldStatus;
+    private FieldState state;
 
-    public Field(String cropType, int fieldSize, FieldStatus fieldStatus) {
+    public Field(String cropType, int fieldSize) {
         this.cropType = cropType;
         this.fieldSize = fieldSize;
-        this.fieldStatus = fieldStatus;
+        this.state = new FreeState(); // начальное состояние
     }
 
+    public int getFieldSize() {
+        return fieldSize;
+    }
 
-    @Override
-    public String toString() {
-        return "Field{" +
-                "cropType='" + cropType + '\'' +
-                ", fieldSize=" + fieldSize +
-                ", fieldStatus=" + fieldStatus +
-                '}';
+    public void setFieldSize(int fieldSize) {
+        this.fieldSize = fieldSize;
     }
 
     public String getCropType() {
@@ -30,23 +30,32 @@ public class Field {
         this.cropType = cropType;
     }
 
-    public double getFieldSize() {
-        return fieldSize;
+    public FieldState getState() {
+        return state;
     }
 
-    public void setFieldSize(int fieldSize) {
-        if (fieldSize < 0) {
-            return;
-        }
-
-        this.fieldSize = fieldSize;
+    public void setState(FieldState state) {
+        this.state = state;
     }
 
-    public FieldStatus getStatus() {
-        return fieldStatus;
+    public void plant() {
+        state.plant(this);
     }
 
-    public void setStatus(FieldStatus fieldStatus) {
-        this.fieldStatus = fieldStatus;
+    public void harvest() {
+        state.harvest(this);
+    }
+
+    public void applyPesticides() {
+        state.applyPesticides(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Field{" +
+                "cropType='" + cropType + '\'' +
+                ", fieldSize=" + fieldSize +
+                ", state=" + state.getClass().getSimpleName() +
+                '}';
     }
 }

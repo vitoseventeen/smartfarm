@@ -1,10 +1,12 @@
 package cz.cvut.omo.model.equipment;
 
-public class Tool extends Equipment {
-    private String usageType; // "Ручной", "Электрический" и тд
+import cz.cvut.omo.state.equipment.OffState;
 
-    public Tool(String name, EquipmentStatus status, String usageType) {
-        super(name, status);
+public class Tool extends Equipment {
+    private String usageType;
+
+    public Tool(String name, String usageType) {
+        super(name, new OffState());
         this.usageType = usageType;
     }
 
@@ -14,10 +16,5 @@ public class Tool extends Equipment {
 
     public void setUsageType(String usageType) {
         this.usageType = usageType;
-    }
-
-    @Override
-    public void performAction() {
-        System.out.println("Инструмент " + getName() + " используется.");
     }
 }

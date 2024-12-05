@@ -10,21 +10,9 @@ public abstract class Animal {
         this.takesPlaces = takesPlaces;
         this.dailyFoodIntake = dailyFoodIntake;
     }
-    
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "type='" + type + '\'' +
-                ", takesPlaces=" + takesPlaces +
-                '}';
-    }
 
     public String getType() {
         return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getTakesPlaces() {
@@ -35,5 +23,13 @@ public abstract class Animal {
         return dailyFoodIntake;
     }
 
-    public abstract void produce();
+    public abstract void produce();  // Метод, который будет реализован в каждом классе животного
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "type='" + type + '\'' +
+                ", takesPlaces=" + takesPlaces +
+                '}';
+    }
 }
