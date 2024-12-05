@@ -34,7 +34,7 @@ public class FarmTest {
         assertEquals(1, farm.getFields().size(), "Farm should have 1 field");
         assertEquals(1, farm.getFarmers().size(), "Farm should have 1 farmer");
         assertEquals(1, farm.getBuildings().size(), "Farm should have 1 building");
-        assertEquals(1, farm.getMachines().size(), "Farm should have 1 equipment");
+        assertEquals(1, farm.getEquipments().size(), "Farm should have 1 equipment");
         assertEquals(1, farm.getAnimals().size(), "Farm should have 1 animal");
     }
 
@@ -69,8 +69,8 @@ public class FarmTest {
         assertEquals(1, farm.getBuildings().size(), "Farm should have 1 building after update.");
 
         Equipment newEquipment = mock(Equipment.class);
-        farm.setMachines(Arrays.asList(newEquipment));
-        assertEquals(1, farm.getMachines().size(), "Farm should have 1 equipment after update.");
+        farm.setEquipments(Arrays.asList(newEquipment));
+        assertEquals(1, farm.getEquipments().size(), "Farm should have 1 equipment after update.");
 
         Animal newAnimal = mock(Animal.class);
         farm.setAnimals(Arrays.asList(newAnimal));
