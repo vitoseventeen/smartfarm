@@ -1,50 +1,58 @@
 package model;
 
 import cz.cvut.omo.model.field.Field;
-import cz.cvut.omo.model.field.FieldStatus;
+import cz.cvut.omo.model.field.FreeState;
+import cz.cvut.omo.model.field.PlantedState;
+import cz.cvut.omo.model.field.ReadyToHarvestState;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FieldTest {
     @Test
     public void testFieldInitialization() {
-        Field field = new Field("Corn", 100, FieldStatus.FREE);
-        assertEquals("Corn", field.getCropType());
-        assertEquals(100, field.getFieldSize());
-        assertEquals(FieldStatus.FREE, field.getStatus());
+        Field field = new Field("Corn", 100);
+        assertTrue(field.getState() instanceof FreeState, "Field should initialize in FreeState.");
     }
 
     @Test
-    public void testFieldSetCropType() {
-        Field field = new Field("Corn", 100, FieldStatus.FREE);
-        field.setCropType("Wheat");
-        assertEquals("Wheat", field.getCropType());
+    public void testPlantField() {
+        Field field = new Field("Corn", 100);
+        field.plant();
+        assertTrue(field.getState() instanceof PlantedState, "Field should transition to PlantedState after planting.");
     }
 
     @Test
-    public void testFieldSetFieldSize() {
-        Field field = new Field("Corn", 100, FieldStatus.FREE);
-        field.setFieldSize(200);
-        assertEquals(200, field.getFieldSize());
+    public void testHarvestField() {
+        Field field = new Field("Corn", 100);
+        field.plant();
+        field.applyPesticides();
+        field.setState(new ReadyToHarvestState());
+        field.harvest();
+        assertTrue(field.getState() instanceof FreeState, "Field should transition to FreeState after harvesting.");
     }
 
     @Test
-    public void testFieldSetFieldSizeNegative() {
-        Field field = new Field("Corn", 100, FieldStatus.FREE);
-        field.setFieldSize(-200);
-        assertEquals(100, field.getFieldSize());
+    public void testApplyPesticides() {
+        Field field = new Field("Corn", 100);
+        field.plant();
+        field.applyPesticides();
+        assertTrue(field.getState().getClass().getSimpleName().equals("PesticideAppliedState"),
+                "Field should transition to PesticideAppliedState after applying pesticides.");
     }
 
     @Test
-    public void testFieldStatus() {
-        Field field = new Field("Corn", 100, FieldStatus.FREE);
-        assertEquals(FieldStatus.FREE, field.getStatus());
-        field.setStatus(FieldStatus.PLANTED);
-        assertEquals(FieldStatus.PLANTED, field.getStatus());
-        field.setStatus(FieldStatus.READY_TO_HARVEST);
-        assertEquals(FieldStatus.READY_TO_HARVEST, field.getStatus());
-        field.setStatus(FieldStatus.PESTICIDE_APPLIED);
-        assertEquals(FieldStatus.PESTICIDE_APPLIED, field.getStatus());
+    public void testInvalidHarvestInFreeState() {
+        Field field = new Field("Corn", 100);
+        field.harvest();
+        assertTrue(field.getState() instanceof FreeState, "Field should remain in FreeState after invalid harvest.");
+    }
+
+    @Test
+    public void testInvalidPlantInPlantedState() {
+        Field field = new Field("Corn", 100);
+        field.plant();
+        field.plant();
+        assertTrue(field.getState() instanceof PlantedState, "Field should remain in PlantedState after invalid planting.");
     }
 }
