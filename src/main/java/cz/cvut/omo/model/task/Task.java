@@ -1,5 +1,7 @@
 package cz.cvut.omo.model.task;
 
+import cz.cvut.omo.state.task.TaskState;
+
 public class Task {
     private TaskState state;  // Текущее состояние задачи
     private String description;

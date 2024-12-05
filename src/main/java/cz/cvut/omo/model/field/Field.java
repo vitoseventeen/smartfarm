@@ -1,5 +1,8 @@
 package cz.cvut.omo.model.field;
 
+import cz.cvut.omo.state.field.FieldState;
+import cz.cvut.omo.state.field.FreeState;
+
 public class Field {
     private int fieldSize;
     private String cropType;

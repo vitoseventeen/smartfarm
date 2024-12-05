@@ -1,6 +1,10 @@
 package model;
 
 import cz.cvut.omo.model.task.*;
+import cz.cvut.omo.state.task.ApplyingPesticidesState;
+import cz.cvut.omo.state.task.FeedingAnimalsState;
+import cz.cvut.omo.state.task.HarvestingState;
+import cz.cvut.omo.state.task.PlantingState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

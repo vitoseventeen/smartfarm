@@ -1,5 +1,7 @@
 package cz.cvut.omo.model.equipment;
 
+import cz.cvut.omo.state.equipment.OffState;
+
 public class Tool extends Equipment {
     private String usageType;
 

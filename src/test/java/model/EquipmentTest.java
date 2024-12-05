@@ -1,6 +1,10 @@
 package model;
 
 import cz.cvut.omo.model.equipment.*;
+import cz.cvut.omo.state.equipment.BrokenState;
+import cz.cvut.omo.state.equipment.OffState;
+import cz.cvut.omo.state.equipment.OnState;
+import cz.cvut.omo.state.equipment.RepairedState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

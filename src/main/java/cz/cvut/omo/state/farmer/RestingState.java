@@ -1,4 +1,6 @@
-package cz.cvut.omo.model.farmer;
+package cz.cvut.omo.state.farmer;
+
+import cz.cvut.omo.model.farmer.Farmer;
 
 public class RestingState implements FarmerState {
     @Override
