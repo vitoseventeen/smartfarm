@@ -1,5 +1,7 @@
 
-package cz.cvut.omo.model.task;
+package cz.cvut.omo.state.task;
+
+import cz.cvut.omo.model.task.Task;
 
 public class ApplyingPesticidesState implements TaskState {
     @Override

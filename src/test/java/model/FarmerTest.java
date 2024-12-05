@@ -1,6 +1,9 @@
 package model;
 
 import cz.cvut.omo.model.farmer.*;
+import cz.cvut.omo.state.farmer.RestingState;
+import cz.cvut.omo.state.farmer.SleepingState;
+import cz.cvut.omo.state.farmer.WorkingState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

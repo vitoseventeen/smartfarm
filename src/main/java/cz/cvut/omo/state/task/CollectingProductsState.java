@@ -1,4 +1,6 @@
-package cz.cvut.omo.model.task;
+package cz.cvut.omo.state.task;
+
+import cz.cvut.omo.model.task.Task;
 
 public class CollectingProductsState implements TaskState {
     @Override

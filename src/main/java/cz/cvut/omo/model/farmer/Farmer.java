@@ -1,6 +1,7 @@
 package cz.cvut.omo.model.farmer;
 
 import cz.cvut.omo.model.task.Task;
+import cz.cvut.omo.state.farmer.FarmerState;
 
 import java.util.List;
 

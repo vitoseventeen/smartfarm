@@ -1,9 +1,9 @@
 package model;
 
 import cz.cvut.omo.model.field.Field;
-import cz.cvut.omo.model.field.FreeState;
-import cz.cvut.omo.model.field.PlantedState;
-import cz.cvut.omo.model.field.ReadyToHarvestState;
+import cz.cvut.omo.state.field.FreeState;
+import cz.cvut.omo.state.field.PlantedState;
+import cz.cvut.omo.state.field.ReadyToHarvestState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

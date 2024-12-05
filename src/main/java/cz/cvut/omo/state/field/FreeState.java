@@ -1,4 +1,6 @@
-package cz.cvut.omo.model.field;
+package cz.cvut.omo.state.field;
+
+import cz.cvut.omo.model.field.Field;
 
 public class FreeState implements FieldState {
     @Override

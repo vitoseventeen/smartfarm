@@ -1,4 +1,6 @@
-package cz.cvut.omo.model.equipment;
+package cz.cvut.omo.state.equipment;
+
+import cz.cvut.omo.model.equipment.Equipment;
 
 public class RepairedState implements EquipmentState {
     @Override

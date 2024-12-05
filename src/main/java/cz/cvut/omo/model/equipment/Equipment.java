@@ -1,5 +1,7 @@
 package cz.cvut.omo.model.equipment;
 
+import cz.cvut.omo.state.equipment.EquipmentState;
+
 public abstract class Equipment {
     private String name;
     private EquipmentState currentState;

@@ -1,5 +1,7 @@
 package cz.cvut.omo.model.equipment;
 
+import cz.cvut.omo.state.equipment.OffState;
+
 public class Machine extends Equipment {
     private int fuelLevel;
 
