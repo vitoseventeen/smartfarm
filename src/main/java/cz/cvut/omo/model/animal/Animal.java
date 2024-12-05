@@ -23,6 +23,7 @@ public abstract class Animal {
         return dailyFoodIntake;
     }
 
+    //TODO: IMPLEMENT THIS METHOD IN EVERY CLASS + ADD SUBCLASSES FOR PRODUCTS
     public abstract void produce();  // Метод, который будет реализован в каждом классе животного
 
     @Override

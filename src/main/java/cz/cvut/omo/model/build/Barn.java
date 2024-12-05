@@ -7,6 +7,6 @@ public class Barn extends Building {
 
     @Override
     public void performFunction() {
-        System.out.println(getType().getDisplayName() + " " + getName() + " хранит зерно и оборудование.");
+        System.out.println(getType().getDisplayName() + " " + getName() + " is used for keeping hay.");
     }
 }

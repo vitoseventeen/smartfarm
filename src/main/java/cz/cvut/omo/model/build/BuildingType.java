@@ -1,11 +1,12 @@
 package cz.cvut.omo.model.build;
 
 public enum BuildingType {
-    BARN("Сарай"),
-    STABLE("Хлев"),
-    GREENHOUSE("Теплица"),
-    WAREHOUSE("Склад"),
-    WORKSHOP("Мастерская");
+    BARN("Barn"),
+    STABLE("Stable"),
+    GREENHOUSE("Greenhouse"),
+    WAREHOUSE("Warehouse"),
+    HOUSE("House"),
+    WORKSHOP("Workshop");
 
     private final String displayName;
 
