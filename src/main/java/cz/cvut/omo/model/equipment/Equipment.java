@@ -42,4 +42,12 @@ public abstract class Equipment {
     public void performAction() {
         currentState.performAction(this);
     }
+
+    @Override
+    public String toString() {
+        return "Equipment{" +
+                "name='" + name + '\'' +
+                ", currentState=" + currentState +
+                '}';
+    }
 }

@@ -1,6 +1,6 @@
 package cz.cvut.omo.facade;
 
-import cz.cvut.omo.model.Farm;
+import cz.cvut.omo.model.farm.Farm;
 import cz.cvut.omo.model.animal.Animal;
 import cz.cvut.omo.model.equipment.Equipment;
 import cz.cvut.omo.model.equipment.Machine;
