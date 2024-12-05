@@ -6,10 +6,10 @@ import cz.cvut.omo.state.farmer.FarmerState;
 import java.util.List;
 
 public class Farmer {
-    private String name;
-    private int age;
+    private final String name;
+    private final int age;
     private FarmerState currentState;
-    private List<Task> tasks;
+    private final List<Task> tasks;
 
     public Farmer(String name, int age, FarmerState initialState, List<Task> tasks) {
         this.name = name;
