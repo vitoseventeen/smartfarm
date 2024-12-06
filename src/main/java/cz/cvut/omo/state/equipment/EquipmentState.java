@@ -8,4 +8,5 @@ public interface EquipmentState {
     void repair(Equipment equipment);
     void breakDown(Equipment equipment);
     void performAction(Equipment equipment);
+
 }

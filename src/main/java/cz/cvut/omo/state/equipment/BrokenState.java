@@ -29,4 +29,9 @@ public class BrokenState implements EquipmentState {
     public void performAction(Equipment equipment) {
         System.out.println(equipment.getName() + " is broken and cannot perform any actions.");
     }
+
+    @Override
+    public String toString() {
+        return "BrokenState";
+    }
 }

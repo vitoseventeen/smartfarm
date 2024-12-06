@@ -17,4 +17,5 @@ public class Tool extends Equipment {
     public void setUsageType(String usageType) {
         this.usageType = usageType;
     }
+
 }

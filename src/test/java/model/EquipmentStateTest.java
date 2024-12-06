@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class EquipmentTest {
+public class EquipmentStateTest {
     @Test
     public void testMachineInitialization() {
         Equipment machine = new Machine("Tractor", 100);

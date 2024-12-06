@@ -29,4 +29,9 @@ public class OffState implements EquipmentState {
     public void performAction(Equipment equipment) {
         System.out.println(equipment.getName() + " is OFF and cannot perform any actions.");
     }
+
+    @Override
+    public String toString() {
+        return "OffState";
+    }
 }

@@ -1,6 +1,5 @@
 package cz.cvut.omo.model.build;
 
-
 import cz.cvut.omo.model.animal.Animal;
 
 import java.util.List;
@@ -8,10 +7,10 @@ import java.util.List;
 public class Stable extends Building {
     private List<Animal> animals;
 
-
     public Stable(String name, int capacity, List<Animal> animals) {
         super(name, 40, BuildingType.STABLE, capacity);
         this.animals = animals;
+        setCurrentUsage(animals.size());
     }
 
     @Override

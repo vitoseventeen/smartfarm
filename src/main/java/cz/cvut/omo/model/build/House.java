@@ -9,10 +9,15 @@ import java.util.List;
 public class House extends Building {
     private List<Farmer> farmers;
 
-    public House(String name, int capacity, List<Farmer> farmers) {
-        super(name, 100, BuildingType.HOUSE, capacity);
+    public House(String name, int area, List<Farmer> farmers) {
+        super(name, area, BuildingType.HOUSE, farmers.size());
         this.farmers = farmers;
     }
+
+    public int getCurrentUsage() {
+        return farmers.size();
+    }
+
 
     @Override
     public void performFunction() {
