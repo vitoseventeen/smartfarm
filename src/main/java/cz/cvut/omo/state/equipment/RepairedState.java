@@ -30,4 +30,9 @@ public class RepairedState implements EquipmentState {
     public void performAction(Equipment equipment) {
         System.out.println(equipment.getName() + " is repaired and ready to perform actions.");
     }
+
+    @Override
+    public String toString() {
+        return "RepairedState";
+    }
 }

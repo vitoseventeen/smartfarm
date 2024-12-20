@@ -29,4 +29,9 @@ public class OnState implements EquipmentState {
     public void performAction(Equipment equipment) {
         System.out.println(equipment.getName() + " is performing its action.");
     }
+
+    @Override
+    public String toString() {
+        return "OnState";
+    }
 }

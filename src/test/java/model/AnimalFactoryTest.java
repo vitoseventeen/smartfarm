@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AnimalTest {
+public class AnimalFactoryTest {
 
     @Test
     public void testChicken() {

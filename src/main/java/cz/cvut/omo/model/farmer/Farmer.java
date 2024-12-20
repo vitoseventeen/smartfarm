@@ -3,19 +3,20 @@ package cz.cvut.omo.model.farmer;
 import cz.cvut.omo.model.task.Task;
 import cz.cvut.omo.state.farmer.FarmerState;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Farmer {
     private final String name;
     private final int age;
     private FarmerState currentState;
-    private final List<Task> tasks;
+    private List<Task> tasks;
 
     public Farmer(String name, int age, FarmerState initialState, List<Task> tasks) {
         this.name = name;
         this.age = age;
         this.currentState = initialState;
-        this.tasks = tasks;
+        this.tasks = new ArrayList<>(tasks);
     }
 
     public void work() {
@@ -46,10 +47,14 @@ public class Farmer {
         return age;
     }
 
+
     public List<Task> getTasks() {
         return tasks;
     }
 
+    public void setTasks(List<Task> tasks) {
+        this.tasks = new ArrayList<>(tasks); // Use a mutable list
+    }
     @Override
     public String toString() {
         return "Farmer{" +

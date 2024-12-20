@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class FieldTest {
+public class FieldStateTest {
     @Test
     public void testFieldInitialization() {
         Field field = new Field("Corn", 100);
