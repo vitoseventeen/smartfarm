@@ -1,0 +1,36 @@
+
+public abstract class AEquipmentState implements EquipmentState{
+
+    private final Equipment equipment;
+    private final String stateName;
+
+    protected AEquipmentState(Equipment equipment, String stateName) {
+        this.equipment = equipment;
+        this.stateName = stateName;
+    }
+
+    @Override
+    public void turnOn(Equipment equipment) {
+        System.out.println("Equipment cannot be set to On from " + stateName);
+    }
+
+    @Override
+    public void turnOff(Equipment equipment) {
+
+    }
+
+    @Override
+    public void repair(Equipment equipment) {
+
+    }
+
+    @Override
+    public void breakDown(Equipment equipment) {
+
+    }
+
+    @Override
+    public void performAction(Equipment equipment) {
+
+    }
+}
