@@ -26,7 +26,7 @@ class FarmBuilderTest {
         Farmer farmer = new Farmer("Jake Paul", 24, new WorkingState(), List.of());
         Building building = new Barn("Barn", 200);
         Equipment equipment = new Machine("Tractor", 52);
-        Animal animal = new Cow(5);
+        Animal animal = new Cow();
 
         FarmBuilder farmBuilder = new FarmBuilder()
                 .setName("Green Valley Farm")

@@ -78,9 +78,8 @@ public class BuildTest {
     @Test
     public void testStableInitializationWithAnimals() {
         List<Animal> animals = new ArrayList<>();
-        AnimalFactory animalFactory = new AnimalFactory();
-        animals.add(animalFactory.createAnimal("Horse", 12));
-        animals.add(animalFactory.createAnimal("Cow", 10));
+        animals.add(AnimalFactory.createAnimal("pig"));
+        animals.add(AnimalFactory.createAnimal("Cow"));
         Stable stable = new Stable("My Stable", 50, animals);
         assertEquals("My Stable", stable.getName(), "Stable name should be 'My Stable'");
         assertEquals(40, stable.getArea(), "Stable area should be 40 sq.m");
