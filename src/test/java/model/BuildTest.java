@@ -1,10 +1,10 @@
 package model;
 
-import cz.cvut.omo.model.animal.Animal;
-import cz.cvut.omo.model.animal.AnimalFactory;
-import cz.cvut.omo.model.build.*;
-import cz.cvut.omo.model.farmer.Farmer;
-import cz.cvut.omo.state.farmer.RestingState;
+import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
+import cz.cvut.fel.omo.smartfarm.model.animal.AnimalFactory;
+import cz.cvut.fel.omo.smartfarm.model.build.*;
+import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
+import cz.cvut.fel.omo.smartfarm.state.farmer.RestingState;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

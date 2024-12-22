@@ -1,16 +1,16 @@
 package model;
 
-import cz.cvut.omo.builder.FarmBuilder;
-import cz.cvut.omo.model.animal.Animal;
-import cz.cvut.omo.model.animal.Cow;
-import cz.cvut.omo.model.build.Barn;
-import cz.cvut.omo.model.build.Building;
-import cz.cvut.omo.model.equipment.Equipment;
-import cz.cvut.omo.model.equipment.Machine;
-import cz.cvut.omo.model.farm.Farm;
-import cz.cvut.omo.model.farmer.Farmer;
-import cz.cvut.omo.model.field.Field;
-import cz.cvut.omo.state.farmer.WorkingState;
+import cz.cvut.fel.omo.smartfarm.builder.FarmBuilder;
+import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
+import cz.cvut.fel.omo.smartfarm.model.animal.Cow;
+import cz.cvut.fel.omo.smartfarm.model.build.Barn;
+import cz.cvut.fel.omo.smartfarm.model.build.Building;
+import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
+import cz.cvut.fel.omo.smartfarm.model.equipment.Machine;
+import cz.cvut.fel.omo.smartfarm.model.farm.Farm;
+import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
+import cz.cvut.fel.omo.smartfarm.model.field.Field;
+import cz.cvut.fel.omo.smartfarm.state.farmer.WorkingState;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;

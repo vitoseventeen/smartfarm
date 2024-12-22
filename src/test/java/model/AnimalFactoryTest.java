@@ -1,6 +1,7 @@
 package model;
 
-import cz.cvut.omo.model.animal.*;
+import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
+import cz.cvut.fel.omo.smartfarm.model.animal.AnimalFactory;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
