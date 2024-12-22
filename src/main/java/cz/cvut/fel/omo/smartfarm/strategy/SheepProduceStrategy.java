@@ -6,9 +6,9 @@ import cz.cvut.fel.omo.smartfarm.model.products.Wool;
 public class SheepProduceStrategy implements ProduceStrategy {
 
     @Override
-    public void produce(Building barn) {
+    public void produce(Building building) {
         Wool wool = new Wool("Wool", 4, 1);
         System.out.println("The sheep is producing wool.");
-        barn.addProduct(wool);
+        building.addProduct(wool);
     }
 }

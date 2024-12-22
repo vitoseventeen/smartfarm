@@ -4,9 +4,11 @@ import cz.cvut.fel.omo.smartfarm.model.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public abstract class Building {
 
+    private static final Logger logger = Logger.getLogger(Building.class.getName());
     private double area;
     private String name;
     private BuildingType type;
@@ -32,9 +34,9 @@ public abstract class Building {
             products.add(product);
             currentUsage++;
             productPrice += product.getPrice();
-            System.out.println("Product " + product.getName() + " added to " + name);
+            logger.info("Product " + product.getName() + " added to " + name);
         } else {
-            System.out.println("No space in " + name + " to add product " + product.getName());
+            logger.warning("No space in " + name + " to add product " + product.getName());
         }
     }
 
@@ -120,6 +122,5 @@ Current Usage: %d
         this.currentUsage = currentUsage;
     }
 
-    // Абстрактный метод для действия, специфичного для здания
     public abstract void performFunction();
 }

@@ -35,4 +35,13 @@ public abstract class Animal {
     public void produce(Building barn) {
         produceStrategy.produce(barn);
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "type='" + type + '\'' +
+                ", takesPlaces=" + takesPlaces +
+                ", dailyFoodIntake=" + dailyFoodIntake +
+                '}';
+    }
 }

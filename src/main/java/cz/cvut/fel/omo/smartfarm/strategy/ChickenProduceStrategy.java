@@ -6,9 +6,9 @@ import cz.cvut.fel.omo.smartfarm.model.products.Egg;
 public class ChickenProduceStrategy implements ProduceStrategy {
 
     @Override
-    public void produce(Building barn) {
+    public void produce(Building building) {
         Egg egg = new Egg("Egg", 3, 1);
         System.out.println("The chicken is laying eggs.");
-        barn.addProduct(egg);
+        building.addProduct(egg);
     }
 }

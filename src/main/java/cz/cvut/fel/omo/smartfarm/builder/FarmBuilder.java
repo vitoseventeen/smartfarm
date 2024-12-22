@@ -1,12 +1,14 @@
 package cz.cvut.fel.omo.smartfarm.builder;
 
 import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
+import cz.cvut.fel.omo.smartfarm.model.build.Barn;
 import cz.cvut.fel.omo.smartfarm.model.build.Building;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
 import cz.cvut.fel.omo.smartfarm.model.farm.Farm;
 import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
 import cz.cvut.fel.omo.smartfarm.model.field.Field;
 import cz.cvut.fel.omo.smartfarm.model.products.Product;
+import cz.cvut.fel.omo.smartfarm.strategy.ProduceStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,5 +59,13 @@ public class FarmBuilder {
 
     public Farm build() {
         return new Farm(this);
+    }
+
+    public double getProductPrice() {
+        double price = 0;
+        for (Product product : products) {
+            price += product.getPrice();
+        }
+        return price;
     }
 }
