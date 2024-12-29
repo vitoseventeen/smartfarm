@@ -1,10 +1,12 @@
 package model;
 
-import cz.cvut.omo.model.equipment.*;
-import cz.cvut.omo.state.equipment.BrokenState;
-import cz.cvut.omo.state.equipment.OffState;
-import cz.cvut.omo.state.equipment.OnState;
-import cz.cvut.omo.state.equipment.RepairedState;
+import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
+import cz.cvut.fel.omo.smartfarm.model.equipment.Machine;
+import cz.cvut.fel.omo.smartfarm.model.equipment.Tool;
+import cz.cvut.fel.omo.smartfarm.state.equipment.BrokenState;
+import cz.cvut.fel.omo.smartfarm.state.equipment.OffState;
+import cz.cvut.fel.omo.smartfarm.state.equipment.OnState;
+import cz.cvut.fel.omo.smartfarm.state.equipment.RepairedState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

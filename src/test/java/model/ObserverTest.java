@@ -1,9 +1,21 @@
 package model;
 
-import cz.cvut.omo.observer.*;
-import cz.cvut.omo.state.equipment.*;
-import cz.cvut.omo.state.farmer.*;
-import cz.cvut.omo.state.field.*;
+import cz.cvut.fel.omo.smartfarm.observer.EquipmentObserver;
+import cz.cvut.fel.omo.smartfarm.observer.FarmerObserver;
+import cz.cvut.fel.omo.smartfarm.observer.FieldObserver;
+import cz.cvut.fel.omo.smartfarm.observer.Subject;
+import cz.cvut.fel.omo.smartfarm.state.equipment.BrokenState;
+import cz.cvut.fel.omo.smartfarm.state.equipment.EquipmentState;
+import cz.cvut.fel.omo.smartfarm.state.equipment.OffState;
+import cz.cvut.fel.omo.smartfarm.state.equipment.OnState;
+import cz.cvut.fel.omo.smartfarm.state.farmer.FarmerState;
+import cz.cvut.fel.omo.smartfarm.state.farmer.RestingState;
+import cz.cvut.fel.omo.smartfarm.state.farmer.SleepingState;
+import cz.cvut.fel.omo.smartfarm.state.farmer.WorkingState;
+import cz.cvut.fel.omo.smartfarm.state.field.FieldState;
+import cz.cvut.fel.omo.smartfarm.state.field.FreeState;
+import cz.cvut.fel.omo.smartfarm.state.field.PlantedState;
+import cz.cvut.fel.omo.smartfarm.state.field.ReadyToHarvestState;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
