@@ -37,13 +37,28 @@ public class FarmBuilder {
         return this;
     }
 
+    public FarmBuilder addFields(List<Field> fields) {
+        this.fields.addAll(fields);
+        return this;
+    }
+
     public FarmBuilder addFarmer(Farmer farmer) {
         this.farmers.add(farmer);
         return this;
     }
 
+    public FarmBuilder addFarmers(List<Farmer> farmers) {
+        this.farmers.addAll(farmers);
+        return this;
+    }
+
     public FarmBuilder addBuilding(Building building) {
         this.buildings.add(building);
+        return this;
+    }
+
+    public FarmBuilder addBuildings(List<Building> buildings) {
+        this.buildings.addAll(buildings);
         return this;
     }
 

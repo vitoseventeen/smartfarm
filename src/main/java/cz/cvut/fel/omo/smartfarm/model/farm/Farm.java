@@ -18,7 +18,7 @@ public class Farm {
     private final List<Equipment> equipments;
     private final List<Animal> animals;
     private final List<Product> products;
-    private double productPrice = 0;
+    private final double productPrice;
 
     public Farm(FarmBuilder farmBuilder) {
         this.name = farmBuilder.name;

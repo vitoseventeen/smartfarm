@@ -44,4 +44,10 @@ public abstract class Animal {
                 ", dailyFoodIntake=" + dailyFoodIntake +
                 '}';
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
 }
