@@ -36,7 +36,7 @@ public class BuildTest {
 
     @Test
     public void testHouseInitialization() {
-        House house = new House("My House", 100, List.of(new Farmer("John", 30, new RestingState(), new ArrayList<>())));
+        House house = new House("My House", 100, List.of(new Farmer("John", 30, new RestingState())));
         assertEquals("My House", house.getName(), "House name should be 'My House'");
         assertEquals(100, house.getArea(), "House area should be 100 sq.m");
         assertEquals(BuildingType.HOUSE, house.getType(), "Building type should be 'HOUSE'");

@@ -1,6 +1,5 @@
 package cz.cvut.fel.omo.smartfarm.model.farmer;
 
-import cz.cvut.fel.omo.smartfarm.model.task.Task;
 import cz.cvut.fel.omo.smartfarm.state.farmer.FarmerState;
 
 import java.util.ArrayList;
@@ -10,13 +9,11 @@ public class Farmer {
     private final String name;
     private final int age;
     private FarmerState currentState;
-    private List<Task> tasks;
 
-    public Farmer(String name, int age, FarmerState initialState, List<Task> tasks) {
+    public Farmer(String name, int age, FarmerState initialState) {
         this.name = name;
         this.age = age;
         this.currentState = initialState;
-        this.tasks = new ArrayList<>(tasks);
     }
 
     public void work() {
@@ -47,14 +44,6 @@ public class Farmer {
         return age;
     }
 
-
-    public List<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(List<Task> tasks) {
-        this.tasks = new ArrayList<>(tasks); // Use a mutable list
-    }
     @Override
     public String toString() {
         return "Farmer{" +
