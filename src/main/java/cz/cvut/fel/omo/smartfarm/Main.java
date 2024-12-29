@@ -1,9 +1,12 @@
 package cz.cvut.fel.omo.smartfarm;
 
 import cz.cvut.fel.omo.smartfarm.builder.FarmBuilder;
+import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.EquipmentEventHandler;
+import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.Event;
+import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.FarmerEventHandler;
+import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.FieldEventHandler;
 import cz.cvut.fel.omo.smartfarm.model.animal.AnimalFactory;
 import cz.cvut.fel.omo.smartfarm.model.build.Barn;
-import cz.cvut.fel.omo.smartfarm.model.build.BuildingType;
 import cz.cvut.fel.omo.smartfarm.model.build.House;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Machine;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Tool;
@@ -21,19 +24,20 @@ import cz.cvut.fel.omo.smartfarm.state.equipment.EquipmentState;
 import cz.cvut.fel.omo.smartfarm.state.equipment.OffState;
 import cz.cvut.fel.omo.smartfarm.state.equipment.OnState;
 import cz.cvut.fel.omo.smartfarm.state.farmer.RestingState;
+
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        // Создаем ферму
         FarmBuilder farmBuilder = new FarmBuilder();
 
         Farm farm = farmBuilder
                 .setName("Green Valley Farm")
-                .addFarmer(new Farmer("John", 34, new RestingState(), List.of()))
+                .addFarmer(new Farmer("John", 34, new RestingState()))
                 .addField(new Field("Wheat field", 100))
                 .addBuilding(new Barn("Barn", 100))
-                .addBuilding(new House("House", 100, List.of(new Farmer("Jane", 30, new RestingState(), List.of())))
-                )
+                .addBuilding(new House("House", 100, List.of(new Farmer("Jane", 30, new RestingState()))))
                 .addAnimal(AnimalFactory.createAnimal("Cow"))
                 .addAnimal(AnimalFactory.createAnimal("Chicken"))
                 .addAnimal(AnimalFactory.createAnimal("Pig"))
@@ -48,8 +52,6 @@ public class Main {
 
         System.out.println(farm);
 
-
-        // Observer
         Subject<EquipmentState> subject = new Subject<>(new OnState());
 
         new EquipmentObserver(subject);
@@ -60,6 +62,27 @@ public class Main {
         subject.setState(new OnState());
         subject.setState(new BrokenState());
 
+
+        Farmer farmer = farm.getFarmers().get(0);
+        Field field = farm.getFields().get(0);
+        Machine tractor = (Machine) farm.getEquipments().get(0);
+
+        FarmerEventHandler farmerHandler = new FarmerEventHandler(farmer);
+        FieldEventHandler fieldHandler = new FieldEventHandler(field);
+        EquipmentEventHandler equipmentHandler = new EquipmentEventHandler(tractor);
+
+        farmerHandler.setNextHandler(fieldHandler);
+        fieldHandler.setNextHandler(equipmentHandler);
+
+        List<Event> randomEvents = Event.createRandomEvents(5);
+
+        System.out.println("\nProcessing random events...");
+        for (Event event : randomEvents) {
+            System.out.println("Generated Event: " + event);
+            farmerHandler.handleEvent(event);
+            fieldHandler.handleEvent(event);
+            equipmentHandler.handleEvent(event);
+        }
 
     }
 }
