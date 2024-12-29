@@ -9,16 +9,16 @@ public class FreeState implements FieldState {
     @Override
     public void plant(Field field) {
         field.setState(new PlantedState());
-        logger.info("The field is now planted.");
+        System.out.println("The field is now planted.");
     }
 
     @Override
     public void harvest(Field field) {
-        logger.info("The field is free. No need for harvesting.");
+        System.out.println("The field is free. No need for harvesting.");
     }
 
     @Override
     public void applyPesticides(Field field) {
-        logger.info("The field is free. No need for applying pesticides.");
+        System.out.println("The field is free. No need for applying pesticides.");
     }
 }

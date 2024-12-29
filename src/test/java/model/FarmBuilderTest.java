@@ -23,7 +23,7 @@ class FarmBuilderTest {
     @Test
     void testFarmInitialization() {
         Field field = new Field("Wheat Field", 200);
-        Farmer farmer = new Farmer("Jake Paul", 24, new WorkingState(), List.of());
+        Farmer farmer = new Farmer("Jake Paul", 24, new WorkingState());
         Building building = new Barn("Barn", 200);
         Equipment equipment = new Machine("Tractor", 52);
         Animal animal = new Cow();

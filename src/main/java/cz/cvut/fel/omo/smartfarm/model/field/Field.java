@@ -11,7 +11,7 @@ public class Field {
     public Field(String cropType, int fieldSize) {
         this.cropType = cropType;
         this.fieldSize = fieldSize;
-        this.state = new FreeState(); // начальное состояние
+        this.state = new FreeState();
     }
 
     public int getFieldSize() {
