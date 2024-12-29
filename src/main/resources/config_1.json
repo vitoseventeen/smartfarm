@@ -1,0 +1,119 @@
+{
+  "name": "My Farm",
+  "fields": [
+    {
+      "fieldSize": 100,
+      "cropType": "Wheat",
+      "state": "FreeState"
+    },
+    {
+      "fieldSize": 50,
+      "cropType": "Corn",
+      "state": "PlantedState"
+    }
+  ],
+  "farmers": [
+    {
+      "name": "John Doe",
+      "age": 35,
+      "currentState": "RestingState",
+      "tasks": []
+    },
+    {
+      "name": "Jane Doe",
+      "age": 28,
+      "currentState": "WorkingState",
+      "tasks": []
+    }
+  ],
+  "buildings": [
+    {
+      "name": "Main Barn",
+      "area": 500,
+      "type": "BARN",
+      "capacity": 100,
+      "currentUsage": 50,
+      "level": 1,
+      "products": [
+        {
+          "name": "Milk",
+          "price": 10,
+          "weight": 2,
+          "productType": "DAIRY"
+        }
+      ],
+      "productPrice": 10
+    },
+    {
+      "name": "Greenhouse",
+      "area": 200,
+      "type": "GREENHOUSE",
+      "capacity": 50,
+      "currentUsage": 30,
+      "level": 1,
+      "products": [
+        {
+          "name": "Tomato",
+          "price": 5,
+          "weight": 1,
+          "productType": "VEGETABLE"
+        }
+      ],
+      "productPrice": 5
+    }
+  ],
+  "equipments": [
+    {
+      "name": "Tractor",
+      "currentState": "OnState",
+      "fuelLevel": 80,
+      "type": "Machine"
+    },
+    {
+      "name": "Shovel",
+      "currentState": "OffState",
+      "usageType": "Digging",
+      "type": "Tool"
+    }
+  ],
+  "animals": [
+    {
+      "type": "Cow",
+      "takesPlaces": 2,
+      "dailyFoodIntake": 20,
+      "produceStrategy": "MilkStrategy"
+    },
+    {
+      "type": "Sheep",
+      "takesPlaces": 1,
+      "dailyFoodIntake": 10,
+      "produceStrategy": "WoolStrategy"
+    }
+  ],
+  "products": [
+    {
+      "name": "Eggs",
+      "price": 2,
+      "weight": 0.1,
+      "productType": "EGG"
+    },
+    {
+      "name": "Meat",
+      "price": 20,
+      "weight": 5,
+      "productType": "MEAT"
+    },
+    {
+      "name": "Milk",
+      "price": 10,
+      "weight": 2,
+      "productType": "MILK"
+    },
+    {
+      "name": "Wool",
+      "price": 15,
+      "weight": 1,
+      "productType": "WOOL"
+    }
+  ]
+}

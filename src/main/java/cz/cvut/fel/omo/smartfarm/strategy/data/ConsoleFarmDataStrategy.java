@@ -5,7 +5,7 @@ import cz.cvut.fel.omo.smartfarm.model.build.*;
 import cz.cvut.fel.omo.smartfarm.model.farm.Farm;
 import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
 import cz.cvut.fel.omo.smartfarm.model.field.Field;
-import cz.cvut.fel.omo.smartfarm.model.products.Product;
+import cz.cvut.fel.omo.smartfarm.state.farmer.RestingState;
 import cz.cvut.fel.omo.smartfarm.state.farmer.WorkingState;
 
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         System.out.print("  Age: ");
         int age = Integer.parseInt(scanner.nextLine());
 
-        return new Farmer(name, age, new WorkingState(), new ArrayList<>());
+        return new Farmer(name, age, new WorkingState());
     }
 
     private Building readBuilding() {
