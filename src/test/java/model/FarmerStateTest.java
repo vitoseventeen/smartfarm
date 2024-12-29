@@ -1,9 +1,9 @@
 package model;
 
-import cz.cvut.omo.model.farmer.*;
-import cz.cvut.omo.state.farmer.RestingState;
-import cz.cvut.omo.state.farmer.SleepingState;
-import cz.cvut.omo.state.farmer.WorkingState;
+import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
+import cz.cvut.fel.omo.smartfarm.state.farmer.RestingState;
+import cz.cvut.fel.omo.smartfarm.state.farmer.SleepingState;
+import cz.cvut.fel.omo.smartfarm.state.farmer.WorkingState;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
