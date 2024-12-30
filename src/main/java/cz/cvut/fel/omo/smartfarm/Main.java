@@ -75,7 +75,7 @@ public class Main {
         System.out.println("\nProcessing random events...");
         for (int i = 1; i <= EVENT_COUNT; i++) {
             Event event = createRandomEvent();
-            System.out.println("Event " + i + "\n" + event);
+            System.out.println("Event #" + i + "\n" + event);
             assert chainRoot != null;
             chainRoot.handleEvent(event);
         }
