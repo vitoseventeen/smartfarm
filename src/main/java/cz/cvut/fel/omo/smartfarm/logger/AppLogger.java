@@ -24,7 +24,6 @@ public class AppLogger implements ILogger {
         ));
     }
 
-
     @Override
     public void log(LogLevel level, String message, StackTraceElement[] stackTrace) {
         this.logStrategy.log(message, level, stackTrace);
@@ -37,31 +36,39 @@ public class AppLogger implements ILogger {
         return instance;
     }
 
-
     public static void setUpAppLogger() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose a logging strategy:");
-        System.out.println("1. Console Logging");
-        System.out.println("2. File Logging");
-        System.out.println("3. Combined Logging");
+        LogStrategy selectedStrategy = null;
 
-        int choice = scanner.nextInt();
-        LogStrategy selectedStrategy = switch (choice) {
-            case 1 -> new ConsoleLogStrategy();
-            case 2 -> new FileLogStrategy("logsPath");
-            case 3 -> new CombinedLogStrategy(List.of(
-                    new ConsoleLogStrategy(),
-                    new FileLogStrategy(logsPath)
-            ));
-            default -> {
-                System.out.println("Invalid choice. Defaulting to Console Logging.");
-                yield null;
+        while (selectedStrategy == null) {
+            try {
+                System.out.println("Choose a logging strategy:");
+                System.out.println("1. Console Logging");
+                System.out.println("2. File Logging");
+                System.out.println("3. Combined Logging");
+
+                int choice = Integer.parseInt(scanner.nextLine().trim());
+
+                selectedStrategy = switch (choice) {
+                    case 1 -> new ConsoleLogStrategy();
+                    case 2 -> new FileLogStrategy(logsPath);
+                    case 3 -> new CombinedLogStrategy(List.of(
+                            new ConsoleLogStrategy(),
+                            new FileLogStrategy(logsPath)
+                    ));
+                    default -> {
+                        System.out.println("Invalid choice. Please enter a valid number (1, 2, or 3).\n");
+                        yield null;
+                    }
+                };
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number (1, 2, or 3).\n");
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage() + "\nPlease try again.\n");
             }
-        };
+        }
 
-        instance = selectedStrategy == null ? new AppLogger() : new AppLogger(selectedStrategy);
-
-
+        instance = new AppLogger(selectedStrategy);
         System.out.println("Logging strategy set up successfully.");
     }
 }
