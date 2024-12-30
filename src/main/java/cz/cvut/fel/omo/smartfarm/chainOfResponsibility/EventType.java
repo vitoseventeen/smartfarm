@@ -22,8 +22,8 @@ public enum EventType {
     FARMER_WORK,
 
     // Animal-related events
-    COW_PRODUCE,
-    PIG_PRODUCE,
-    CHICKEN_PRODUCE,
-    SHEEP_PRODUCE
+//    COW_PRODUCE,
+//    PIG_PRODUCE,
+//    CHICKEN_PRODUCE,
+//    SHEEP_PRODUCE
 }

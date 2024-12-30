@@ -40,58 +40,115 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
     }
 
 
-
     private <T> List<T> readList(String itemType, Supplier<T> reader) {
         List<T> list = new ArrayList<>();
         while (true) {
             System.out.print("Do you want to add a " + itemType + "? (yes/no): ");
             String answer = scanner.nextLine().trim().toLowerCase();
-            if (!answer.equals("yes")) {
+
+            if ("yes".equals(answer)) {
+                list.add(reader.get());
+            } else if ("no".equals(answer)) {
                 break;
+            } else {
+                System.out.println("Invalid input. Please answer with 'yes' or 'no'.");
             }
-            list.add(reader.get());
         }
         return list;
     }
 
+    private String readNonEmptyString(String prompt) {
+        String input;
+        while (true) {
+            System.out.print(prompt);
+            input = scanner.nextLine().trim();
+            if (!input.isEmpty()) {
+                break;
+            }
+            System.out.println("Input cannot be empty. Please try again.");
+        }
+        return input;
+    }
+
     private Field readField() {
         System.out.println("Enter field data:");
-        System.out.print("  Crop type: ");
-        String cropType = scanner.nextLine();
+        String cropType = readNonEmptyString("  Crop type: ");
+        int fieldSize = 0;
 
-        System.out.print("  Field size: ");
-        int fieldSize = Integer.parseInt(scanner.nextLine());
+        while (true) {
+            try {
+                System.out.print("  Field size: ");
+                fieldSize = Integer.parseInt(scanner.nextLine().trim());
+                if (fieldSize > 0) {
+                    break;
+                } else {
+                    System.out.println("Field size must be a positive integer. Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number format. Please enter a valid integer.");
+            }
+        }
 
         return new Field(cropType, fieldSize);
     }
 
     private Farmer readFarmer() {
         System.out.println("Enter farmer data:");
-        System.out.print("  Name: ");
-        String name = scanner.nextLine();
+        String name = readNonEmptyString("  Name: ");
+        int age = 0;
 
-        System.out.print("  Age: ");
-        int age = Integer.parseInt(scanner.nextLine());
+        while (true) {
+            try {
+                System.out.print("  Age: ");
+                age = Integer.parseInt(scanner.nextLine().trim());
+                if (age > 0 && age < 120) {
+                    break;
+                } else {
+                    System.out.println("Age must be a correct. Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number format. Please enter a valid integer.");
+            }
+        }
 
         return new Farmer(name, age, new WorkingState());
     }
 
     private Building readBuilding() {
         System.out.println("Enter building data:");
-        System.out.print("  Name: ");
-        String name = scanner.nextLine();
+        String name = readNonEmptyString("  Name: ");
+        int capacity = 0;
 
-        System.out.print("  Capacity: ");
-        int capacity = Integer.parseInt(scanner.nextLine());
-
-        System.out.println("  Select Building Type:");
-        for (BuildingType type : BuildingType.values()) {
-            System.out.println("    - " + type.name() + " (" + type.getDisplayName() + ")");
+        // Запросим и проверим корректность ввода для емкости
+        while (true) {
+            try {
+                System.out.print("  Capacity: ");
+                capacity = Integer.parseInt(scanner.nextLine().trim());
+                if (capacity > 0) {
+                    break;
+                } else {
+                    System.out.println("Capacity must be a positive integer. Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number format. Please enter a valid integer.");
+            }
         }
-        System.out.print("  Type: ");
-        String typeInput = scanner.nextLine();
-        BuildingType type = BuildingType.valueOf(typeInput.toUpperCase());
 
+        BuildingType type = null;
+        while (type == null) {
+            System.out.println("  Select Building Type:");
+            for (BuildingType buildingType : BuildingType.values()) {
+                System.out.println("    - " + buildingType.name() + " (" + buildingType.getDisplayName() + ")");
+            }
+
+            String typeInput = readNonEmptyString("  Type: ").toUpperCase();
+
+            try {
+                type = BuildingType.valueOf(typeInput);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid building type. Please choose a valid type from the list.");
+            }
+        }
 
         return switch (type) {
             case BARN -> new Barn(name, capacity);
@@ -103,6 +160,4 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             default -> throw new IllegalArgumentException("Unknown building type");
         };
     }
-
-
 }
