@@ -63,9 +63,9 @@ public class Main {
         subject.setState(new BrokenState());
 
 
-        Farmer farmer = farm.getFarmers().get(0);
-        Field field = farm.getFields().get(0);
-        Machine tractor = (Machine) farm.getEquipments().get(0);
+        Farmer farmer = farm.getFarmers().getFirst();
+        Field field = farm.getFields().getFirst();
+        Machine tractor = (Machine) farm.getEquipments().getFirst();
 
         FarmerEventHandler farmerHandler = new FarmerEventHandler(farmer);
         FieldEventHandler fieldHandler = new FieldEventHandler(field);
