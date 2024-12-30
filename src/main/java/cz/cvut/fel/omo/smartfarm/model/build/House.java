@@ -1,6 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.model.build;
 
 
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class House extends Building {
 
     @Override
     public void performFunction() {
-        System.out.println(getType() + " " + getName() + "is used for living.");
+        AppLogger.getInstance().logInfo(getType() + " " + getName() + "is used for living.");
     }
 
     public List<Farmer> getFarmers() {

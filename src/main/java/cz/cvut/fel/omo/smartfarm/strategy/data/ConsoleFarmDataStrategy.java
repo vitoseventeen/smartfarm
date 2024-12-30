@@ -1,6 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.strategy.data;
 
 import cz.cvut.fel.omo.smartfarm.builder.FarmBuilder;
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.build.*;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Machine;
@@ -53,7 +54,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
     private <T> List<T> readList(String itemType, Supplier<T> reader) {
         List<T> list = new ArrayList<>();
         while (true) {
-            System.out.print("Do you want to add a " + itemType + "? (yes/no): ");
+            AppLogger.getInstance().logHint("Do you want to add a " + itemType + "? (yes/no): ");
             String answer = scanner.nextLine().trim().toLowerCase();
 
             if ("yes".equals(answer)) {
@@ -61,7 +62,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             } else if ("no".equals(answer)) {
                 break;
             } else {
-                System.out.println("Invalid input. Please answer with 'yes' or 'no'.");
+                AppLogger.getInstance().logError("Invalid input. Please answer with 'yes' or 'no'.");
             }
         }
         return list;
@@ -70,33 +71,33 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
     private String readNonEmptyString(String prompt) {
         String input;
         while (true) {
-            System.out.print(prompt);
+            AppLogger.getInstance().logInfo(prompt);
             input = scanner.nextLine().trim();
             if (!input.isEmpty()) {
                 break;
             }
-            System.out.println("Input cannot be empty. Please try again.");
+            AppLogger.getInstance().logWarning("Input cannot be empty. Please try again.");
         }
         return input;
     }
 
     // Read Field
     private Field readField() {
-        System.out.println("Enter field data:");
+        AppLogger.getInstance().logInfo("Enter field data:");
         String cropType = readNonEmptyString("  Crop type: ");
         int fieldSize = 0;
 
         while (true) {
             try {
-                System.out.print("  Field size: ");
+                AppLogger.getInstance().logInfo("  Field size: ");
                 fieldSize = Integer.parseInt(scanner.nextLine().trim());
                 if (fieldSize > 0) {
                     break;
                 } else {
-                    System.out.println("Field size must be a positive integer. Please try again.");
+                    AppLogger.getInstance().logError("Field size must be a positive integer. Please try again.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid number format. Please enter a valid integer.");
+                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
             }
         }
 
@@ -105,21 +106,21 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
 
     // Read Farmer
     private Farmer readFarmer() {
-        System.out.println("Enter farmer data:");
+        AppLogger.getInstance().logInfo("Enter farmer data:");
         String name = readNonEmptyString("  Name: ");
         int age = 0;
 
         while (true) {
             try {
-                System.out.print("  Age: ");
+                AppLogger.getInstance().logInfo("  Age: ");
                 age = Integer.parseInt(scanner.nextLine().trim());
                 if (age > 0 && age <= 120) {
                     break;
                 } else {
-                    System.out.println("Age must be between 1 and 120. Please try again.");
+                    AppLogger.getInstance().logWarning("Age must be between 1 and 120. Please try again.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid number format. Please enter a valid integer.");
+                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
             }
         }
 
@@ -128,13 +129,13 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
 
     // Read Building
     private Building readBuilding() {
-        System.out.println("Enter building data:");
+        AppLogger.getInstance().logInfo("Enter building data:");
 
         BuildingType type = null;
         while (type == null) {
-            System.out.println("  Select Building Type:");
+            AppLogger.getInstance().logInfo("  Select Building Type:");
             for (BuildingType buildingType : BuildingType.values()) {
-                System.out.println("    - " + buildingType.name() + " (" + buildingType.getDisplayName() + ")");
+                AppLogger.getInstance().logInfo("    - " + buildingType.name() + " (" + buildingType.getDisplayName() + ")");
             }
 
             String typeInput = readNonEmptyString("  Type: ").toUpperCase();
@@ -142,7 +143,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             try {
                 type = BuildingType.valueOf(typeInput);
             } catch (IllegalArgumentException e) {
-                System.out.println("Invalid building type. Please choose a valid type from the list.");
+                AppLogger.getInstance().logError("Invalid building type. Please choose a valid type from the list.");
             }
         }
 
@@ -151,15 +152,15 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
 
         while (true) {
             try {
-                System.out.print("  Capacity: ");
+                AppLogger.getInstance().logInfo("  Capacity: ");
                 capacity = Integer.parseInt(scanner.nextLine().trim());
                 if (capacity > 0) {
                     break;
                 } else {
-                    System.out.println("Capacity must be a positive integer. Please try again.");
+                    AppLogger.getInstance().logWarning("Capacity must be a positive integer. Please try again.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid number format. Please enter a valid integer.");
+                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
             }
         }
 
@@ -170,23 +171,26 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             case WAREHOUSE -> new Warehouse(name, capacity);
             case HOUSE -> new House(name, capacity, new ArrayList<>());
             case WORKSHOP -> new Workshop(name, capacity);
-            default -> throw new IllegalArgumentException("Unknown building type");
+            default ->  {
+                AppLogger.getInstance().logInfo("Unknown building type");
+                throw new IllegalArgumentException("Unknown building type");
+            }
         };
     }
 
     private Equipment readEquipment() {
-        System.out.println("Enter equipment data:");
+        AppLogger.getInstance().logInfo("Enter equipment data:");
 
 
 
         String equipmentType;
         while (true) {
-            System.out.print("  Is it a Machine or a Tool? (machine/tool): ");
+            AppLogger.getInstance().logInfo("  Is it a Machine or a Tool? (machine/tool): ");
             equipmentType = scanner.nextLine().trim().toLowerCase();
             if ("machine".equals(equipmentType) || "tool".equals(equipmentType)) {
                 break;
             } else {
-                System.out.println("Invalid input. Please enter 'machine' or 'tool'.");
+                AppLogger.getInstance().logError("Invalid input. Please enter 'machine' or 'tool'.");
             }
         }
         String name = readNonEmptyString("  Name: ");
@@ -203,15 +207,15 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
 
         while (true) {
             try {
-                System.out.print("  Fuel level: ");
+                AppLogger.getInstance().logInfo("  Fuel level: ");
                 fuelLevel = Integer.parseInt(scanner.nextLine().trim());
                 if (fuelLevel >= 0 && fuelLevel <= 100) {
                     break;
                 } else {
-                    System.out.println("Fuel level must be between 0 and 100.");
+                    AppLogger.getInstance().logWarning("Fuel level must be between 0 and 100.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid number format. Please enter a valid integer.");
+                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
             }
         }
 
@@ -225,16 +229,16 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
 
 
     private Animal readAnimal() {
-        System.out.println("Enter animal data:");
+        AppLogger.getInstance().logInfo("Enter animal data:");
         String type;
         while (true) {
-            System.out.println("  Select Animal Type:");
+            AppLogger.getInstance().logInfo("  Select Animal Type:");
             type = readNonEmptyString("  Type (cow, chicken, sheep, pig): ");
             type = type.toLowerCase();
             if (type.equals("cow") || type.equals("chicken") || type.equals("sheep") || type.equals("pig")) {
                 break;
             } else {
-                System.out.println("Invalid input. Please enter 'cow', 'chicken', 'sheep', or 'pig'.");
+                AppLogger.getInstance().logInfo("Invalid input. Please enter 'cow', 'chicken', 'sheep', or 'pig'.");
             }
         }
 
@@ -243,30 +247,30 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         int takesPlaces = 0;
         while (true) {
             try {
-                System.out.print("  Takes Places: ");
+                AppLogger.getInstance().logInfo("  Takes Places: ");
                 takesPlaces = Integer.parseInt(scanner.nextLine().trim());
                 if (takesPlaces > 0) {
                     break;
                 } else {
-                    System.out.println("Takes Places must be a positive integer.");
+                    AppLogger.getInstance().logWarning("Takes Places must be a positive integer.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid number format. Please enter a valid integer.");
+                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
             }
         }
 
         int dailyFoodIntake = 0;
         while (true) {
             try {
-                System.out.print("  Daily Food Intake: ");
+                AppLogger.getInstance().logInfo("  Daily Food Intake: ");
                 dailyFoodIntake = Integer.parseInt(scanner.nextLine().trim());
                 if (dailyFoodIntake > 0) {
                     break;
                 } else {
-                    System.out.println("Daily Food Intake must be a positive integer.");
+                    AppLogger.getInstance().logWarning("Daily Food Intake must be a positive integer.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid number format. Please enter a valid integer.");
+                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
             }
         }
 
@@ -275,13 +279,13 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
     }
 
     private Product readProduct() {
-        System.out.println("Enter product data:");
+        AppLogger.getInstance().logInfo("Enter product data:");
 
         ProductType productType = null;
         while (productType == null) {
-            System.out.println("  Select Product Type:");
+            AppLogger.getInstance().logInfo("  Select Product Type:");
             for (ProductType type : ProductType.values()) {
-                System.out.println("    - " + type.name() + " (" + type.getDisplayName() + ")");
+                AppLogger.getInstance().logInfo("    - " + type.name() + " (" + type.getDisplayName() + ")");
             }
 
             String typeInput = readNonEmptyString("  Type: ").toUpperCase();
@@ -289,7 +293,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             try {
                 productType = ProductType.valueOf(typeInput);
             } catch (IllegalArgumentException e) {
-                System.out.println("Invalid product type. Please choose a valid type from the list.");
+                AppLogger.getInstance().logError("Invalid product type. Please choose a valid type from the list.");
             }
         }
 
@@ -297,30 +301,30 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         double price = 0;
         while (true) {
             try {
-                System.out.print("  Price: ");
+                AppLogger.getInstance().logInfo("  Price: ");
                 price = Double.parseDouble(scanner.nextLine().trim());
                 if (price >= 0) {
                     break;
                 } else {
-                    System.out.println("Price must be a non-negative number.");
+                    AppLogger.getInstance().logWarning("Price must be a non-negative number.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid price format. Please enter a valid number.");
+                AppLogger.getInstance().logError("Invalid price format. Please enter a valid number.");
             }
         }
 
         int weight = 0;
         while (true) {
             try {
-                System.out.print("  Weight: ");
+                AppLogger.getInstance().logInfo("  Weight: ");
                 weight = Integer.parseInt(scanner.nextLine().trim());
                 if (weight > 0) {
                     break;
                 } else {
-                    System.out.println("Weight must be a positive integer.");
+                    AppLogger.getInstance().logWarning("Weight must be a positive integer.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid number format. Please enter a valid integer.");
+                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
             }
         }
 

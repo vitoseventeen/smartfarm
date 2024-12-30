@@ -1,5 +1,6 @@
 package cz.cvut.fel.omo.smartfarm.model.build;
 
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.products.Product;
 
 import java.util.ArrayList;
@@ -111,7 +112,7 @@ Current Usage: %d
 
     public void levelUp() {
         level++;
-        System.out.println("Building " + name + " has been upgraded to a " + level + "level.");
+        AppLogger.getInstance().logInfo("Building " + name + " has been upgraded to a " + level + "level.");
     }
 
     public int getCurrentUsage() {

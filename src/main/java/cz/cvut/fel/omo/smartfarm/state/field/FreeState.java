@@ -1,5 +1,6 @@
 package cz.cvut.fel.omo.smartfarm.state.field;
 
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.field.Field;
 
 import java.util.logging.Logger;
@@ -9,16 +10,16 @@ public class FreeState implements FieldState {
     @Override
     public void plant(Field field) {
         field.setState(new PlantedState());
-        System.out.println("The field is now planted.");
+        AppLogger.getInstance().logInfo("The field is now planted.");
     }
 
     @Override
     public void harvest(Field field) {
-        System.out.println("The field is free. No need for harvesting.");
+        AppLogger.getInstance().logInfo("The field is free. No need for harvesting.");
     }
 
     @Override
     public void applyPesticides(Field field) {
-        System.out.println("The field is free. No need for applying pesticides.");
+        AppLogger.getInstance().logInfo("The field is free. No need for applying pesticides.");
     }
 }

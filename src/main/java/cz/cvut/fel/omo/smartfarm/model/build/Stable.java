@@ -1,5 +1,6 @@
 package cz.cvut.fel.omo.smartfarm.model.build;
 
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class Stable extends Building {
 
     @Override
     public void performFunction() {
-        System.out.println(getType() + " " + getName() + " is used for keeping animals.");
+        AppLogger.getInstance().logInfo(getType() + " " + getName() + " is used for keeping animals.");
     }
 
     public List<Animal> getAnimals() {
