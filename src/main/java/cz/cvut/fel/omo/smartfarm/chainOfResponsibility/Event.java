@@ -27,7 +27,7 @@ public class Event {
         EventType[] eventTypes = EventType.values();
         EventType randomEventType = eventTypes[random.nextInt(eventTypes.length)];
 
-        String description = "Event of type: " + randomEventType;
+        String description = "Event type: " + randomEventType;
 
         return new Event(randomEventType, description);
     }

@@ -1,10 +1,7 @@
 package cz.cvut.fel.omo.smartfarm;
 
 import cz.cvut.fel.omo.smartfarm.builder.FarmBuilder;
-import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.EquipmentEventHandler;
-import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.Event;
-import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.FarmerEventHandler;
-import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.FieldEventHandler;
+import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.*;
 import cz.cvut.fel.omo.smartfarm.model.animal.AnimalFactory;
 import cz.cvut.fel.omo.smartfarm.model.build.Barn;
 import cz.cvut.fel.omo.smartfarm.model.build.House;
@@ -63,6 +60,21 @@ public class Main {
         subject.setState(new BrokenState());
 
 
+        EventHandler chainRoot = getEventHandler(farm);
+
+        List<Event> randomEvents = Event.createRandomEvents(5);
+
+        System.out.println("\nProcessing random events...");
+
+
+        for (Event event : randomEvents) {
+            System.out.println("Generated Event: " + event);
+            chainRoot.handleEvent(event);
+        }
+
+    }
+
+    private static EventHandler getEventHandler(Farm farm) {
         Farmer farmer = farm.getFarmers().getFirst();
         Field field = farm.getFields().getFirst();
         Machine tractor = (Machine) farm.getEquipments().getFirst();
@@ -70,19 +82,13 @@ public class Main {
         FarmerEventHandler farmerHandler = new FarmerEventHandler(farmer);
         FieldEventHandler fieldHandler = new FieldEventHandler(field);
         EquipmentEventHandler equipmentHandler = new EquipmentEventHandler(tractor);
+        DefaultEventHandler defaultHandler = new DefaultEventHandler();
 
         farmerHandler.setNextHandler(fieldHandler);
         fieldHandler.setNextHandler(equipmentHandler);
+        equipmentHandler.setNextHandler(defaultHandler);
 
-        List<Event> randomEvents = Event.createRandomEvents(5);
-
-        System.out.println("\nProcessing random events...");
-        for (Event event : randomEvents) {
-            System.out.println("Generated Event: " + event);
-            farmerHandler.handleEvent(event);
-            fieldHandler.handleEvent(event);
-            equipmentHandler.handleEvent(event);
-        }
-
+        EventHandler chainRoot = farmerHandler;
+        return chainRoot;
     }
 }
