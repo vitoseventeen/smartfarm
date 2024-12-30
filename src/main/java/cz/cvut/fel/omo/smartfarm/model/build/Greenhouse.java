@@ -1,5 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.model.build;
 
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
+
 public class Greenhouse extends Building{
     public Greenhouse(String name, int capacity) {
         super(name, 50, BuildingType.GREENHOUSE, capacity);
@@ -7,6 +9,6 @@ public class Greenhouse extends Building{
 
     @Override
     public void performFunction() {
-        System.out.println(getType() + " " + getName() + " is used for growing plants.");
+        AppLogger.getInstance().logInfo(getType() + " " + getName() + " is used for growing plants.");
     }
 }

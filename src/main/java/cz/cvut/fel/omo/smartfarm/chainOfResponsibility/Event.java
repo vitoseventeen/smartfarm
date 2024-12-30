@@ -6,8 +6,6 @@ public class Event {
     private final EventType type;
     private final String description;
 
-    private static Set<String> processedEvents = new HashSet<>();
-
     public Event(EventType type, String description) {
         this.type = type;
         this.description = description;
@@ -34,14 +32,6 @@ public class Event {
             events.add(createRandomEvent());
         }
         return events;
-    }
-
-    public boolean isProcessed() {
-        return processedEvents.contains(this.toString());
-    }
-
-    public void markAsProcessed() {
-        processedEvents.add(this.toString());
     }
 
     @Override

@@ -3,6 +3,7 @@ package cz.cvut.fel.omo.smartfarm.strategy.data;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import cz.cvut.fel.omo.smartfarm.adapters.*;
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
 import cz.cvut.fel.omo.smartfarm.model.build.Building;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
@@ -47,8 +48,9 @@ public class JsonFarmDataStrategy implements FarmDataStrategy {
     public void save(Farm farm) {
         try (FileWriter writer = new FileWriter(this.filePath)) {
             gson.toJson(farm, writer);
-            System.out.println("Farm configuration saved successfully to " + filePath);
+            AppLogger.getInstance().logInfo("Farm configuration saved successfully to " + filePath);
         } catch (IOException e) {
+            AppLogger.getInstance().logError("Error writing farm data to JSON file");
             throw new RuntimeException("Error writing farm data to JSON file", e);
         }
     }

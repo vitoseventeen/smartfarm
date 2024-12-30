@@ -1,5 +1,6 @@
 package cz.cvut.fel.omo.smartfarm.chainOfResponsibility;
 
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Machine;
 import cz.cvut.fel.omo.smartfarm.state.equipment.EquipmentState;
@@ -29,7 +30,7 @@ public class EquipmentEventHandler extends EventHandler {
             case REFUEL:
                 if (equipment instanceof Machine) {
                     ((Machine) equipment).setFuelLevel(100);
-                    System.out.println(equipment.getName() + " is refueled to 100.");
+                    AppLogger.getInstance().logInfo(equipment.getName() + " is refueled to 100.");
                 }
                 break;
 
