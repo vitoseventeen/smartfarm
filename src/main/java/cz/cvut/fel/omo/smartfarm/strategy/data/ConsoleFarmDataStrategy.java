@@ -8,8 +8,7 @@ import cz.cvut.fel.omo.smartfarm.model.equipment.Tool;
 import cz.cvut.fel.omo.smartfarm.model.farm.Farm;
 import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
 import cz.cvut.fel.omo.smartfarm.model.field.Field;
-import cz.cvut.fel.omo.smartfarm.model.products.Product;
-import cz.cvut.fel.omo.smartfarm.model.products.ProductType;
+import cz.cvut.fel.omo.smartfarm.model.products.*;
 import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
 import cz.cvut.fel.omo.smartfarm.model.animal.AnimalFactory;
 import cz.cvut.fel.omo.smartfarm.state.farmer.WorkingState;
@@ -36,19 +35,17 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         List<Building> buildings = readList("building", this::readBuilding);
         List<Equipment> equipment = readList("equipment", this::readEquipment);
         List<Animal> animals = readList("animal", this::readAnimal);
+        List<Product> products = readList("product", this::readProduct);
 
         FarmBuilder builder = new FarmBuilder()
                 .setName(name)
                 .addFields(fields)
                 .addFarmers(farmers)
-                .addBuildings(buildings);
+                .addBuildings(buildings)
+                .addProducts(products)
+                .addEquipments(equipment)
+                .addAnimals(animals);
 
-        for (Equipment eq : equipment) {
-            builder.addEquipment(eq);
-        }
-        for (Animal animal : animals) {
-            builder.addAnimal(animal);
-        }
         return Optional.ofNullable(builder.build());
     }
 
@@ -132,22 +129,6 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
     // Read Building
     private Building readBuilding() {
         System.out.println("Enter building data:");
-        String name = readNonEmptyString("  Name: ");
-        int capacity = 0;
-
-        while (true) {
-            try {
-                System.out.print("  Capacity: ");
-                capacity = Integer.parseInt(scanner.nextLine().trim());
-                if (capacity > 0) {
-                    break;
-                } else {
-                    System.out.println("Capacity must be a positive integer. Please try again.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid number format. Please enter a valid integer.");
-            }
-        }
 
         BuildingType type = null;
         while (type == null) {
@@ -162,6 +143,23 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
                 type = BuildingType.valueOf(typeInput);
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid building type. Please choose a valid type from the list.");
+            }
+        }
+
+        String name = readNonEmptyString("  Name: ");
+        int capacity = 0;
+
+        while (true) {
+            try {
+                System.out.print("  Capacity: ");
+                capacity = Integer.parseInt(scanner.nextLine().trim());
+                if (capacity > 0) {
+                    break;
+                } else {
+                    System.out.println("Capacity must be a positive integer. Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number format. Please enter a valid integer.");
             }
         }
 
@@ -232,6 +230,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         while (true) {
             System.out.println("  Select Animal Type:");
             type = readNonEmptyString("  Type (cow, chicken, sheep, pig): ");
+            type = type.toLowerCase();
             if (type.equals("cow") || type.equals("chicken") || type.equals("sheep") || type.equals("pig")) {
                 break;
             } else {
@@ -275,5 +274,66 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         return animal;
     }
 
+    private Product readProduct() {
+        System.out.println("Enter product data:");
+
+        ProductType productType = null;
+        while (productType == null) {
+            System.out.println("  Select Product Type:");
+            for (ProductType type : ProductType.values()) {
+                System.out.println("    - " + type.name() + " (" + type.getDisplayName() + ")");
+            }
+
+            String typeInput = readNonEmptyString("  Type: ").toUpperCase();
+
+            try {
+                productType = ProductType.valueOf(typeInput);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid product type. Please choose a valid type from the list.");
+            }
+        }
+
+        String name = readNonEmptyString("  Product Name: ");
+        double price = 0;
+        while (true) {
+            try {
+                System.out.print("  Price: ");
+                price = Double.parseDouble(scanner.nextLine().trim());
+                if (price >= 0) {
+                    break;
+                } else {
+                    System.out.println("Price must be a non-negative number.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid price format. Please enter a valid number.");
+            }
+        }
+
+        int weight = 0;
+        while (true) {
+            try {
+                System.out.print("  Weight: ");
+                weight = Integer.parseInt(scanner.nextLine().trim());
+                if (weight > 0) {
+                    break;
+                } else {
+                    System.out.println("Weight must be a positive integer.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number format. Please enter a valid integer.");
+            }
+        }
+
+        return createProductByType(productType, name, price, weight);
+    }
+
+    private Product createProductByType(ProductType productType, String name, double price, int weight) {
+        return switch (productType) {
+            case MILK -> new Milk(name, price, weight);
+            case EGG -> new Egg(name, price, weight);
+            case MEAT -> new Meat(name, price, weight);
+            case WOOL -> new Wool(name, price, weight);
+        };
+    }
 
 }

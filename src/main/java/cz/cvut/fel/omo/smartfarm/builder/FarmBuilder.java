@@ -83,4 +83,19 @@ public class FarmBuilder {
         }
         return price;
     }
+
+    public FarmBuilder addProducts(List<Product> products) {
+        this.products.addAll(products);
+        return this;
+    }
+
+    public FarmBuilder addEquipments(List<Equipment> equipment) {
+        this.equipments.addAll(equipment);
+        return this;
+    }
+
+    public FarmBuilder addAnimals(List<Animal> animals) {
+        this.animals.addAll(animals);
+        return this;
+    }
 }

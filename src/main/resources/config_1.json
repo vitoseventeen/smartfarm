@@ -126,12 +126,6 @@
   ],
   "products": [
     {
-      "name": "Eggs",
-      "price": 2.0,
-      "weight": 0.1,
-      "productType": "EGG"
-    },
-    {
       "name": "Meat",
       "price": 20.0,
       "weight": 5.0,
