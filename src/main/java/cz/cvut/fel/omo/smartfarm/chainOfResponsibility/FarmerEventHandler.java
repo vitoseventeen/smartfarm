@@ -5,7 +5,6 @@ import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
 public class FarmerEventHandler extends EventHandler {
     private final Farmer farmer;
 
-    // Конструктор для инициализации фермера
     public FarmerEventHandler(Farmer farmer) {
         this.farmer = farmer;
     }
@@ -15,17 +14,14 @@ public class FarmerEventHandler extends EventHandler {
         switch (event.getType()) {
             case FARMER_WORK:
                 farmer.work();
-                System.out.println(farmer.getName() + " is now working.");
                 break;
 
             case FARMER_REST:
                 farmer.rest();
-                System.out.println(farmer.getName() + " is now resting.");
                 break;
 
             case FARMER_SLEEP:
                 farmer.sleep();
-                System.out.println(farmer.getName() + " is now sleeping.");
                 break;
 
             default:

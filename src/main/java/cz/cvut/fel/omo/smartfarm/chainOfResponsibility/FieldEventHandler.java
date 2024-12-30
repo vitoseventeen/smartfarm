@@ -14,17 +14,14 @@ public class FieldEventHandler extends EventHandler {
         switch (event.getType()) {
             case PLANT_CROPS:
                 field.plant();
-                System.out.println("Planted crops on field: " + field.getCropType());
                 break;
 
             case HARVEST_CROPS:
                 field.harvest();
-                System.out.println("Harvested crops from field: " + field.getCropType());
                 break;
 
             case APPLY_PESTICIDE:
                 field.applyPesticides();
-                System.out.println("Applied pesticides on field: " + field.getCropType());
                 break;
 
             default:

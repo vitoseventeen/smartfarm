@@ -13,6 +13,7 @@ import cz.cvut.fel.omo.smartfarm.state.farmer.FarmerState;
 import cz.cvut.fel.omo.smartfarm.state.field.FieldState;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -30,8 +31,7 @@ public class JsonFarmDataStrategy implements FarmDataStrategy {
                 .registerTypeAdapter(Building.class, new BuildingAdapter())
                 .registerTypeAdapter(Equipment.class, new EquipmentAdapter())
                 .registerTypeAdapter(Animal.class, new AnimalAdapter())
-                .registerTypeAdapter(Product.class, new ProductAdapter())
-
+                .registerTypeAdapter(Product.class, new ProductAdapter())  // Ensure correct adapter for Product
                 .create();
     }
 
@@ -41,6 +41,15 @@ public class JsonFarmDataStrategy implements FarmDataStrategy {
             return Optional.ofNullable(gson.fromJson(reader, Farm.class));
         } catch (IOException e) {
             throw new RuntimeException("Error reading farm data from JSON file", e);
+        }
+    }
+
+    public void save(Farm farm) {
+        try (FileWriter writer = new FileWriter(this.filePath)) {
+            gson.toJson(farm, writer);
+            System.out.println("Farm configuration saved successfully to " + filePath);
+        } catch (IOException e) {
+            throw new RuntimeException("Error writing farm data to JSON file", e);
         }
     }
 }

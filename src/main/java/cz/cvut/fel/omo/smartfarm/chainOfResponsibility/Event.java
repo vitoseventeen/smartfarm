@@ -1,12 +1,12 @@
 package cz.cvut.fel.omo.smartfarm.chainOfResponsibility;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Event {
     private final EventType type;
     private final String description;
+
+    private static Set<String> processedEvents = new HashSet<>();
 
     public Event(EventType type, String description) {
         this.type = type;
@@ -21,15 +21,11 @@ public class Event {
         return description;
     }
 
-
     public static Event createRandomEvent() {
         Random random = new Random();
-        EventType[] eventTypes = EventType.values();
-        EventType randomEventType = eventTypes[random.nextInt(eventTypes.length)];
-
-        String description = "Event of type: " + randomEventType;
-
-        return new Event(randomEventType, description);
+        EventType type = EventType.values()[random.nextInt(EventType.values().length)];
+        String description = "Random event description";
+        return new Event(type, description);
     }
 
     public static List<Event> createRandomEvents(int count) {
@@ -38,6 +34,14 @@ public class Event {
             events.add(createRandomEvent());
         }
         return events;
+    }
+
+    public boolean isProcessed() {
+        return processedEvents.contains(this.toString());
+    }
+
+    public void markAsProcessed() {
+        processedEvents.add(this.toString());
     }
 
     @Override

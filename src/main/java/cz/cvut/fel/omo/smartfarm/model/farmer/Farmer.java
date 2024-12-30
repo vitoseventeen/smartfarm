@@ -52,4 +52,6 @@ public class Farmer {
                 ", currentState=" + currentState.getClass().getSimpleName() +
                 '}';
     }
+
+
 }
