@@ -85,16 +85,26 @@ public class Main {
     private static EventHandler getEventHandler(Farm farm) {
         List<EventHandler> handlers = new ArrayList<>();
 
-        for (Farmer farmer : farm.getFarmers()) {
-            handlers.add(new FarmerEventHandler(farmer));
+        if (!farm.getFarmers().isEmpty()) {
+            for (Farmer farmer : farm.getFarmers()) {
+                handlers.add(new FarmerEventHandler(farmer));
+            }
         }
 
-        for (Equipment equipment : farm.getEquipments()) {
-            handlers.add(new EquipmentEventHandler(equipment));
+        if (!farm.getEquipments().isEmpty()) {
+            for (Equipment equipment : farm.getEquipments()) {
+                handlers.add(new EquipmentEventHandler(equipment));
+            }
         }
 
-        for (Field field : farm.getFields()) {
-            handlers.add(new FieldEventHandler(field));
+        if (!farm.getFields().isEmpty()) {
+            for (Field field : farm.getFields()) {
+                handlers.add(new FieldEventHandler(field));
+            }
+        }
+
+        if (handlers.isEmpty()) {
+            handlers.add(new DefaultEventHandler());
         }
 
         for (int i = 0; i < handlers.size() - 1; i++) {
@@ -103,6 +113,7 @@ public class Main {
 
         return handlers.isEmpty() ? null : handlers.get(0);
     }
+
 
     // Method to load farm data from a JSON file or fallback to manual input
     public static FarmDataStrategy loadFarmDataFromJson(Scanner scanner) {
