@@ -1,6 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.adapters;
 
 import com.google.gson.*;
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 
 import java.lang.reflect.Type;
 
@@ -25,7 +26,7 @@ public abstract class AAdapter<T> implements JsonSerializer<T>, JsonDeserializer
             // Используем className, чтобы заменить последнюю часть
             String updatedClassName = packageName + "." + className;
 
-            System.out.println("Updated class name: " + updatedClassName);
+            AppLogger.getInstance().logInfo("Updated class name: " + updatedClassName);
 
             // Загружаем класс по полному пути
             Class<?> clazz = Class.forName(updatedClassName);
@@ -33,6 +34,7 @@ public abstract class AAdapter<T> implements JsonSerializer<T>, JsonDeserializer
             // Приводим к нужному типу
             return (T) clazz.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
+            AppLogger.getInstance().logError("Unknown state: " + className);
             throw new JsonParseException("Unknown state: " + className, e);
         }
     }

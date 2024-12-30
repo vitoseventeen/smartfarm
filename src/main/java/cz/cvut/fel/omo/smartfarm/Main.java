@@ -1,6 +1,7 @@
 package cz.cvut.fel.omo.smartfarm;
 
 import cz.cvut.fel.omo.smartfarm.chainOfResponsibility.*;
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
 import cz.cvut.fel.omo.smartfarm.model.farm.Farm;
 import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
@@ -20,7 +21,6 @@ import cz.cvut.fel.omo.smartfarm.strategy.data.FarmDataStrategy;
 import cz.cvut.fel.omo.smartfarm.strategy.data.JsonFarmDataStrategy;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -29,11 +29,14 @@ import java.util.Scanner;
 import static cz.cvut.fel.omo.smartfarm.chainOfResponsibility.Event.createRandomEvent;
 
 public class Main {
-    private final static int EVENT_COUNT = 10;
+    private final static int EVENT_COUNT = 100;
+    private final static int DELAY = 200;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         FarmDataStrategy farmDataStrategy;
+
+        AppLogger logger =  setUpAppLogger();
 
         farmDataStrategy = loadFarmDataFromJson(scanner);
 
@@ -46,13 +49,16 @@ public class Main {
 
         if (optionalFarm.isPresent()) {
             farm = optionalFarm.get();
-            System.out.println("Farm created successfully: ");
-            System.out.println(farm);
+            logger.logHint("Farm created successfully: ");
+            logger.logHint(farm.toString());
+            simulateDelay();
+
         } else {
+            logger.logError("Farm created Failed");
             throw new RuntimeException("Failed to create farm.");
         }
 
-        System.out.println("Farm name: " + farm.getName());
+        logger.logHint("Farm name: " + farm.getName());
 
         if (!farm.getEquipments().isEmpty()) {
             new EquipmentObserver(equipmentSubject);
@@ -64,18 +70,29 @@ public class Main {
             new FieldObserver(fieldSubject);
         }
 
-        System.out.println("Observers have been added to the subjects.");
-
+        logger.logHint("Observers have been added to the subjects.");
+        simulateDelay();
         EventHandler chainRoot = getEventHandler(farm);
-        System.out.println("\nProcessing random events...");
+        logger.logHint("\nProcessing random events...");
+        simulateDelay();
         for (int i = 1; i <= EVENT_COUNT; i++) {
             Event event = createRandomEvent();
-            System.out.println("Event #" + i + "\n" + event);
+            logger.logHint("Event #" + i + "\n" + event);
             assert chainRoot != null;
             chainRoot.handleEvent(event);
+            simulateDelay();
         }
 
         saveFarmData(farm, scanner);
+    }
+
+    private static void simulateDelay() {
+        try {
+            Thread.sleep(DELAY);
+        } catch (InterruptedException e) {
+            AppLogger.getInstance().logError("Sleep interrupted: " + e.getMessage());
+            Thread.currentThread().interrupt();
+        }
     }
 
     private static EventHandler getEventHandler(Farm farm) {
@@ -112,22 +129,27 @@ public class Main {
 
     public static FarmDataStrategy loadFarmDataFromJson(Scanner scanner) {
         String choice;
+        AppLogger logger= AppLogger.getInstance();
+
         while (true) {
-            System.out.println("Would you like to load the farm data from a JSON file? (yes/no): ");
+
+
+            logger.logHint("Would you like to load the farm data from a JSON file? (yes/no): ");
             choice = scanner.nextLine().trim().toLowerCase();
 
             if ("yes".equals(choice)) {
                 while (true) {
-                    System.out.print("Enter the name of the JSON file (e.g., config_1.json, config_2.json): ");
+                    logger.logHint("Enter the name of the JSON file (e.g., config_1.json, config_2.json): ");
                     String fileName = scanner.nextLine().trim();
 
                     String filePath = "src/main/resources/" + fileName;
                     File file = new File(filePath);
 
+
                     if (file.exists() && file.isFile()) {
                         return new JsonFarmDataStrategy(filePath);
                     } else {
-                        System.out.println("File not found. Would you like to try again? (yes/no): ");
+                        logger.logWarning("File not found. Would you like to try again? (yes/no): ");
                         String tryAgain = scanner.nextLine().trim().toLowerCase();
                         if ("no".equals(tryAgain)) {
                             return new ConsoleFarmDataStrategy();
@@ -135,9 +157,13 @@ public class Main {
                     }
                 }
             } else if ("no".equals(choice)) {
+
+
                 return new ConsoleFarmDataStrategy();
             } else {
-                System.out.println("Invalid input. Please answer with 'yes' or 'no'.");
+
+
+                logger.logWarning("Invalid input. Please answer with 'yes' or 'no'.");
             }
         }
     }
@@ -145,25 +171,31 @@ public class Main {
     public static void saveFarmData(Farm farm, Scanner scanner) {
         String saveChoice;
 
+        AppLogger logger = AppLogger.getInstance();
+
         while (true) {
-            System.out.println("Would you like to save the current farm data to a JSON file? (yes/no): ");
+            logger.logHint("Would you like to save the current farm data to a JSON file? (yes/no): ");
+
+
             saveChoice = scanner.nextLine().trim().toLowerCase();
 
             if ("yes".equals(saveChoice)) {
                 String fileName;
                 while (true) {
-                    System.out.print("Enter the file name to save (e.g., config_1.json): ");
+
+
+                    logger.logHint("Enter the file name to save (e.g., config_1.json): ");
                     fileName = scanner.nextLine().trim();
 
                     String filePath = "src/main/resources/" + fileName;
                     File file = new File(filePath);
 
                     if (file.exists()) {
-                        System.out.println("A file with this name already exists. Would you like to overwrite it? (yes/no): ");
+                        logger.logHint("A file with this name already exists. Would you like to overwrite it? (yes/no): ");
                         String overwriteChoice = scanner.nextLine().trim().toLowerCase();
 
                         while (!"yes".equals(overwriteChoice) && !"no".equals(overwriteChoice)) {
-                            System.out.println("Invalid input. Please answer with 'yes' or 'no'.");
+                            logger.logError("Invalid input. Please answer with 'yes' or 'no'.");
                             overwriteChoice = scanner.nextLine().trim().toLowerCase();
                         }
 
@@ -178,12 +210,17 @@ public class Main {
                 }
                 break;
             } else if ("no".equals(saveChoice)) {
-                System.out.println("Farm data was not saved.");
+                logger.logInfo("Farm data was not saved.");
                 break;
             } else {
-                System.out.println("Invalid input. Please answer with 'yes' or 'no'.");
+                logger.logError("Invalid input. Please answer with 'yes' or 'no'.");
             }
         }
+    }
+
+    public static AppLogger setUpAppLogger() {
+        AppLogger.setUpAppLogger();
+        return AppLogger.getInstance();
     }
 
 }

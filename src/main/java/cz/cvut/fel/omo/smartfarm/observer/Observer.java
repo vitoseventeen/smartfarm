@@ -1,5 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.observer;
 
+import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
+
 public abstract class Observer<T> {
     protected Subject<T> subject;
 
@@ -9,6 +11,6 @@ public abstract class Observer<T> {
     }
 
     public void update() {
-        System.out.println(this.getClass().getSimpleName() + "<" + this.hashCode() + "> update");
+        AppLogger.getInstance().logHint(this.getClass().getSimpleName() + "<" + this.hashCode() + "> update");
     }
 }
