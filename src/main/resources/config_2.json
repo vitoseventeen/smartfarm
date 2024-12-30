@@ -1,0 +1,151 @@
+{
+  "name": "Farm 2",
+  "fields": [
+    {
+      "fieldSize": 120,
+      "cropType": "Barley",
+      "state": "PlantedState"
+    },
+    {
+      "fieldSize": 80,
+      "cropType": "Oats",
+      "state": "FreeState"
+    }
+  ],
+  "farmers": [
+    {
+      "name": "Alice Smith",
+      "age": 30,
+      "currentState": "WorkingState",
+      "tasks": []
+    },
+    {
+      "name": "Bob Brown",
+      "age": 45,
+      "currentState": "RestingState",
+      "tasks": []
+    }
+  ],
+  "buildings": [
+    {
+      "name": "Greenhouse 2",
+      "area": 250,
+      "type": "GREENHOUSE",
+      "capacity": 60,
+      "products": [
+        {
+          "name": "Lettuce",
+          "price": 3.0,
+          "weight": 0.5,
+          "productType": "VEGETABLE"
+        }
+      ]
+    },
+    {
+      "name": "House 2",
+      "area": 150,
+      "type": "HOUSE",
+      "capacity": 4,
+      "farmers": [
+        {
+          "name": "Alice Smith",
+          "age": 30,
+          "currentState": "WorkingState",
+          "tasks": []
+        },
+        {
+          "name": "Bob Brown",
+          "age": 45,
+          "currentState": "RestingState",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "name": "Stable 2",
+      "area": 120,
+      "type": "STABLE",
+      "capacity": 15,
+      "animals": [
+        {
+          "type": "Cow",
+          "takesPlaces": 3,
+          "dailyFoodIntake": 25,
+          "produceStrategy": "MilkStrategy"
+        },
+        {
+          "type": "Chicken",
+          "takesPlaces": 1,
+          "dailyFoodIntake": 1,
+          "produceStrategy": "EggStrategy"
+        }
+      ]
+    },
+    {
+      "name": "Warehouse 2",
+      "area": 250,
+      "type": "WAREHOUSE",
+      "capacity": 120
+    },
+    {
+      "name": "Workshop 2",
+      "area": 180,
+      "type": "WORKSHOP",
+      "capacity": 60
+    },
+    {
+      "name": "Barn 2",
+      "area": 350,
+      "type": "BARN",
+      "capacity": 150
+    }
+  ],
+  "equipments": [
+    {
+      "name": "Combine Harvester",
+      "currentState": "OnState",
+      "fuelLevel": 90,
+      "type": "Machine"
+    },
+    {
+      "name": "Hoe",
+      "currentState": "OffState",
+      "usageType": "Cultivating",
+      "type": "Tool"
+    }
+  ],
+  "animals": [
+    {
+      "type": "Cow",
+      "takesPlaces": 3,
+      "dailyFoodIntake": 25,
+      "produceStrategy": "MilkStrategy"
+    },
+    {
+      "type": "Chicken",
+      "takesPlaces": 1,
+      "dailyFoodIntake": 1,
+      "produceStrategy": "EggStrategy"
+    }
+  ],
+  "products": [
+    {
+      "name": "Eggs",
+      "price": 2.5,
+      "weight": 0.12,
+      "productType": "EGG"
+    },
+    {
+      "name": "Meat",
+      "price": 22.0,
+      "weight": 6.0,
+      "productType": "MEAT"
+    },
+    {
+      "name": "Milk",
+      "price": 12.0,
+      "weight": 2.5,
+      "productType": "MILK"
+    }
+  ]
+}

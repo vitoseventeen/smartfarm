@@ -2,11 +2,11 @@ package cz.cvut.fel.omo.smartfarm.model.products;
 
 public abstract class Product {
     private final String name;
-    private final int price;
+    private final double price;
     private final int weight;
     private final ProductType  productType;
 
-    public Product(String name, int price, int weight, ProductType productType) {
+    public Product(String name, double price, int weight, ProductType productType) {
         this.name = name;
         this.price = price;
         this.weight = weight;
@@ -17,7 +17,7 @@ public abstract class Product {
         return name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

@@ -28,38 +28,72 @@
   ],
   "buildings": [
     {
-      "name": "Main Barn",
-      "area": 500,
-      "type": "BARN",
-      "capacity": 100,
-      "currentUsage": 50,
-      "level": 1,
-      "products": [
-        {
-          "name": "Milk",
-          "price": 10,
-          "weight": 2,
-          "productType": "DAIRY"
-        }
-      ],
-      "productPrice": 10
-    },
-    {
-      "name": "Greenhouse",
+      "name": "Greenhouse 1",
       "area": 200,
       "type": "GREENHOUSE",
       "capacity": 50,
-      "currentUsage": 30,
-      "level": 1,
       "products": [
         {
-          "name": "Tomato",
-          "price": 5,
-          "weight": 1,
-          "productType": "VEGETABLE"
         }
-      ],
-      "productPrice": 5
+      ]
+    },
+    {
+      "name": "House 1",
+      "area": 100,
+      "type": "HOUSE",
+      "capacity": 3,
+      "farmers": [
+        {
+          "name": "John Doe",
+          "age": 35,
+          "currentState": "RestingState",
+          "tasks": []
+        },
+        {
+          "name": "Jane Doe",
+          "age": 28,
+          "currentState": "WorkingState",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "name": "Stable 1",
+      "area": 100,
+      "type": "STABLE",
+      "capacity": 10,
+      "animals": [
+        {
+          "type": "Cow",
+          "takesPlaces": 2,
+          "dailyFoodIntake": 20,
+          "produceStrategy": "MilkStrategy"
+        },
+        {
+          "type": "Sheep",
+          "takesPlaces": 1,
+          "dailyFoodIntake": 10,
+          "produceStrategy": "WoolStrategy"
+        }
+      ]
+    },
+    {
+      "name": "Warehouse 1",
+      "area": 200,
+      "type": "WAREHOUSE",
+      "capacity": 100
+    },
+    {
+      "name": "Workshop 1",
+      "area": 150,
+      "type": "WORKSHOP",
+      "capacity": 50
+    },
+    {
+      "name": "Barn 1",
+      "area": 300,
+      "type": "BARN",
+      "capacity": 100
     }
   ],
   "equipments": [
@@ -93,26 +127,26 @@
   "products": [
     {
       "name": "Eggs",
-      "price": 2,
+      "price": 2.0,
       "weight": 0.1,
       "productType": "EGG"
     },
     {
       "name": "Meat",
-      "price": 20,
-      "weight": 5,
+      "price": 20.0,
+      "weight": 5.0,
       "productType": "MEAT"
     },
     {
       "name": "Milk",
-      "price": 10,
-      "weight": 2,
+      "price": 10.0,
+      "weight": 2.0,
       "productType": "MILK"
     },
     {
       "name": "Wool",
-      "price": 15,
-      "weight": 1,
+      "price": 15.0,
+      "weight": 1.0,
       "productType": "WOOL"
     }
   ]

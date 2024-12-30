@@ -23,7 +23,7 @@ public class ProductAdapter extends AAdapter<Product> {
     private Product createProductByType(ProductType productType, JsonObject jsonObject) {
 
         String name = jsonObject.get("name").getAsString();
-        int price = jsonObject.get("price").getAsInt();
+        double price = jsonObject.get("price").getAsDouble();
         int weight = jsonObject.get("weight").getAsInt();
 
         return switch (productType) {

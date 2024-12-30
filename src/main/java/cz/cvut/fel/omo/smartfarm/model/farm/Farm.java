@@ -9,7 +9,6 @@ import cz.cvut.fel.omo.smartfarm.model.field.Field;
 import cz.cvut.fel.omo.smartfarm.model.products.Product;
 
 import java.util.List;
-
 public class Farm {
     private final String name;
     private final List<Field> fields;
@@ -18,7 +17,6 @@ public class Farm {
     private final List<Equipment> equipments;
     private final List<Animal> animals;
     private final List<Product> products;
-    private final double productPrice;
 
     public Farm(FarmBuilder farmBuilder) {
         this.name = farmBuilder.name;
@@ -28,7 +26,10 @@ public class Farm {
         this.equipments = farmBuilder.equipments;
         this.animals = farmBuilder.animals;
         this.products = farmBuilder.products;
-        this.productPrice = farmBuilder.getProductPrice();
+    }
+
+    public double getTotalProductPrice() {
+        return products.stream().mapToDouble(Product::getPrice).sum();
     }
 
     @Override
@@ -66,7 +67,7 @@ public class Farm {
             sb.append("|    - ").append(product).append("\n");
         }
 
-        sb.append("|-- Product Price: ").append(productPrice).append("\n");
+        sb.append("|-- Product Price: ").append(getTotalProductPrice()).append("\n");
 
         return sb.toString();
     }

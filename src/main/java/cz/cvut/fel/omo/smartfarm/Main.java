@@ -124,7 +124,7 @@ public class Main {
 
             if ("yes".equals(choice)) {
                 while (true) {
-                    System.out.print("Enter the name of the JSON file (e.g., farm_data.json): ");
+                    System.out.print("Enter the name of the JSON file (e.g., config_1.json, config_2.json): ");
                     String fileName = scanner.nextLine().trim();
 
                     String filePath = "src/main/resources/" + fileName;
