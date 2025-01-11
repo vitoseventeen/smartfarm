@@ -38,7 +38,7 @@ test:
   stage: test
   script:
     - echo "Запуск тестов..."
-    - mvn $MAVEN_CLI_OPTS test1.jsom
+    - mvn $MAVEN_CLI_OPTS test
   only:
     - branches # Выполнять на любой ветке
 
