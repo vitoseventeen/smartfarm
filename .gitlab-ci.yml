@@ -22,7 +22,7 @@ cache:
 # Определение этапов
 stages:
   - build
-  - test1.jsom
+  - test
 
 # Этап сборки
 build:
@@ -35,7 +35,7 @@ build:
 
 # Этап тестирования (выполняется после сборки)
 test:
-  stage: test1.jsom
+  stage: test
   script:
     - echo "Запуск тестов..."
     - mvn $MAVEN_CLI_OPTS test1.jsom
