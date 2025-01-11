@@ -1,7 +1,7 @@
 //package model;
 //
 //import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
-//import cz.cvut.fel.omo.smartfarm.model.animal.AnimalFactory;
+//import cz.cvut.fel.omo.smartfarm.factory.AnimalFactory;
 //import cz.cvut.fel.omo.smartfarm.model.build.*;
 //import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
 //import cz.cvut.fel.omo.smartfarm.state.farmer.RestingState;

@@ -2,17 +2,17 @@ package cz.cvut.fel.omo.smartfarm.adapters;
 
 import com.google.gson.*;
 import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
-import cz.cvut.fel.omo.smartfarm.model.animal.AnimalFactory;
+import cz.cvut.fel.omo.smartfarm.factory.AnimalFactory;
 
 import java.lang.reflect.Type;
 
-public class AnimalAdapter extends AAdapter<Animal>{
+public class AnimalAdapter extends AAdapter<Animal> {
     @Override
     public Animal deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) {
         try {
             JsonObject jsonObject = json.getAsJsonObject();
             String type = jsonObject.get("type").getAsString();
-            return AnimalFactory.createAnimal(type);
+            return (new AnimalFactory()).create(type);
         } catch (Exception e) {
             throw new JsonParseException(e);
         }

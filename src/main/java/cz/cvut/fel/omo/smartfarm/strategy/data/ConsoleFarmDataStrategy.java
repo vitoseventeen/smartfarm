@@ -1,6 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.strategy.data;
 
 import cz.cvut.fel.omo.smartfarm.builder.FarmBuilder;
+import cz.cvut.fel.omo.smartfarm.factory.ProductFactory;
 import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.build.*;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
@@ -11,7 +12,7 @@ import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
 import cz.cvut.fel.omo.smartfarm.model.field.Field;
 import cz.cvut.fel.omo.smartfarm.model.products.*;
 import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
-import cz.cvut.fel.omo.smartfarm.model.animal.AnimalFactory;
+import cz.cvut.fel.omo.smartfarm.factory.AnimalFactory;
 import cz.cvut.fel.omo.smartfarm.state.farmer.WorkingState;
 
 import java.util.ArrayList;
@@ -242,7 +243,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             }
         }
 
-        Animal animal = AnimalFactory.createAnimal(type);
+        Animal animal = new AnimalFactory().create(type);
 
         int takesPlaces = 0;
         while (true) {
@@ -328,16 +329,9 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             }
         }
 
-        return createProductByType(productType, name, price, weight);
+        return new ProductFactory().createProduct(productType.toString(), name, price, weight);
     }
 
-    private Product createProductByType(ProductType productType, String name, double price, int weight) {
-        return switch (productType) {
-            case MILK -> new Milk(name, price, weight);
-            case EGG -> new Egg(name, price, weight);
-            case MEAT -> new Meat(name, price, weight);
-            case WOOL -> new Wool(name, price, weight);
-        };
-    }
+
 
 }

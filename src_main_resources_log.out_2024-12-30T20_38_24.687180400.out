@@ -1,0 +1,19 @@
+[2024-12-30T20:38:24.699104800] [HINT] Would you like to load the farm data from a JSON file? (yes/no): 
+[2024-12-30T20:38:29.772956700] [HINT] Enter the name of the JSON file (e.g., config_1.json, config_2.json): 
+[2024-12-30T20:38:35.612307800] [WARNING] File not found. Would you like to try again? (yes/no): 
+[2024-12-30T20:38:39.206101300] [INFO] Enter farm name: 
+[2024-12-30T20:38:40.408093700] [HINT] Do you want to add a field? (yes/no): 
+[2024-12-30T20:38:40.721145800] [ERROR] Invalid input. Please answer with 'yes' or 'no'.
+[2024-12-30T20:38:40.725146500] [HINT] Do you want to add a field? (yes/no): 
+[2024-12-30T20:38:40.964506100] [ERROR] Invalid input. Please answer with 'yes' or 'no'.
+[2024-12-30T20:38:40.967505200] [HINT] Do you want to add a field? (yes/no): 
+[2024-12-30T20:38:41.156670400] [ERROR] Invalid input. Please answer with 'yes' or 'no'.
+[2024-12-30T20:38:41.159659500] [HINT] Do you want to add a field? (yes/no): 
+[2024-12-30T20:38:41.336242100] [ERROR] Invalid input. Please answer with 'yes' or 'no'.
+[2024-12-30T20:38:41.338244600] [HINT] Do you want to add a field? (yes/no): 
+[2024-12-30T20:38:41.500010300] [ERROR] Invalid input. Please answer with 'yes' or 'no'.
+[2024-12-30T20:38:41.503017100] [HINT] Do you want to add a field? (yes/no): 
+[2024-12-30T20:38:41.680291700] [ERROR] Invalid input. Please answer with 'yes' or 'no'.
+[2024-12-30T20:38:41.683284800] [HINT] Do you want to add a field? (yes/no): 
+[2024-12-30T20:38:41.861847500] [ERROR] Invalid input. Please answer with 'yes' or 'no'.
+[2024-12-30T20:38:41.864836] [HINT] Do you want to add a field? (yes/no): 

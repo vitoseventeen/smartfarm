@@ -4,7 +4,7 @@ public abstract class Product {
     private final String name;
     private final double price;
     private final int weight;
-    private final ProductType  productType;
+    private final ProductType productType;
 
     public Product(String name, double price, int weight, ProductType productType) {
         this.name = name;
@@ -38,4 +38,16 @@ public abstract class Product {
                 ", productType=" + productType +
                 '}';
     }
+
+    public Product copyWith(String name, Double price, Integer weight, ProductType productType) {
+        return new Product(
+                name != null ? name : this.name,
+                price != null ? price : this.price,
+                weight != null ? weight : this.weight,
+                productType != null ? productType : this.productType
+        ) {
+        };
+    }
+
 }
+
