@@ -110,6 +110,10 @@ public abstract class Building<T extends Building<T>> {
         this.products = products;
     }
 
+    public int getCurrentUsage() {
+        return currentUsage;
+    }
+
     public T copyWith(String name, Integer capacity) {
         T copy = createCopy(name, capacity);
         copy.setCurrentUsage(this.currentUsage);

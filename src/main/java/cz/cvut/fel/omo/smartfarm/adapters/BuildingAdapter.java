@@ -1,6 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.adapters;
 
 import com.google.gson.*;
+import cz.cvut.fel.omo.smartfarm.factory.BuildingFactory;
 import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
 import cz.cvut.fel.omo.smartfarm.model.build.*;
 import cz.cvut.fel.omo.smartfarm.model.farmer.Farmer;
@@ -23,16 +24,8 @@ public class BuildingAdapter extends AAdapter<Building> {
         String name = jsonObject.has("name") ? jsonObject.get("name").getAsString() : "Unknown Building";
         int capacity = jsonObject.has("capacity") ? jsonObject.get("capacity").getAsInt() : 0;
 
-        // Create the appropriate building object based on the building type
-        return switch (buildingType) {
-            case BARN -> new Barn(name, capacity);
-            case STABLE -> new Stable(name, capacity);
-            case GREENHOUSE -> new Greenhouse(name, capacity);
-            case WAREHOUSE -> new Warehouse(name, capacity);
-            case HOUSE -> new House(name, capacity);
-            case WORKSHOP -> new Workshop(name, capacity);
-            default -> throw new JsonParseException("Unknown building type: " + type);
-        };
+
+        return new BuildingFactory().createBuilding(buildingType.toString(), name, capacity);
     }
 
     @Override

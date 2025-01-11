@@ -31,8 +31,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
 
     @Override
     public Optional<Farm> read() {
-        String name = readNonEmptyString("Enter farm name: ");
-
+        String name = readString("Enter farm name: ");
         List<Field> fields = readList("field", this::readField);
         List<Farmer> farmers = readList("farmer", this::readFarmer);
         List<Building> buildings = readList("building", this::readBuilding);
@@ -52,7 +51,6 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         return Optional.ofNullable(builder.build());
     }
 
-
     private <T> List<T> readList(String itemType, Supplier<T> reader) {
         List<T> list = new ArrayList<>();
         while (true) {
@@ -70,7 +68,145 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         return list;
     }
 
-    private String readNonEmptyString(String prompt) {
+    // Read Field
+    private Field readField() {
+        AppLogger.getInstance().logInfo("Enter field data:");
+        String cropType = readString("  Crop type: ");
+        int fieldSize = readInt("  Field size: ", 1, Integer.MAX_VALUE);
+        return new Field(cropType, fieldSize);
+    }
+
+    // Read Farmer
+    private Farmer readFarmer() {
+        AppLogger.getInstance().logInfo("Enter farmer data:");
+        String name = readString("  Name: ");
+        int age = readInt("  Age: ", 1, 120);
+        return new Farmer(name, age, new WorkingState());
+    }
+
+    // Read Building
+    private Building readBuilding() {
+        AppLogger.getInstance().logInfo("Enter building data:");
+        BuildingType type = readBuildingType();
+        String name = readString("  Name: ");
+        int capacity = readInt("  Capacity: ", 1, Integer.MAX_VALUE);
+        return new BuildingFactory().createBuilding(type.toString(), name, capacity);
+    }
+
+    private BuildingType readBuildingType() {
+        BuildingType type = null;
+        while (type == null) {
+            AppLogger.getInstance().logInfo("  Select Building Type:");
+            for (BuildingType buildingType : BuildingType.values()) {
+                AppLogger.getInstance().logInfo("    - " + buildingType.name() + " (" + buildingType.getDisplayName() + ")");
+            }
+
+            String typeInput = readString("  Type: ").toUpperCase();
+
+            try {
+                type = BuildingType.valueOf(typeInput);
+            } catch (IllegalArgumentException e) {
+                AppLogger.getInstance().logError("Invalid building type. Please choose a valid type from the list.");
+            }
+        }
+        return type;
+    }
+
+    // Read Equipment
+    private Equipment readEquipment() {
+        AppLogger.getInstance().logInfo("Enter equipment data:");
+        String equipmentType = readString("  Is it a Machine or a Tool? (machine/tool): ").toLowerCase();
+        String name = readString("  Name: ");
+        if ("machine".equals(equipmentType)) {
+            return readMachine(name);
+        } else {
+            return readTool(name);
+        }
+    }
+
+    private Machine readMachine(String name) {
+        int fuelLevel = readInt("  Fuel level: ", 0, 100);
+        return new Machine(name, fuelLevel);
+    }
+
+    private Tool readTool(String name) {
+        String usageType = readString("  Usage type (e.g., 'digging', 'cutting'): ");
+        return new Tool(name, usageType);
+    }
+
+    // Read Animal
+    private Animal readAnimal() {
+        AppLogger.getInstance().logInfo("Enter animal data:");
+        String type = readAnimalType();
+        Animal animal = new AnimalFactory().create(type);
+        int takesPlaces = readInt("  Takes Places: ", 1, Integer.MAX_VALUE);
+        int dailyFoodIntake = readInt("  Daily Food Intake: ", 1, Integer.MAX_VALUE);
+        animal.setType(type);
+        return animal;
+    }
+
+    private String readAnimalType() {
+        String type;
+        while (true) {
+            AppLogger.getInstance().logInfo("  Select Animal Type:");
+            type = readString("  Type (cow, chicken, sheep, pig): ").toLowerCase();
+            if (type.equals("cow") || type.equals("chicken") || type.equals("sheep") || type.equals("pig")) {
+                break;
+            } else {
+                AppLogger.getInstance().logInfo("Invalid input. Please enter 'cow', 'chicken', 'sheep', or 'pig'.");
+            }
+        }
+        return type;
+    }
+
+    // Read Product
+    private Product readProduct() {
+        AppLogger.getInstance().logInfo("Enter product data:");
+        ProductType productType = readProductType();
+        String name = readString("  Product Name: ");
+        double price = readDouble("  Price: ");
+        int weight = readInt("  Weight: ", 1, Integer.MAX_VALUE);
+        return new ProductFactory().createProduct(productType.toString(), name, price, weight);
+    }
+
+    private ProductType readProductType() {
+        ProductType productType = null;
+        while (productType == null) {
+            AppLogger.getInstance().logInfo("  Select Product Type:");
+            for (ProductType type : ProductType.values()) {
+                AppLogger.getInstance().logInfo("    - " + type.name() + " (" + type.getDisplayName() + ")");
+            }
+
+            String typeInput = readString("  Type: ").toUpperCase();
+
+            try {
+                productType = ProductType.valueOf(typeInput);
+            } catch (IllegalArgumentException e) {
+                AppLogger.getInstance().logError("Invalid product type. Please choose a valid type from the list.");
+            }
+        }
+        return productType;
+    }
+
+    private double readDouble(String prompt) {
+        double value = 0;
+        while (true) {
+            try {
+                AppLogger.getInstance().logInfo(prompt);
+                value = Double.parseDouble(scanner.nextLine().trim());
+                if (value >= 0) {
+                    break;
+                } else {
+                    AppLogger.getInstance().logWarning("Value must be non-negative. Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                AppLogger.getInstance().logError("Invalid number format. Please enter a valid number.");
+            }
+        }
+        return value;
+    }
+
+    private String readString(String prompt) {
         String input;
         while (true) {
             AppLogger.getInstance().logInfo(prompt);
@@ -83,245 +219,21 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         return input;
     }
 
-    // Read Field
-    private Field readField() {
-        AppLogger.getInstance().logInfo("Enter field data:");
-        String cropType = readNonEmptyString("  Crop type: ");
-        int fieldSize = 0;
-
+    private int readInt(String prompt, int minValue, int maxValue) {
+        int value = 0;
         while (true) {
             try {
-                AppLogger.getInstance().logInfo("  Field size: ");
-                fieldSize = Integer.parseInt(scanner.nextLine().trim());
-                if (fieldSize > 0) {
+                AppLogger.getInstance().logInfo(prompt);
+                value = Integer.parseInt(scanner.nextLine().trim());
+                if (value >= minValue && value <= maxValue) {
                     break;
                 } else {
-                    AppLogger.getInstance().logError("Field size must be a positive integer. Please try again.");
+                    AppLogger.getInstance().logWarning("Value must be between " + minValue + " and " + maxValue + ". Please try again.");
                 }
             } catch (NumberFormatException e) {
                 AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
             }
         }
-
-        return new Field(cropType, fieldSize);
+        return value;
     }
-
-    // Read Farmer
-    private Farmer readFarmer() {
-        AppLogger.getInstance().logInfo("Enter farmer data:");
-        String name = readNonEmptyString("  Name: ");
-        int age = 0;
-
-        while (true) {
-            try {
-                AppLogger.getInstance().logInfo("  Age: ");
-                age = Integer.parseInt(scanner.nextLine().trim());
-                if (age > 0 && age <= 120) {
-                    break;
-                } else {
-                    AppLogger.getInstance().logWarning("Age must be between 1 and 120. Please try again.");
-                }
-            } catch (NumberFormatException e) {
-                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
-            }
-        }
-
-        return new Farmer(name, age, new WorkingState());
-    }
-
-    // Read Building
-    private Building readBuilding() {
-        AppLogger.getInstance().logInfo("Enter building data:");
-
-        BuildingType type = null;
-        while (type == null) {
-            AppLogger.getInstance().logInfo("  Select Building Type:");
-            for (BuildingType buildingType : BuildingType.values()) {
-                AppLogger.getInstance().logInfo("    - " + buildingType.name() + " (" + buildingType.getDisplayName() + ")");
-            }
-
-            String typeInput = readNonEmptyString("  Type: ").toUpperCase();
-
-            try {
-                type = BuildingType.valueOf(typeInput);
-            } catch (IllegalArgumentException e) {
-                AppLogger.getInstance().logError("Invalid building type. Please choose a valid type from the list.");
-            }
-        }
-
-        String name = readNonEmptyString("  Name: ");
-        int capacity = 0;
-
-        while (true) {
-            try {
-                AppLogger.getInstance().logInfo("  Capacity: ");
-                capacity = Integer.parseInt(scanner.nextLine().trim());
-                if (capacity > 0) {
-                    break;
-                } else {
-                    AppLogger.getInstance().logWarning("Capacity must be a positive integer. Please try again.");
-                }
-            } catch (NumberFormatException e) {
-                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
-            }
-        }
-
-        return new BuildingFactory().createBuilding(type.toString(), name, capacity);
-    }
-
-    private Equipment readEquipment() {
-        AppLogger.getInstance().logInfo("Enter equipment data:");
-
-
-
-        String equipmentType;
-        while (true) {
-            AppLogger.getInstance().logInfo("  Is it a Machine or a Tool? (machine/tool): ");
-            equipmentType = scanner.nextLine().trim().toLowerCase();
-            if ("machine".equals(equipmentType) || "tool".equals(equipmentType)) {
-                break;
-            } else {
-                AppLogger.getInstance().logError("Invalid input. Please enter 'machine' or 'tool'.");
-            }
-        }
-        String name = readNonEmptyString("  Name: ");
-
-        if ("machine".equals(equipmentType)) {
-            return readMachine(name);
-        } else {
-            return readTool(name);
-        }
-    }
-
-    private Machine readMachine(String name) {
-        int fuelLevel = 0;
-
-        while (true) {
-            try {
-                AppLogger.getInstance().logInfo("  Fuel level: ");
-                fuelLevel = Integer.parseInt(scanner.nextLine().trim());
-                if (fuelLevel >= 0 && fuelLevel <= 100) {
-                    break;
-                } else {
-                    AppLogger.getInstance().logWarning("Fuel level must be between 0 and 100.");
-                }
-            } catch (NumberFormatException e) {
-                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
-            }
-        }
-
-        return new Machine(name, fuelLevel);
-    }
-
-    private Tool readTool(String name) {
-        String usageType = readNonEmptyString("  Usage type (e.g., 'digging', 'cutting'): ");
-        return new Tool(name, usageType);
-    }
-
-
-    private Animal readAnimal() {
-        AppLogger.getInstance().logInfo("Enter animal data:");
-        String type;
-        while (true) {
-            AppLogger.getInstance().logInfo("  Select Animal Type:");
-            type = readNonEmptyString("  Type (cow, chicken, sheep, pig): ");
-            type = type.toLowerCase();
-            if (type.equals("cow") || type.equals("chicken") || type.equals("sheep") || type.equals("pig")) {
-                break;
-            } else {
-                AppLogger.getInstance().logInfo("Invalid input. Please enter 'cow', 'chicken', 'sheep', or 'pig'.");
-            }
-        }
-
-        Animal animal = new AnimalFactory().create(type);
-
-        int takesPlaces = 0;
-        while (true) {
-            try {
-                AppLogger.getInstance().logInfo("  Takes Places: ");
-                takesPlaces = Integer.parseInt(scanner.nextLine().trim());
-                if (takesPlaces > 0) {
-                    break;
-                } else {
-                    AppLogger.getInstance().logWarning("Takes Places must be a positive integer.");
-                }
-            } catch (NumberFormatException e) {
-                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
-            }
-        }
-
-        int dailyFoodIntake = 0;
-        while (true) {
-            try {
-                AppLogger.getInstance().logInfo("  Daily Food Intake: ");
-                dailyFoodIntake = Integer.parseInt(scanner.nextLine().trim());
-                if (dailyFoodIntake > 0) {
-                    break;
-                } else {
-                    AppLogger.getInstance().logWarning("Daily Food Intake must be a positive integer.");
-                }
-            } catch (NumberFormatException e) {
-                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
-            }
-        }
-
-        animal.setType(type);
-        return animal;
-    }
-
-    private Product readProduct() {
-        AppLogger.getInstance().logInfo("Enter product data:");
-
-        ProductType productType = null;
-        while (productType == null) {
-            AppLogger.getInstance().logInfo("  Select Product Type:");
-            for (ProductType type : ProductType.values()) {
-                AppLogger.getInstance().logInfo("    - " + type.name() + " (" + type.getDisplayName() + ")");
-            }
-
-            String typeInput = readNonEmptyString("  Type: ").toUpperCase();
-
-            try {
-                productType = ProductType.valueOf(typeInput);
-            } catch (IllegalArgumentException e) {
-                AppLogger.getInstance().logError("Invalid product type. Please choose a valid type from the list.");
-            }
-        }
-
-        String name = readNonEmptyString("  Product Name: ");
-        double price = 0;
-        while (true) {
-            try {
-                AppLogger.getInstance().logInfo("  Price: ");
-                price = Double.parseDouble(scanner.nextLine().trim());
-                if (price >= 0) {
-                    break;
-                } else {
-                    AppLogger.getInstance().logWarning("Price must be a non-negative number.");
-                }
-            } catch (NumberFormatException e) {
-                AppLogger.getInstance().logError("Invalid price format. Please enter a valid number.");
-            }
-        }
-
-        int weight = 0;
-        while (true) {
-            try {
-                AppLogger.getInstance().logInfo("  Weight: ");
-                weight = Integer.parseInt(scanner.nextLine().trim());
-                if (weight > 0) {
-                    break;
-                } else {
-                    AppLogger.getInstance().logWarning("Weight must be a positive integer.");
-                }
-            } catch (NumberFormatException e) {
-                AppLogger.getInstance().logError("Invalid number format. Please enter a valid integer.");
-            }
-        }
-
-        return new ProductFactory().createProduct(productType.toString(), name, price, weight);
-    }
-
-
-
 }

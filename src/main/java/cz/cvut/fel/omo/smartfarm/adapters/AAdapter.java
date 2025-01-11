@@ -20,18 +20,14 @@ public abstract class AAdapter<T> implements JsonSerializer<T>, JsonDeserializer
 
             String fullClassName = typeOfT.getTypeName();
 
-            // Разделяем строку по точкам, берем все части, кроме последней
             String packageName = fullClassName.substring(0, fullClassName.lastIndexOf('.'));
 
-            // Используем className, чтобы заменить последнюю часть
             String updatedClassName = packageName + "." + className;
 
             AppLogger.getInstance().logInfo("Updated class name: " + updatedClassName);
 
-            // Загружаем класс по полному пути
             Class<?> clazz = Class.forName(updatedClassName);
 
-            // Приводим к нужному типу
             return (T) clazz.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             AppLogger.getInstance().logError("Unknown state: " + className);
