@@ -26,10 +26,10 @@ public class BuildingAdapter extends AAdapter<Building> {
         // Create the appropriate building object based on the building type
         return switch (buildingType) {
             case BARN -> new Barn(name, capacity);
-            case STABLE -> new Stable(name, capacity, new ArrayList<>());
+            case STABLE -> new Stable(name, capacity);
             case GREENHOUSE -> new Greenhouse(name, capacity);
             case WAREHOUSE -> new Warehouse(name, capacity);
-            case HOUSE -> new House(name, capacity, new ArrayList<>());
+            case HOUSE -> new House(name, capacity);
             case WORKSHOP -> new Workshop(name, capacity);
             default -> throw new JsonParseException("Unknown building type: " + type);
         };

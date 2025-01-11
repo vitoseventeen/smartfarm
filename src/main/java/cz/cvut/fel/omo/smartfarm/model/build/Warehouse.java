@@ -2,9 +2,18 @@ package cz.cvut.fel.omo.smartfarm.model.build;
 
 import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 
-public class Warehouse extends Building {
+public class Warehouse extends Building<Warehouse> {
+    public Warehouse() {
+        super(BuildingType.WAREHOUSE);
+    }
+
     public Warehouse(String name, int capacity) {
-        super(name, 200, BuildingType.WAREHOUSE, capacity);
+        super(name, BuildingType.WAREHOUSE, capacity);
+    }
+
+    @Override
+    protected Warehouse createCopy(String name, int capacity) {
+        return new Warehouse(name, capacity);
     }
 
     @Override

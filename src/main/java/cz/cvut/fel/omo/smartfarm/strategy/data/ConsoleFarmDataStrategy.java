@@ -1,6 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.strategy.data;
 
 import cz.cvut.fel.omo.smartfarm.builder.FarmBuilder;
+import cz.cvut.fel.omo.smartfarm.factory.BuildingFactory;
 import cz.cvut.fel.omo.smartfarm.factory.ProductFactory;
 import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.build.*;
@@ -165,18 +166,7 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             }
         }
 
-        return switch (type) {
-            case BARN -> new Barn(name, capacity);
-            case STABLE -> new Stable(name, capacity, new ArrayList<>());
-            case GREENHOUSE -> new Greenhouse(name, capacity);
-            case WAREHOUSE -> new Warehouse(name, capacity);
-            case HOUSE -> new House(name, capacity, new ArrayList<>());
-            case WORKSHOP -> new Workshop(name, capacity);
-            default ->  {
-                AppLogger.getInstance().logInfo("Unknown building type");
-                throw new IllegalArgumentException("Unknown building type");
-            }
-        };
+        return new BuildingFactory().createBuilding(type.toString(), name, capacity);
     }
 
     private Equipment readEquipment() {

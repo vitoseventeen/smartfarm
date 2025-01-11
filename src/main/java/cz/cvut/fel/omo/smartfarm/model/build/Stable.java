@@ -3,17 +3,33 @@ package cz.cvut.fel.omo.smartfarm.model.build;
 import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.animal.Animal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class Stable extends Building {
+public class Stable extends Building<Stable> {
 
-    private List<Animal> animals;
+    private List<Animal> animals = new ArrayList<>();
 
-    public Stable(String name, int capacity, List<Animal> animals) {
-        super(name, 40, BuildingType.STABLE, capacity);
+
+    public Stable() {
+        super(BuildingType.STABLE);
+    }
+
+
+    public Stable(String name, int capacity) {
+        super(name, BuildingType.STABLE, capacity);
+        setCurrentUsage(0);
+    }
+
+    public void setAnimals(List<Animal> animals) {
         this.animals = animals;
         setCurrentUsage(animals.size());
+    }
+
+    @Override
+    protected Stable createCopy(String name, int capacity) {
+        return new Stable(name, capacity);
     }
 
     @Override

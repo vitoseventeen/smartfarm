@@ -3,7 +3,7 @@ package cz.cvut.fel.omo.smartfarm.model.equipment;
 import cz.cvut.fel.omo.smartfarm.state.equipment.EquipmentState;
 
 public abstract class Equipment {
-    private String name;
+    private final String name;
     private EquipmentState currentState;
 
     public Equipment(String name, EquipmentState initialState) {
