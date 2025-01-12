@@ -1,32 +1,37 @@
 package cz.cvut.fel.omo.smartfarm.model.build;
 
-import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public abstract class Building {
+public abstract class Building<T extends Building<T>> {
 
     private static final Logger logger = Logger.getLogger(Building.class.getName());
-    private double area;
     private String name;
     private BuildingType type;
     private int capacity;
     private int currentUsage;
-    private int level;
-    private List<Product> products;
+
+
+    private List<Product> products = new ArrayList<>();
     private double productPrice;
 
-    public Building(String name, double area, BuildingType type, int capacity) {
+    public Building(BuildingType type) {
+        this.type = type;
+        this.name = "Default " + type.getDisplayName();
+
+        this.capacity = 100;
+        this.currentUsage = 0;
+    }
+
+
+    public Building(String name, BuildingType type, int capacity) {
         this.name = name;
-        this.area = area;
         this.type = type;
         this.capacity = capacity;
         this.currentUsage = 0;
-        this.level = 0;
-        this.products = new ArrayList<>();
     }
 
 
@@ -53,28 +58,17 @@ public abstract class Building {
     public String toString() {
         return String.format(
                 """
-Building Details:
------------------
-Name: %s
-Type: %s
-Area: %.2f sq.m
-Capacity: %d
-Current Usage: %d
-""",
-                name, type, area, capacity, currentUsage
+                        Building Details:
+                        -----------------
+                        Name: %s
+                        Type: %s
+                        Capacity: %d
+                        Current Usage: %d
+                        """,
+                name, type, capacity, currentUsage
         );
     }
 
-
-    public double getArea() {
-        return area;
-    }
-
-    public void setArea(double area) {
-        if (area > 0) {
-            this.area = area;
-        }
-    }
 
     public String getName() {
         return name;
@@ -100,28 +94,36 @@ Current Usage: %d
         this.capacity = capacity;
     }
 
-    public int getLevel() {
-        return level;
+    public void setCurrentUsage(int currentUsage) {
+        this.currentUsage = currentUsage;
     }
 
-    public void setLevel(int level) {
-        if (level > 0) {
-            this.level = level;
+    public void setProductPrice(double productPrice) {
+        if (productPrice < 0) {
+            return;
         }
+
+        this.productPrice = productPrice;
     }
 
-    public void levelUp() {
-        level++;
-        AppLogger.getInstance().logInfo("Building " + name + " has been upgraded to a " + level + "level.");
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public int getCurrentUsage() {
         return currentUsage;
     }
 
-    public void setCurrentUsage(int currentUsage) {
-        this.currentUsage = currentUsage;
+    public T copyWith(String name, Integer capacity) {
+        T copy = createCopy(name, capacity);
+        copy.setCurrentUsage(this.currentUsage);
+        copy.setProductPrice(this.productPrice);
+        copy.setProducts(this.products);
+        return copy;
     }
+
+    protected abstract T createCopy(String name, int capacity);
+
 
     public abstract void performFunction();
 }
