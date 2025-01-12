@@ -81,7 +81,7 @@ Vytvoření aplikace pro virtuální simulaci chytré farmy, kde je modelována 
 # Výstupy
 
 ### Use case diagram
-![Use Case Diagram](docs/usecase.png)
+![Use Case Diagram](docs/useCase.png)
 
 ## Class diagrams
 
