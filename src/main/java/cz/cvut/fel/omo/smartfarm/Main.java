@@ -184,10 +184,10 @@ public class Main {
                 while (true) {
 
 
-                    logger.logHint("Enter the file name to save (e.g., config_1.json): ");
+                    logger.logHint("Enter the file name to save (e.g., config_1): ");
                     fileName = scanner.nextLine().trim();
 
-                    String filePath = "src/main/resources/" + fileName;
+                    String filePath = "src/main/resources/" + fileName + ".json";
                     File file = new File(filePath);
 
                     if (file.exists()) {
