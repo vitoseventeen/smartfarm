@@ -1,6 +1,7 @@
 package cz.cvut.fel.omo.smartfarm.adapters;
 
 import com.google.gson.*;
+import cz.cvut.fel.omo.smartfarm.factory.ProductFactory;
 import cz.cvut.fel.omo.smartfarm.model.products.*;
 
 import java.lang.reflect.Type;
@@ -22,9 +23,12 @@ public class ProductAdapter extends AAdapter<Product> {
         }
 
         String productTypeStr = jsonObject.get("productType").getAsString();
-        ProductType productType = ProductType.valueOf(productTypeStr.toUpperCase());
 
-        return createProductByType(productType, jsonObject);
+        String name = jsonObject.get("name").getAsString();
+        double price = jsonObject.get("price").getAsDouble();
+        int weight = jsonObject.get("weight").getAsInt();
+
+        return new ProductFactory().createProduct(productTypeStr,name, price, weight);
     }
 
     @Override
@@ -38,17 +42,5 @@ public class ProductAdapter extends AAdapter<Product> {
         return jsonObject;
     }
 
-    private Product createProductByType(ProductType productType, JsonObject jsonObject) {
-        String name = jsonObject.get("name").getAsString();
-        double price = jsonObject.get("price").getAsDouble();
-        int weight = jsonObject.get("weight").getAsInt();
 
-        return switch (productType) {
-            case MILK -> new Milk(name, price, weight);
-            case EGG -> new Egg(name, price, weight);
-            case MEAT -> new Meat(name, price, weight);
-            case WOOL -> new Wool(name, price, weight);
-            default -> throw new JsonParseException("Unknown product type: " + productType);
-        };
-    }
 }

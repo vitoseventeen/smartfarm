@@ -1,0 +1,319 @@
+[2025-01-12T15:35:24.602701600] [HINT] Would you like to load the farm data from a JSON file? (yes/no): 
+[2025-01-12T15:35:26.796608500] [HINT] Enter the name of the JSON file (e.g., config_1.json, config_2.json): 
+[2025-01-12T15:35:42.315827800] [HINT] Farm created successfully: 
+[2025-01-12T15:35:42.331053300] [HINT] Farm: fdsdfs
+|-- Fields
+|-- Farmers
+|-- Buildings
+|-- Equipments
+|-- Animals
+|-- Products
+|    - Product{name='asdfasdf', price=12.0, weight=12, productType=wool}
+|    - Product{name='fsdf', price=12.421, weight=12, productType=milk}
+|-- Product Price: 24.421
+
+[2025-01-12T15:35:42.540687800] [HINT] Farm name: fdsdfs
+[2025-01-12T15:35:42.540687800] [HINT] Observers have been added to the subjects.
+[2025-01-12T15:35:42.751810900] [HINT] 
+Processing random events...
+[2025-01-12T15:35:42.970288800] [HINT] Event #1
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:42.978478200] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:43.183440500] [HINT] Event #2
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:43.187426100] [INFO] Unhandled event: Event{type=PLANT_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:43.398413] [HINT] Event #3
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:43.400430100] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:35:43.606769600] [HINT] Event #4
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:43.606769600] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:35:43.816022200] [HINT] Event #5
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:43.816022200] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:44.024618900] [HINT] Event #6
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:35:44.024618900] [INFO] Unhandled event: Event{type=APPLY_PESTICIDE, description='Random event description'} - no handler found
+[2025-01-12T15:35:44.231944300] [HINT] Event #7
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:44.231944300] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:35:44.439296100] [HINT] Event #8
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:35:44.441318600] [INFO] Unhandled event: Event{type=APPLY_PESTICIDE, description='Random event description'} - no handler found
+[2025-01-12T15:35:44.662731700] [HINT] Event #9
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:35:44.662731700] [INFO] Unhandled event: Event{type=PERFORM_ACTION, description='Random event description'} - no handler found
+[2025-01-12T15:35:44.870243800] [HINT] Event #10
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:44.873314800] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:45.094340400] [HINT] Event #11
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:45.094340400] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:35:45.302675900] [HINT] Event #12
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:45.304704100] [INFO] Unhandled event: Event{type=PLANT_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:45.511857500] [HINT] Event #13
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:45.511857500] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:35:45.734087] [HINT] Event #14
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:35:45.734087] [INFO] Unhandled event: Event{type=TURN_ON, description='Random event description'} - no handler found
+[2025-01-12T15:35:45.940953300] [HINT] Event #15
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:35:45.942992700] [INFO] Unhandled event: Event{type=HARVEST_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:46.163313900] [HINT] Event #16
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:46.165605800] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:46.370223500] [HINT] Event #17
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:35:46.370223500] [INFO] Unhandled event: Event{type=HARVEST_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:46.576788400] [HINT] Event #18
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:46.576788400] [INFO] Unhandled event: Event{type=FARMER_SLEEP, description='Random event description'} - no handler found
+[2025-01-12T15:35:46.784594400] [HINT] Event #19
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:46.784594400] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:46.991621500] [HINT] Event #20
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:46.993643100] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:47.200718600] [HINT] Event #21
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:35:47.200718600] [INFO] Unhandled event: Event{type=TURN_ON, description='Random event description'} - no handler found
+[2025-01-12T15:35:47.422514200] [HINT] Event #22
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:47.422514200] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:35:47.628785600] [HINT] Event #23
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:47.628785600] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:47.835084200] [HINT] Event #24
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:47.835084200] [INFO] Unhandled event: Event{type=PLANT_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:48.040435800] [HINT] Event #25
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:35:48.040435800] [INFO] Unhandled event: Event{type=HARVEST_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:48.246497900] [HINT] Event #26
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:48.249146200] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:48.452922900] [HINT] Event #27
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:35:48.452922900] [INFO] Unhandled event: Event{type=PERFORM_ACTION, description='Random event description'} - no handler found
+[2025-01-12T15:35:48.659454500] [HINT] Event #28
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:35:48.659454500] [INFO] Unhandled event: Event{type=APPLY_PESTICIDE, description='Random event description'} - no handler found
+[2025-01-12T15:35:48.867468800] [HINT] Event #29
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:48.869694500] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:49.076224900] [HINT] Event #30
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:49.076224900] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:35:49.283836600] [HINT] Event #31
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:49.283836600] [INFO] Unhandled event: Event{type=PLANT_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:49.491461900] [HINT] Event #32
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:49.491461900] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:35:49.699811900] [HINT] Event #33
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:49.699811900] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:49.906581900] [HINT] Event #34
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:49.910604400] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:50.114473600] [HINT] Event #35
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:50.118189500] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:35:50.335528800] [HINT] Event #36
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:50.335528800] [INFO] Unhandled event: Event{type=TURN_OFF, description='Random event description'} - no handler found
+[2025-01-12T15:35:50.549478400] [HINT] Event #37
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:50.553522800] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:50.771678500] [HINT] Event #38
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:50.771678500] [INFO] Unhandled event: Event{type=TURN_OFF, description='Random event description'} - no handler found
+[2025-01-12T15:35:50.979563500] [HINT] Event #39
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:50.987740300] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:51.200383300] [HINT] Event #40
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:35:51.208416800] [INFO] Unhandled event: Event{type=HARVEST_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:51.423273800] [HINT] Event #41
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:51.423273800] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:51.629768600] [HINT] Event #42
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:51.629768600] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:51.835963] [HINT] Event #43
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:51.835963] [INFO] Unhandled event: Event{type=FARMER_SLEEP, description='Random event description'} - no handler found
+[2025-01-12T15:35:52.043064600] [HINT] Event #44
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:52.043064600] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:52.253993800] [HINT] Event #45
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:52.258011] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:35:52.461667700] [HINT] Event #46
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:52.461667700] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:35:52.671117100] [HINT] Event #47
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:52.674307300] [INFO] Unhandled event: Event{type=TURN_OFF, description='Random event description'} - no handler found
+[2025-01-12T15:35:52.881157600] [HINT] Event #48
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:52.881157600] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:53.089465900] [HINT] Event #49
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:53.091473400] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:53.296546] [HINT] Event #50
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:53.296546] [INFO] Unhandled event: Event{type=FARMER_SLEEP, description='Random event description'} - no handler found
+[2025-01-12T15:35:53.503035200] [HINT] Event #51
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:35:53.505055400] [INFO] Unhandled event: Event{type=TURN_ON, description='Random event description'} - no handler found
+[2025-01-12T15:35:53.724975800] [HINT] Event #52
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:53.724975800] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:53.932776800] [HINT] Event #53
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:53.934797400] [INFO] Unhandled event: Event{type=TURN_OFF, description='Random event description'} - no handler found
+[2025-01-12T15:35:54.143007] [HINT] Event #54
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:54.143007] [INFO] Unhandled event: Event{type=PLANT_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:54.351255] [HINT] Event #55
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:54.351255] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:35:54.559108200] [HINT] Event #56
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:54.562342800] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:54.765119200] [HINT] Event #57
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:54.767135] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:54.975159] [HINT] Event #58
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:54.977312600] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:35:55.182490300] [HINT] Event #59
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:55.186025500] [INFO] Unhandled event: Event{type=FARMER_SLEEP, description='Random event description'} - no handler found
+[2025-01-12T15:35:55.392927700] [HINT] Event #60
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:55.392927700] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:35:55.612631800] [HINT] Event #61
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:35:55.614648] [INFO] Unhandled event: Event{type=HARVEST_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:55.821599800] [HINT] Event #62
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:55.821599800] [INFO] Unhandled event: Event{type=TURN_OFF, description='Random event description'} - no handler found
+[2025-01-12T15:35:56.027428800] [HINT] Event #63
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:56.027428800] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:56.233561200] [HINT] Event #64
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:56.235530100] [INFO] Unhandled event: Event{type=TURN_OFF, description='Random event description'} - no handler found
+[2025-01-12T15:35:56.441279200] [HINT] Event #65
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:56.444433300] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:35:56.650162700] [HINT] Event #66
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:35:56.650162700] [INFO] Unhandled event: Event{type=PERFORM_ACTION, description='Random event description'} - no handler found
+[2025-01-12T15:35:56.855598300] [HINT] Event #67
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:56.855598300] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:35:57.062270400] [HINT] Event #68
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:57.064290200] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:35:57.270418900] [HINT] Event #69
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:57.272996400] [INFO] Unhandled event: Event{type=PLANT_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:57.477330700] [HINT] Event #70
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:57.477330700] [INFO] Unhandled event: Event{type=FARMER_SLEEP, description='Random event description'} - no handler found
+[2025-01-12T15:35:57.683266800] [HINT] Event #71
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:35:57.683266800] [INFO] Unhandled event: Event{type=PERFORM_ACTION, description='Random event description'} - no handler found
+[2025-01-12T15:35:57.890358400] [HINT] Event #72
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:57.890358400] [INFO] Unhandled event: Event{type=TURN_OFF, description='Random event description'} - no handler found
+[2025-01-12T15:35:58.097503800] [HINT] Event #73
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:58.097503800] [INFO] Unhandled event: Event{type=PLANT_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:35:58.304690100] [HINT] Event #74
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:58.304690100] [INFO] Unhandled event: Event{type=FARMER_SLEEP, description='Random event description'} - no handler found
+[2025-01-12T15:35:58.511892900] [HINT] Event #75
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:58.511892900] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:35:58.718919800] [HINT] Event #76
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:58.718919800] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:35:58.925546400] [HINT] Event #77
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:35:58.928581400] [INFO] Unhandled event: Event{type=APPLY_PESTICIDE, description='Random event description'} - no handler found
+[2025-01-12T15:35:59.134593500] [HINT] Event #78
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:59.134593500] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:35:59.341406100] [HINT] Event #79
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:59.341406100] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:35:59.549616] [HINT] Event #80
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:59.549616] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:35:59.755455400] [HINT] Event #81
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:59.758769600] [INFO] Unhandled event: Event{type=REFUEL, description='Random event description'} - no handler found
+[2025-01-12T15:35:59.977229500] [HINT] Event #82
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:59.977229500] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:36:00.183811100] [HINT] Event #83
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:36:00.183811100] [INFO] Unhandled event: Event{type=HARVEST_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:36:00.398287100] [HINT] Event #84
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:36:00.398287100] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:36:00.605314] [HINT] Event #85
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:36:00.605314] [INFO] Unhandled event: Event{type=PLANT_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:36:00.812181700] [HINT] Event #86
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:36:00.812181700] [INFO] Unhandled event: Event{type=HARVEST_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:36:01.019324300] [HINT] Event #87
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:36:01.019324300] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:36:01.227070800] [HINT] Event #88
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:36:01.227070800] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:36:01.436560400] [HINT] Event #89
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:36:01.436560400] [INFO] Unhandled event: Event{type=TURN_OFF, description='Random event description'} - no handler found
+[2025-01-12T15:36:01.646562200] [HINT] Event #90
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:36:01.646562200] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:36:01.926255100] [HINT] Event #91
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:36:01.928505300] [INFO] Unhandled event: Event{type=FARMER_REST, description='Random event description'} - no handler found
+[2025-01-12T15:36:02.134496800] [HINT] Event #92
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:36:02.137020300] [INFO] Unhandled event: Event{type=PERFORM_ACTION, description='Random event description'} - no handler found
+[2025-01-12T15:36:02.407919800] [HINT] Event #93
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:36:02.426775400] [INFO] Unhandled event: Event{type=TURN_ON, description='Random event description'} - no handler found
+[2025-01-12T15:36:02.635076500] [HINT] Event #94
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:36:02.639102100] [INFO] Unhandled event: Event{type=FARMER_WORK, description='Random event description'} - no handler found
+[2025-01-12T15:36:02.852607200] [HINT] Event #95
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:36:02.854637300] [INFO] Unhandled event: Event{type=BREAK_DOWN, description='Random event description'} - no handler found
+[2025-01-12T15:36:03.061381200] [HINT] Event #96
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:36:03.061381200] [INFO] Unhandled event: Event{type=REPAIR, description='Random event description'} - no handler found
+[2025-01-12T15:36:03.267590400] [HINT] Event #97
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:36:03.267590400] [INFO] Unhandled event: Event{type=HARVEST_CROPS, description='Random event description'} - no handler found
+[2025-01-12T15:36:03.474700300] [HINT] Event #98
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:36:03.474700300] [INFO] Unhandled event: Event{type=TURN_ON, description='Random event description'} - no handler found
+[2025-01-12T15:36:03.681920100] [HINT] Event #99
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:36:03.683832500] [INFO] Unhandled event: Event{type=APPLY_PESTICIDE, description='Random event description'} - no handler found
+[2025-01-12T15:36:03.890786900] [HINT] Event #100
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:36:03.890786900] [INFO] Unhandled event: Event{type=APPLY_PESTICIDE, description='Random event description'} - no handler found
+[2025-01-12T15:36:04.100113100] [HINT] Would you like to save the current farm data to a JSON file? (yes/no): 
