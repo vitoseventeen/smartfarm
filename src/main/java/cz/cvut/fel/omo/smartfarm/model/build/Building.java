@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * Abstract base class for various types of buildings in the smart farm system.
+ * Handles product storage, building capacity, and specialized functions for each building type.
+ */
 public abstract class Building<T extends Building<T>> {
 
     private static final Logger logger = Logger.getLogger(Building.class.getName());
@@ -13,20 +17,28 @@ public abstract class Building<T extends Building<T>> {
     private BuildingType type;
     private int capacity;
     private int currentUsage;
-
-
     private List<Product> products = new ArrayList<>();
     private double productPrice;
 
+    /**
+     * Initializes a building with a default capacity and name based on its type.
+     *
+     * @param type The type of the building, determining its default properties.
+     */
     public Building(BuildingType type) {
         this.type = type;
         this.name = "Default " + type.getDisplayName();
-
         this.capacity = 100;
         this.currentUsage = 0;
     }
 
-
+    /**
+     * Initializes a building with specified name, type, and capacity.
+     *
+     * @param name The name of the building.
+     * @param type The type of the building, defining its functionality and role.
+     * @param capacity The maximum number of products the building can hold.
+     */
     public Building(String name, BuildingType type, int capacity) {
         this.name = name;
         this.type = type;
@@ -34,7 +46,11 @@ public abstract class Building<T extends Building<T>> {
         this.currentUsage = 0;
     }
 
-
+    /**
+     * Adds a product to the building if there is enough space. Logs the action.
+     *
+     * @param product The product to add to the building.
+     */
     public void addProduct(Product product) {
         if (currentUsage < capacity) {
             products.add(product);
@@ -46,29 +62,23 @@ public abstract class Building<T extends Building<T>> {
         }
     }
 
+    /**
+     * Returns the total price of all products stored in the building.
+     *
+     * @return The total price of products.
+     */
     public double getProductPrice() {
         return productPrice;
     }
 
+    /**
+     * Returns the list of products stored in the building.
+     *
+     * @return The list of products.
+     */
     public List<Product> getProducts() {
         return products;
     }
-
-    @Override
-    public String toString() {
-        return String.format(
-                """
-                        Building Details:
-                        -----------------
-                        Name: %s
-                        Type: %s
-                        Capacity: %d
-                        Current Usage: %d
-                        """,
-                name, type, capacity, currentUsage
-        );
-    }
-
 
     public String getName() {
         return name;
@@ -94,36 +104,33 @@ public abstract class Building<T extends Building<T>> {
         this.capacity = capacity;
     }
 
-    public void setCurrentUsage(int currentUsage) {
-        this.currentUsage = currentUsage;
+    public int getCurrentUsage() {
+        return currentUsage;
     }
 
-    public void setProductPrice(double productPrice) {
-        if (productPrice < 0) {
-            return;
-        }
-
-        this.productPrice = productPrice;
+    public void setCurrentUsage(int currentUsage) {
+        this.currentUsage = currentUsage;
     }
 
     public void setProducts(List<Product> products) {
         this.products = products;
     }
 
-    public int getCurrentUsage() {
-        return currentUsage;
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public T copyWith(String name, Integer capacity) {
-        T copy = createCopy(name, capacity);
-        copy.setCurrentUsage(this.currentUsage);
-        copy.setProductPrice(this.productPrice);
-        copy.setProducts(this.products);
-        return copy;
-    }
-
+    /**
+     * Creates a copy of this building with specified name and capacity. Implementation varies among subclasses.
+     *
+     * @param name The new name for the building copy.
+     * @param capacity The new capacity for the building copy.
+     * @return A new instance of T, a subclass of Building.
+     */
     protected abstract T createCopy(String name, int capacity);
 
-
+    /**
+     * Abstract method to be implemented by subclasses to define the building's specific function.
+     */
     public abstract void performFunction();
 }
