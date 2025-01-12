@@ -1,17 +1,36 @@
+/**
+ * Handles events related to {@link Equipment} in the chain of responsibility.
+ * This handler manages equipment-specific actions such as turning on/off,
+ * repairing, refueling, and handling breakdowns.
+ */
 package cz.cvut.fel.omo.smartfarm.chainOfResponsibility;
 
 import cz.cvut.fel.omo.smartfarm.logger.AppLogger;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Equipment;
 import cz.cvut.fel.omo.smartfarm.model.equipment.Machine;
-import cz.cvut.fel.omo.smartfarm.state.equipment.EquipmentState;
 
 public class EquipmentEventHandler extends EventHandler {
+
+    /**
+     * The equipment instance managed by this handler.
+     */
     private Equipment equipment;
 
+    /**
+     * Creates an EquipmentEventHandler for the specified equipment.
+     *
+     * @param equipment the equipment to be managed by this handler
+     */
     public EquipmentEventHandler(Equipment equipment) {
         this.equipment = equipment;
     }
 
+    /**
+     * Handles an event directed at the equipment.
+     * If the event type does not match, it delegates to the next handler in the chain.
+     *
+     * @param event the event to be handled
+     */
     @Override
     public void handleEvent(Event event) {
         switch (event.getType()) {
