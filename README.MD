@@ -121,6 +121,5 @@ Vytvoření aplikace pro virtuální simulaci chytré farmy, kde je modelována 
 
 # Dokumentace
 
-Dokumentace vygenerovaná pomocí Javadoc je dostupná [zde](docs/javadoc/index.html).
-
+Dokumentace vygenerovaná pomocí Javadoc je dostupná ve složce `docs/javadoc`.
 
