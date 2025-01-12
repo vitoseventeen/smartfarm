@@ -256,7 +256,7 @@ public class Main {
      * @return The initialized AppLogger instance.
      */
     public static AppLogger setUpAppLogger() {
-        AppLogger.setUpAppLogger();
+        AppLogger.setUpAppLoggerWithUser();
         return AppLogger.getInstance();
     }
 

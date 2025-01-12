@@ -62,7 +62,7 @@ public class AppLogger implements ILogger {
      * Initializes the AppLogger with a LogStrategy selected by the user input.
      * Prompts the user to choose between console logging, file logging, or combined logging.
      */
-    public static void setUpAppLogger() {
+    public static void setUpAppLoggerWithUser() {
         Scanner scanner = new Scanner(System.in);
         LogStrategy selectedStrategy = null;
 
@@ -96,5 +96,21 @@ public class AppLogger implements ILogger {
 
         instance = new AppLogger(selectedStrategy);
         System.out.println("Logging strategy set up successfully.");
+    }
+
+    public static void setUpAppLogger(List<LogStrategy> strategies) {
+        if (strategies == null || strategies.isEmpty()) {
+            throw new IllegalArgumentException("At least one log strategy must be provided.");
+        }
+
+        LogStrategy selectedStrategy = new CombinedLogStrategy(strategies);
+
+        instance = new AppLogger(selectedStrategy);
+        System.out.println("Logging strategy set up successfully with the provided strategies.");
+    }
+
+
+    public static void setInstance(AppLogger instance) {
+        AppLogger.instance = instance;
     }
 }
