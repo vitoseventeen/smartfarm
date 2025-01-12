@@ -164,10 +164,10 @@ public class Main {
 
             if ("yes".equals(choice)) {
                 while (true) {
-                    logger.logHint("Enter the name of the JSON file (e.g., config_1.json, config_2.json): ");
+                    logger.logHint("Enter the name of the JSON file (e.g., config_1, config_2): ");
                     String fileName = scanner.nextLine().trim();
 
-                    String filePath = "src/main/resources/" + fileName;
+                    String filePath = "src/main/resources/" + fileName + ".json";
                     File file = new File(filePath);
 
 
