@@ -121,6 +121,6 @@ Vytvoření aplikace pro virtuální simulaci chytré farmy, kde je modelována 
 
 # Dokumentace
 
-Dokumentace vygenerovaná pomocí Javadoc je dostupná [zde](https://gitlab.fel.cvut.cz/stepavi2/sem_prace_omo_smart_farm/-/blob/main/docs/javadoc/index.html).
+Dokumentace vygenerovaná pomocí Javadoc je dostupná [zde](docs/javadoc/index.html).
 
 
