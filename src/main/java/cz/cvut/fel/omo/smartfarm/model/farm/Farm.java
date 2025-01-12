@@ -9,6 +9,11 @@ import cz.cvut.fel.omo.smartfarm.model.field.Field;
 import cz.cvut.fel.omo.smartfarm.model.products.Product;
 
 import java.util.List;
+
+/**
+ * Represents the entirety of a farm, encapsulating all its components including fields, farmers, buildings, equipment,
+ * animals, and products.
+ */
 public class Farm {
     private final String name;
     private final List<Field> fields;
@@ -18,6 +23,11 @@ public class Farm {
     private final List<Animal> animals;
     private final List<Product> products;
 
+    /**
+     * Constructs a farm using a builder pattern, which allows for flexible initialization of farm components.
+     *
+     * @param farmBuilder The builder containing all necessary data to initialize the farm.
+     */
     public Farm(FarmBuilder farmBuilder) {
         this.name = farmBuilder.name;
         this.fields = farmBuilder.fields;
@@ -28,46 +38,33 @@ public class Farm {
         this.products = farmBuilder.products;
     }
 
+    /**
+     * Calculates the total price of all products produced on the farm.
+     *
+     * @return The total price of all products.
+     */
     public double getTotalProductPrice() {
         return products.stream().mapToDouble(Product::getPrice).sum();
     }
 
+    /**
+     * Provides a detailed string representation of the farm and all its components.
+     *
+     * @return A string detailing the farm's composition and the total value of its products.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Farm: ").append(name).append("\n");
 
-        sb.append("|-- Fields\n");
-        for (Field field : fields) {
-            sb.append("|    - ").append(field).append("\n");
-        }
+        appendListInfo(sb, "Fields", fields);
+        appendListInfo(sb, "Farmers", farmers);
+        appendListInfo(sb, "Buildings", buildings);
+        appendListInfo(sb, "Equipments", equipments);
+        appendListInfo(sb, "Animals", animals);
+        appendListInfo(sb, "Products", products);
 
-        sb.append("|-- Farmers\n");
-        for (Farmer farmer : farmers) {
-            sb.append("|    - ").append(farmer).append("\n");
-        }
-
-        sb.append("|-- Buildings\n");
-        for (Building building : buildings) {
-            sb.append("|    - ").append(building).append("\n");
-        }
-
-        sb.append("|-- Equipments\n");
-        for (Equipment equipment : equipments) {
-            sb.append("|    - ").append(equipment).append("\n");
-        }
-
-        sb.append("|-- Animals\n");
-        for (Animal animal : animals) {
-            sb.append("|    - ").append(animal).append("\n");
-        }
-
-        sb.append("|-- Products\n");
-        for (Product product : products) {
-            sb.append("|    - ").append(product).append("\n");
-        }
-
-        sb.append("|-- Product Price: ").append(getTotalProductPrice()).append("\n");
+        sb.append("|-- Product Price: $").append(getTotalProductPrice()).append("\n");
 
         return sb.toString();
     }
@@ -75,35 +72,17 @@ public class Farm {
     private <T> void appendListInfo(StringBuilder sb, String title, List<T> list) {
         sb.append("|-- ").append(title).append("\n");
         if (list != null && !list.isEmpty()) {
-            for (T item : list) {
-                sb.append("|    - ").append(item).append("\n");
-            }
+            list.forEach(item -> sb.append("|    - ").append(item).append("\n"));
         } else {
-            sb.append("|    - No ").append(title.toLowerCase()).append(".\n");
+            sb.append("|    - No ").append(title.toLowerCase()).append(" available.\n");
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public List<Field> getFields() {
-        return fields;
-    }
-
-    public List<Farmer> getFarmers() {
-        return farmers;
-    }
-
-    public List<Building> getBuildings() {
-        return buildings;
-    }
-
-    public List<Equipment> getEquipments() {
-        return equipments;
-    }
-
-    public List<Animal> getAnimals() {
-        return animals;
-    }
+    // Getter methods
+    public String getName() { return name; }
+    public List<Field> getFields() { return fields; }
+    public List<Farmer> getFarmers() { return farmers; }
+    public List<Building> getBuildings() { return buildings; }
+    public List<Equipment> getEquipments() { return equipments; }
+    public List<Animal> getAnimals() { return animals; }
 }

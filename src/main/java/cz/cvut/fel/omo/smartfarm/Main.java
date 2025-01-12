@@ -27,11 +27,20 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import static cz.cvut.fel.omo.smartfarm.chainOfResponsibility.Event.createRandomEvent;
-
+/**
+ * Main class that initializes and runs the smart farm system.
+ * It sets up the farm, handles farm data loading and saving, and processes random events
+ * based on the farm's components (farmers, equipment, fields).
+ */
 public class Main {
     private final static int EVENT_COUNT = 100;
     private final static int DELAY = 200;
-
+    /**
+     * The entry point of the application. Initializes the smart farm system, processes random events,
+     * and handles user interaction for loading and saving farm data.
+     *
+     * @param args Command-line arguments (not used in this case).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         FarmDataStrategy farmDataStrategy;
@@ -86,6 +95,10 @@ public class Main {
         saveFarmData(farm, scanner);
     }
 
+    /**
+     * Simulates a delay between actions in the program to mimic real-time processing.
+     * Used between event handling to simulate processing time.
+     */
     private static void simulateDelay() {
         try {
             Thread.sleep(DELAY);
@@ -94,7 +107,13 @@ public class Main {
             Thread.currentThread().interrupt();
         }
     }
-
+    /**
+     * Creates and configures a chain of event handlers based on the farm's components (farmers, equipment, fields).
+     * The event handler chain processes the events in sequence.
+     *
+     * @param farm The farm instance that contains the components to be handled.
+     * @return The root event handler of the constructed chain.
+     */
     private static EventHandler getEventHandler(Farm farm) {
         List<EventHandler> handlers = new ArrayList<>();
 
@@ -126,7 +145,13 @@ public class Main {
 
         return handlers.isEmpty() ? null : handlers.get(0);
     }
-
+    /**
+     * Loads farm data from either a JSON file or a console-based strategy based on user input.
+     * Prompts the user to select a data source.
+     *
+     * @param scanner The scanner instance used for user input.
+     * @return The farm data strategy used to load the farm data.
+     */
     public static FarmDataStrategy loadFarmDataFromJson(Scanner scanner) {
         String choice;
         AppLogger logger= AppLogger.getInstance();
@@ -168,6 +193,13 @@ public class Main {
         }
     }
 
+    /**
+     * Saves the current state of the farm to a JSON file. The user is prompted to provide a file name and
+     * decide if existing files should be overwritten.
+     *
+     * @param farm    The current farm instance to save.
+     * @param scanner The scanner instance used for user input.
+     */
     public static void saveFarmData(Farm farm, Scanner scanner) {
         String saveChoice;
 
@@ -184,10 +216,10 @@ public class Main {
                 while (true) {
 
 
-                    logger.logHint("Enter the file name to save (e.g., config_1.json): ");
+                    logger.logHint("Enter the file name to save (e.g., config_1): ");
                     fileName = scanner.nextLine().trim();
 
-                    String filePath = "src/main/resources/" + fileName;
+                    String filePath = "src/main/resources/" + fileName + ".json";
                     File file = new File(filePath);
 
                     if (file.exists()) {
@@ -218,8 +250,13 @@ public class Main {
         }
     }
 
+    /**
+     * Sets up the application logger based on the selected logging strategy.
+     *
+     * @return The initialized AppLogger instance.
+     */
     public static AppLogger setUpAppLogger() {
-        AppLogger.setUpAppLogger();
+        AppLogger.setUpAppLoggerWithUser();
         return AppLogger.getInstance();
     }
 

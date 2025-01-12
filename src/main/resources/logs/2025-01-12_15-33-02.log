@@ -1,0 +1,287 @@
+[2025-01-12T15:33:02.616677700] [HINT] Would you like to load the farm data from a JSON file? (yes/no): 
+[2025-01-12T15:33:05.672970900] [INFO] Enter farm name: 
+[2025-01-12T15:33:11.099787100] [HINT] Do you want to add a field? (yes/no): 
+[2025-01-12T15:33:16.765109900] [INFO] Enter field data:
+[2025-01-12T15:33:16.769797] [INFO]   Crop type: 
+[2025-01-12T15:33:20.664559800] [INFO]   Field size: 
+[2025-01-12T15:33:22.391585500] [ERROR] Invalid number format. Please enter a valid integer.
+[2025-01-12T15:33:22.395349800] [INFO]   Field size: 
+[2025-01-12T15:33:26.218764700] [HINT] Do you want to add a field? (yes/no): 
+[2025-01-12T15:33:28.221694700] [HINT] Do you want to add a farmer? (yes/no): 
+[2025-01-12T15:33:29.519290800] [HINT] Do you want to add a building? (yes/no): 
+[2025-01-12T15:33:31.235810200] [HINT] Do you want to add a equipment? (yes/no): 
+[2025-01-12T15:33:32.314199] [HINT] Do you want to add a animal? (yes/no): 
+[2025-01-12T15:33:33.895726700] [HINT] Do you want to add a product? (yes/no): 
+[2025-01-12T15:33:37.169972700] [INFO] Enter product data:
+[2025-01-12T15:33:37.169972700] [INFO]   Select Product Type:
+[2025-01-12T15:33:37.169972700] [INFO]     - EGG (egg)
+[2025-01-12T15:33:37.169972700] [INFO]     - MEAT (meat)
+[2025-01-12T15:33:37.186052600] [INFO]     - MILK (milk)
+[2025-01-12T15:33:37.188010800] [INFO]     - WOOL (wool)
+[2025-01-12T15:33:37.192056] [INFO]   Type: 
+[2025-01-12T15:33:46.179227] [INFO]   Product Name: 
+[2025-01-12T15:33:48.188113300] [INFO]   Price: 
+[2025-01-12T15:33:50.444228400] [ERROR] Invalid number format. Please enter a valid number.
+[2025-01-12T15:33:50.455810] [INFO]   Price: 
+[2025-01-12T15:33:58.544874700] [INFO]   Weight: 
+[2025-01-12T15:34:00.407061900] [HINT] Do you want to add a product? (yes/no): 
+[2025-01-12T15:34:04.810274700] [INFO] Enter product data:
+[2025-01-12T15:34:04.810274700] [INFO]   Select Product Type:
+[2025-01-12T15:34:04.810274700] [INFO]     - EGG (egg)
+[2025-01-12T15:34:04.825819500] [INFO]     - MEAT (meat)
+[2025-01-12T15:34:04.827826800] [INFO]     - MILK (milk)
+[2025-01-12T15:34:04.827826800] [INFO]     - WOOL (wool)
+[2025-01-12T15:34:04.827826800] [INFO]   Type: 
+[2025-01-12T15:34:09.688951500] [ERROR] Invalid product type. Please choose a valid type from the list.
+[2025-01-12T15:34:09.690962800] [INFO]   Select Product Type:
+[2025-01-12T15:34:09.694982700] [INFO]     - EGG (egg)
+[2025-01-12T15:34:09.696992400] [INFO]     - MEAT (meat)
+[2025-01-12T15:34:09.700756500] [INFO]     - MILK (milk)
+[2025-01-12T15:34:09.702764900] [INFO]     - WOOL (wool)
+[2025-01-12T15:34:09.702764900] [INFO]   Type: 
+[2025-01-12T15:34:42.513677200] [INFO]   Product Name: 
+[2025-01-12T15:34:44.073267400] [INFO]   Price: 
+[2025-01-12T15:34:44.896957300] [INFO]   Weight: 
+[2025-01-12T15:34:45.540968900] [HINT] Do you want to add a product? (yes/no): 
+[2025-01-12T15:34:48.829738800] [HINT] Farm created successfully: 
+[2025-01-12T15:34:48.858466400] [HINT] Farm: eee
+|-- Fields
+|    - Field{cropType='no', fieldSize=12, state=FreeState}
+|-- Farmers
+|-- Buildings
+|-- Equipments
+|-- Animals
+|-- Products
+|    - Product{name='fsad', price=12.23, weight=12, productType=wool}
+|    - Product{name='ds', price=12.0, weight=23, productType=egg}
+|-- Product Price: 24.23
+
+[2025-01-12T15:34:49.065704] [HINT] Farm name: eee
+[2025-01-12T15:34:49.065704] [HINT] Observers have been added to the subjects.
+[2025-01-12T15:34:49.277082800] [HINT] 
+Processing random events...
+[2025-01-12T15:34:49.502578600] [HINT] Event #1
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:34:49.717065400] [HINT] Event #2
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:34:49.925086100] [HINT] Event #3
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:34:50.132326800] [HINT] Event #4
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:34:50.339259300] [HINT] Event #5
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:34:50.550030900] [HINT] Event #6
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:34:50.755402800] [HINT] Event #7
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:34:50.963668] [HINT] Event #8
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:34:51.172289] [HINT] Event #9
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:34:51.172289] [INFO] The field is now planted.
+[2025-01-12T15:34:51.383709800] [HINT] Event #10
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:34:51.592117200] [HINT] Event #11
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:34:51.594139100] [INFO] The field is already planted.
+[2025-01-12T15:34:51.801051500] [HINT] Event #12
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:34:52.008893900] [HINT] Event #13
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:34:52.222952400] [HINT] Event #14
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:34:52.431126800] [HINT] Event #15
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:34:52.637903400] [HINT] Event #16
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:34:52.846050900] [HINT] Event #17
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:34:53.053970800] [HINT] Event #18
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:34:53.262073500] [HINT] Event #19
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:34:53.262073500] [INFO] The field is not ready for harvesting.
+[2025-01-12T15:34:53.470436500] [HINT] Event #20
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:34:53.472460300] [INFO] The field is already planted.
+[2025-01-12T15:34:53.678869200] [HINT] Event #21
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:34:53.886482900] [HINT] Event #22
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:34:54.095335200] [HINT] Event #23
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:34:54.304269800] [HINT] Event #24
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:34:54.306799800] [INFO] The field is already planted.
+[2025-01-12T15:34:54.511884500] [HINT] Event #25
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:34:54.717443100] [HINT] Event #26
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:34:54.923136800] [HINT] Event #27
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:34:55.130957700] [HINT] Event #28
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:34:55.337310500] [HINT] Event #29
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:34:55.337310500] [INFO] The field is already planted.
+[2025-01-12T15:34:55.544010100] [HINT] Event #30
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:34:55.750612] [HINT] Event #31
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:34:55.958211] [HINT] Event #32
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:34:56.166429800] [HINT] Event #33
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:34:56.375046900] [HINT] Event #34
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:34:56.377063300] [INFO] The field is already planted.
+[2025-01-12T15:34:56.583844700] [HINT] Event #35
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:34:56.583844700] [INFO] The field is now ready for applying pesticides.
+[2025-01-12T15:34:56.793387600] [HINT] Event #36
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:34:57.000717500] [HINT] Event #37
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:34:57.207925600] [HINT] Event #38
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:34:57.415370500] [HINT] Event #39
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:34:57.624212500] [HINT] Event #40
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:34:57.832483] [HINT] Event #41
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:34:57.832483] [INFO] The field already has pesticides applied.
+[2025-01-12T15:34:58.044979800] [HINT] Event #42
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:34:58.252539600] [HINT] Event #43
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:34:58.461007300] [HINT] Event #44
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:34:58.669702500] [HINT] Event #45
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:34:58.877361400] [HINT] Event #46
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:34:58.879369900] [INFO] The field is already planted.
+[2025-01-12T15:34:59.083911900] [HINT] Event #47
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:34:59.291235] [HINT] Event #48
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:34:59.499140100] [HINT] Event #49
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:34:59.706203200] [HINT] Event #50
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:34:59.706203200] [INFO] The field is not ready for applying pesticides.
+[2025-01-12T15:34:59.913501700] [HINT] Event #51
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:00.121673500] [HINT] Event #52
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:00.330322300] [HINT] Event #53
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:35:00.538734300] [HINT] Event #54
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:00.543418700] [INFO] The field is already planted.
+[2025-01-12T15:35:00.746871300] [HINT] Event #55
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:00.955017] [HINT] Event #56
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:01.163610100] [HINT] Event #57
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:35:01.371680700] [HINT] Event #58
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:01.373702300] [INFO] The field is already planted.
+[2025-01-12T15:35:01.579609500] [HINT] Event #59
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:01.786945] [HINT] Event #60
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:01.788952700] [INFO] The field is already planted.
+[2025-01-12T15:35:01.995203300] [HINT] Event #61
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:35:02.207282] [HINT] Event #62
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:02.415543100] [HINT] Event #63
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:35:02.415543100] [INFO] The field is not ready for applying pesticides.
+[2025-01-12T15:35:02.624745700] [HINT] Event #64
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:02.832026400] [HINT] Event #65
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:03.039161400] [HINT] Event #66
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:35:03.039161400] [INFO] The field is not ready for applying pesticides.
+[2025-01-12T15:35:03.247728300] [HINT] Event #67
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:03.454315400] [HINT] Event #68
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:03.458183900] [INFO] The field is already planted.
+[2025-01-12T15:35:03.663974] [HINT] Event #69
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:03.870770] [HINT] Event #70
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:04.077595200] [HINT] Event #71
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:04.285418500] [HINT] Event #72
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:04.492294600] [HINT] Event #73
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:04.699021300] [HINT] Event #74
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:04.699021300] [INFO] The field is already planted.
+[2025-01-12T15:35:04.905705] [HINT] Event #75
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:05.112615400] [HINT] Event #76
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:35:05.320025600] [HINT] Event #77
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:35:05.322040700] [INFO] The field was harvested.
+[2025-01-12T15:35:05.527541] [HINT] Event #78
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:05.530592600] [INFO] The field is now planted.
+[2025-01-12T15:35:05.734163300] [HINT] Event #79
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:35:05.941505900] [HINT] Event #80
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:06.148100900] [HINT] Event #81
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:06.355142200] [HINT] Event #82
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:06.563602] [HINT] Event #83
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:06.771204500] [HINT] Event #84
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:35:06.771204500] [INFO] The field is already planted.
+[2025-01-12T15:35:06.978113] [HINT] Event #85
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:35:07.186278600] [HINT] Event #86
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:35:07.395766800] [HINT] Event #87
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:07.604492400] [HINT] Event #88
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:35:07.812990300] [HINT] Event #89
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:35:08.020674900] [HINT] Event #90
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:08.228237100] [HINT] Event #91
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:35:08.444658500] [HINT] Event #92
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:35:08.444658500] [INFO] The field is now ready for applying pesticides.
+[2025-01-12T15:35:08.651741800] [HINT] Event #93
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:08.859244400] [HINT] Event #94
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:35:09.067654200] [HINT] Event #95
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:35:09.276380] [HINT] Event #96
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:35:09.484265800] [HINT] Event #97
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:09.692296900] [HINT] Event #98
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:35:09.692296900] [INFO] The field already has pesticides applied.
+[2025-01-12T15:35:09.901747200] [HINT] Event #99
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:35:10.109341400] [HINT] Event #100
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:35:10.317422200] [HINT] Would you like to save the current farm data to a JSON file? (yes/no): 
+[2025-01-12T15:35:14.331370900] [INFO] Farm data was not saved.

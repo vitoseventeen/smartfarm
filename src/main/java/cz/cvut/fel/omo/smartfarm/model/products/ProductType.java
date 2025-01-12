@@ -1,10 +1,10 @@
 package cz.cvut.fel.omo.smartfarm.model.products;
 
 public enum ProductType {
-    EGG("Egg"),
-    MEAT("Meat"),
-    MILK("Milk"),
-    WOOL("Wool");
+    EGG("egg"),
+    MEAT("meat"),
+    MILK("milk"),
+    WOOL("wool");
 
     private final String displayName;
 
