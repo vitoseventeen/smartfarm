@@ -1,6 +1,6 @@
 # Smart Farm 🚜
 
-![smartfarm](docs/smartfarm.webp)
+![smartfarm](smartfarm.webp)
 
 **Team:**
 - [Arutyunyan Vazgen](https://gitlab.fel.cvut.cz/arutyvaz) 👨‍🌾
@@ -78,16 +78,48 @@ Vytvoření aplikace pro virtuální simulaci chytré farmy, kde je modelována 
 - Dependency injection
 - Singleton
 
-## Výstupy
+# Výstupy
 
 ### Use case diagram
 ![Use Case Diagram](docs/usecase.png)
 
-### Class diagram
+## Class diagrams
 
-![Class Diagram](docs/class.png)
+## Builder
 
-## Dokumentace
+![Builder](docs/builder.png)
+
+## Adapter
+![Adapter](docs/adapter.png)
+
+## Chain of responsibility
+![Chain of responsibility](docs/chain.png)
+
+## Factory
+![Factory](docs/factory.png)
+
+## Observer
+![Observer](docs/observer.png)
+
+## State
+#### Farmer state
+![farmerstate](docs/farmerstate.png)
+#### Field state
+![fieldstate](docs/fieldstate.png)
+#### Equipment state
+![equipmentstate](docs/equipmentState.png)
+
+## Strategy
+#### Data strategy
+![datastrategy](docs/datastrategy.png)
+
+#### Log Strategy
+![logstrategy](docs/logstrategy.png)
+
+#### Produce strategy
+![producestrat](docs/producestrat.png)
+
+# Dokumentace
 
 Dokumentace vygenerovaná pomocí Javadoc je dostupná [zde](https://gitlab.fel.cvut.cz/stepavi2/sem_prace_omo_smart_farm/-/blob/main/docs/javadoc/index.html).
 

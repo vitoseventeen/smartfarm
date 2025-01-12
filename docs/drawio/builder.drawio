@@ -1,0 +1,165 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0" version="26.0.5">
+  <diagram id="TvV9PN_vjh_0dpIYf-kO" name="Страница — 1">
+    <mxGraphModel dx="4765" dy="1868" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="node1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Animal&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- dailyFoodIntake: int&lt;br/&gt;- produceStrategy: ProduceStrategy&lt;br/&gt;- takesPlaces: int&lt;br/&gt;- type: String&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ produce(Building): void&lt;br/&gt;+ setProduceStrategy(ProduceStrategy): void&lt;br/&gt;+ setType(String): void&lt;br/&gt;+ getTakesPlaces(): int&lt;br/&gt;+ getDailyFoodIntake(): int&lt;br/&gt;+ toString(): String&lt;br/&gt;+ getType(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-270" y="720" width="318" height="304" as="geometry" />
+        </mxCell>
+        <mxCell id="node2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Building&lt;T&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- capacity: int&lt;br/&gt;- productPrice: double&lt;br/&gt;- products: List&amp;lt;Product&amp;gt;&lt;br/&gt;- currentUsage: int&lt;br/&gt;- logger: Logger&lt;br/&gt;- type: BuildingType&lt;br/&gt;- name: String&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ setProducts(List&amp;lt;Product&amp;gt;): void&lt;br/&gt;+ getName(): String&lt;br/&gt;+ getType(): BuildingType&lt;br/&gt;+ performFunction(): void&lt;br/&gt;+ setName(String): void&lt;br/&gt;# createCopy(String, int): T&lt;br/&gt;+ getCapacity(): int&lt;br/&gt;+ getCurrentUsage(): int&lt;br/&gt;+ addProduct(Product): void&lt;br/&gt;+ getProducts(): List&amp;lt;Product&amp;gt;&lt;br/&gt;+ getProductPrice(): double&lt;br/&gt;+ setCapacity(int): void&lt;br/&gt;+ setProductPrice(double): void&lt;br/&gt;+ setType(BuildingType): void&lt;br/&gt;+ toString(): String&lt;br/&gt;+ setCurrentUsage(int): void&lt;br/&gt;+ copyWith(String, Integer): T&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-20" y="1100" width="253" height="616" as="geometry" />
+        </mxCell>
+        <mxCell id="node3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Equipment&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- name: String&lt;br/&gt;- currentState: EquipmentState&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getState(): EquipmentState&lt;br/&gt;+ getName(): String&lt;br/&gt;+ turnOff(): void&lt;br/&gt;+ performAction(): void&lt;br/&gt;+ toString(): String&lt;br/&gt;+ breakDown(): void&lt;br/&gt;+ setState(EquipmentState): void&lt;br/&gt;+ repair(): void&lt;br/&gt;+ turnOn(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="820" y="1324" width="241" height="304" as="geometry" />
+        </mxCell>
+        <mxCell id="node4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Farm&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- products: List&amp;lt;Product&amp;gt;&lt;br/&gt;- animals: List&amp;lt;Animal&amp;gt;&lt;br/&gt;- name: String&lt;br/&gt;- fields: List&amp;lt;Field&amp;gt;&lt;br/&gt;- equipments: List&amp;lt;Equipment&amp;gt;&lt;br/&gt;- buildings: List&amp;lt;Building&amp;gt;&lt;br/&gt;- farmers: List&amp;lt;Farmer&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getTotalProductPrice(): double&lt;br/&gt;+ getName(): String&lt;br/&gt;+ getFields(): List&amp;lt;Field&amp;gt;&lt;br/&gt;+ getFarmers(): List&amp;lt;Farmer&amp;gt;&lt;br/&gt;+ getBuildings(): List&amp;lt;Building&amp;gt;&lt;br/&gt;+ toString(): String&lt;br/&gt;- appendListInfo(StringBuilder, String, List&amp;lt;T&amp;gt;): void&lt;br/&gt;+ getAnimals(): List&amp;lt;Animal&amp;gt;&lt;br/&gt;+ getEquipments(): List&amp;lt;Equipment&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="56" y="270" width="362" height="424" as="geometry" />
+        </mxCell>
+        <mxCell id="node0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;FarmBuilder&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ farmers: List&amp;lt;Farmer&amp;gt;&lt;br/&gt;+ products: List&amp;lt;Product&amp;gt;&lt;br/&gt;+ equipments: List&amp;lt;Equipment&amp;gt;&lt;br/&gt;+ animals: List&amp;lt;Animal&amp;gt;&lt;br/&gt;+ name: String&lt;br/&gt;+ buildings: List&amp;lt;Building&amp;gt;&lt;br/&gt;+ fields: List&amp;lt;Field&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ addAnimal(Animal): FarmBuilder&lt;br/&gt;+ addFields(List&amp;lt;Field&amp;gt;): FarmBuilder&lt;br/&gt;+ addFarmer(Farmer): FarmBuilder&lt;br/&gt;+ addProducts(List&amp;lt;Product&amp;gt;): FarmBuilder&lt;br/&gt;+ build(): Farm&lt;br/&gt;+ addFarmers(List&amp;lt;Farmer&amp;gt;): FarmBuilder&lt;br/&gt;+ addBuilding(Building): FarmBuilder&lt;br/&gt;+ setName(String): FarmBuilder&lt;br/&gt;+ addProduct(Product): FarmBuilder&lt;br/&gt;+ addEquipments(List&amp;lt;Equipment&amp;gt;): FarmBuilder&lt;br/&gt;+ addBuildings(List&amp;lt;Building&amp;gt;): FarmBuilder&lt;br/&gt;+ addEquipment(Equipment): FarmBuilder&lt;br/&gt;+ addAnimals(List&amp;lt;Animal&amp;gt;): FarmBuilder&lt;br/&gt;+ addField(Field): FarmBuilder&lt;br/&gt;+ getProductPrice(): double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-850" y="1220" width="340" height="568" as="geometry" />
+        </mxCell>
+        <mxCell id="node6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Farmer&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- name: String&lt;br/&gt;- currentState: FarmerState&lt;br/&gt;- age: int&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ toString(): String&lt;br/&gt;+ getState(): FarmerState&lt;br/&gt;+ setState(FarmerState): void&lt;br/&gt;+ rest(): void&lt;br/&gt;+ getName(): String&lt;br/&gt;+ work(): void&lt;br/&gt;+ sleep(): void&lt;br/&gt;+ getAge(): int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-590" y="650" width="218" height="304" as="geometry" />
+        </mxCell>
+        <mxCell id="node5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Field&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- fieldSize: int&lt;br/&gt;- state: FieldState&lt;br/&gt;- cropType: String&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ toString(): String&lt;br/&gt;+ getState(): FieldState&lt;br/&gt;+ plant(): void&lt;br/&gt;+ setFieldSize(int): void&lt;br/&gt;+ harvest(): void&lt;br/&gt;+ setCropType(String): void&lt;br/&gt;+ getCropType(): String&lt;br/&gt;+ setState(FieldState): void&lt;br/&gt;+ applyPesticides(): void&lt;br/&gt;+ getFieldSize(): int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-340" y="1600" width="206" height="352" as="geometry" />
+        </mxCell>
+        <mxCell id="node7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Product&lt;T&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- weight: int&lt;br/&gt;- price: double&lt;br/&gt;- name: String&lt;br/&gt;- productType: ProductType&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ copyWith(String, double, int): T&lt;br/&gt;+ getPrice(): double&lt;br/&gt;+ getWeight(): int&lt;br/&gt;+ getProductType(): ProductType&lt;br/&gt;+ getName(): String&lt;br/&gt;+ toString(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="470" y="1270" width="243" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="edge12" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#b85450;strokeWidth=3;fillColor=#f8cecc;" parent="1" source="node2" target="node7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="328" y="1409.17" as="sourcePoint" />
+            <mxPoint x="500" y="1400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#9673a6;exitX=0.162;exitY=0.998;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#e1d5e7;strokeWidth=3;" parent="1" source="node4" target="node1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="115" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label24" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;" parent="edge4" vertex="1" connectable="0">
+          <mxGeometry x="92" y="1471" as="geometry" />
+        </mxCell>
+        <mxCell id="label28" value="*" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;" parent="edge4" vertex="1" connectable="0">
+          <mxGeometry x="147" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="label29" value="animals" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;" parent="edge4" vertex="1" connectable="0">
+          <mxGeometry x="127" y="1441" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#b85450;exitX=0.545;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#f8cecc;strokeWidth=3;" parent="1" source="node4" target="node2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="694" />
+              <mxPoint x="270" y="1190" />
+            </Array>
+            <mxPoint x="280" y="720" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#666666;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;fillColor=#f5f5f5;" parent="1" source="node4" target="node3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="941" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge9" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#d6b656;exitX=0;exitY=0.75;exitDx=0;exitDy=0;strokeWidth=3;fillColor=#fff2cc;" parent="1" source="node4" target="node6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-481" y="588" />
+            </Array>
+            <mxPoint x="-10" y="630" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge7" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#595959;exitX=0.194;exitY=0.991;exitDx=0;exitDy=0;entryX=0.232;entryY=0.000;entryDx=0;entryDy=0;exitPerimeter=0;strokeWidth=3;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="198.20999999999998" y="1060" />
+              <mxPoint x="-219.79000000000002" y="1060" />
+            </Array>
+            <mxPoint x="198.43800000000005" y="690.1840000000002" as="sourcePoint" />
+            <mxPoint x="-219.99800000000056" y="1600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge13" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#6c8ebf;entryX=0.593;entryY=0.021;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#dae8fc;strokeWidth=3;" parent="1" source="node4" target="node7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="614" y="610" />
+            </Array>
+            <mxPoint x="680" y="1130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge0" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#9673a6;strokeWidth=3;fillColor=#e1d5e7;" parent="1" source="node0" target="node1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-570" y="1122" />
+              <mxPoint x="-340" y="1122" />
+              <mxPoint x="-340" y="872" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label0" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;" parent="edge0" vertex="1" connectable="0">
+          <mxGeometry x="122" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="label4" value="*" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;" parent="edge0" vertex="1" connectable="0">
+          <mxGeometry x="136" y="1476" as="geometry" />
+        </mxCell>
+        <mxCell id="label5" value="animals" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;" parent="edge0" vertex="1" connectable="0">
+          <mxGeometry x="103" y="1456" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#b85450;exitX=1.000;exitY=0.555;exitDx=0;exitDy=0;strokeWidth=3;fillColor=#f8cecc;" parent="1" source="node0" target="node2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#666666;strokeWidth=3;fillColor=#f5f5f5;" parent="1" source="node0" target="node3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-780" y="2100" />
+              <mxPoint x="950" y="2100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label16" value="*" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;strokeColor=default;" parent="edge2" vertex="1" connectable="0">
+          <mxGeometry x="338" y="894" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=openThin;endSize=12;strokeColor=#b85450;strokeWidth=3;fillColor=#f8cecc;" parent="1" source="node0" target="node4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-720" y="470" />
+            </Array>
+            <mxPoint x="-700" y="1090" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge10" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#d6b656;entryX=0;entryY=0.75;entryDx=0;entryDy=0;fillColor=#fff2cc;strokeWidth=3;" parent="1" source="node0" target="node6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-660" y="890" />
+              <mxPoint x="-590" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge8" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#595959;entryX=0.000;entryY=0.451;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="node0" target="node5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-400" y="1760" />
+              <mxPoint x="-350" y="1759" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge11" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=diamondThinstartSize=12;endArrow=openThin;endSize=12;strokeColor=#6c8ebf;fillColor=#dae8fc;strokeWidth=3;" parent="1" source="node0" target="node7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-680" y="2000" />
+              <mxPoint x="500" y="2000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
