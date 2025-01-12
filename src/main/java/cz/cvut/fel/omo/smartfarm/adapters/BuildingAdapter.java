@@ -10,8 +10,22 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is an adapter for serializing and deserializing Building objects using Gson.
+ * It handles the conversion between JSON and Building instances, supporting different types of buildings such as Stable and House.
+ */
 public class BuildingAdapter extends AAdapter<Building> {
 
+    /**
+     * Deserializes a JSON element into a Building object.
+     * The method extracts the building type, name, and capacity from the JSON and creates the appropriate Building instance.
+     *
+     * @param json         The JSON element to deserialize.
+     * @param typeOfT      The type of the object to deserialize into (Building).
+     * @param context      The deserialization context.
+     * @return A Building object created from the JSON data.
+     * @throws JsonParseException If the JSON format is invalid or the building type is unknown.
+     */
     @Override
     public Building deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
@@ -24,18 +38,29 @@ public class BuildingAdapter extends AAdapter<Building> {
         String name = jsonObject.has("name") ? jsonObject.get("name").getAsString() : "Unknown Building";
         int capacity = jsonObject.has("capacity") ? jsonObject.get("capacity").getAsInt() : 0;
 
-
+        // Create the building using the BuildingFactory and return it
         return new BuildingFactory().createBuilding(buildingType.toString(), name, capacity);
     }
 
+    /**
+     * Serializes a Building object into a JSON element.
+     * The method converts the building's type, name, capacity, and additional fields specific to the building type (e.g., animals in Stable, farmers in House) into a JSON object.
+     *
+     * @param src           The Building object to serialize.
+     * @param typeOfSrc     The type of the object to serialize (Building).
+     * @param context       The serialization context.
+     * @return A JSON representation of the Building object.
+     */
     @Override
     public JsonElement serialize(Building src, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonObject = new JsonObject();
 
+        // Serialize common fields
         jsonObject.addProperty("type", src.getClass().getSimpleName());
         jsonObject.addProperty("name", src.getName());
         jsonObject.addProperty("capacity", src.getCapacity());
 
+        // Serialize additional fields based on the specific building type (Stable or House)
         if (src instanceof Stable) {
             Stable stable = (Stable) src;
             JsonArray animals = new JsonArray();

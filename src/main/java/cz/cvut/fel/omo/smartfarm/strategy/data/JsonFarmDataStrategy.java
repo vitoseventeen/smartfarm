@@ -18,11 +18,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * This class implements the FarmDataStrategy interface and provides methods to read and save farm data in JSON format.
+ * It uses the Gson library to convert between Java objects and JSON.
+ */
 public class JsonFarmDataStrategy implements FarmDataStrategy {
 
     private final String filePath;
     private final Gson gson;
 
+    /**
+     * Constructor that initializes the JsonFarmDataStrategy with the given file path for saving and reading farm data.
+     * It also sets up a Gson instance with custom adapters for serializing and deserializing farm-related objects.
+     *
+     * @param filePath The file path where farm data will be saved or read from.
+     */
     public JsonFarmDataStrategy(String filePath) {
         this.filePath = filePath;
         this.gson = new GsonBuilder()
@@ -36,6 +46,13 @@ public class JsonFarmDataStrategy implements FarmDataStrategy {
                 .create();
     }
 
+    /**
+     * Reads the farm data from the JSON file specified by the filePath.
+     * It converts the JSON content into a Farm object and returns it wrapped in an Optional.
+     * If the file is not found or there's an error reading it, an exception is thrown.
+     *
+     * @return An Optional containing the Farm object if the file is read successfully, or an empty Optional if not.
+     */
     @Override
     public Optional<Farm> read() {
         try (FileReader reader = new FileReader(this.filePath)) {
@@ -45,6 +62,13 @@ public class JsonFarmDataStrategy implements FarmDataStrategy {
         }
     }
 
+    /**
+     * Saves the given Farm object to a JSON file at the specified filePath.
+     * It serializes the Farm object into JSON and writes it to the file.
+     * If an error occurs while writing to the file, an exception is thrown.
+     *
+     * @param farm The Farm object to be saved to the JSON file.
+     */
     public void save(Farm farm) {
         try (FileWriter writer = new FileWriter(this.filePath)) {
             gson.toJson(farm, writer);

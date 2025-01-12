@@ -1,0 +1,105 @@
+[2025-01-12T16:08:49.511321300] [HINT] Would you like to load the farm data from a JSON file? (yes/no): 
+[2025-01-12T16:08:50.577419900] [HINT] Enter the name of the JSON file (e.g., config_1, config_2): 
+[2025-01-12T16:08:52.126503200] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.field.FreeState
+[2025-01-12T16:08:52.127502300] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.field.PlantedState
+[2025-01-12T16:08:52.129011600] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.farmer.RestingState
+[2025-01-12T16:08:52.130023100] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.farmer.WorkingState
+[2025-01-12T16:08:52.171635900] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.equipment.OnState
+[2025-01-12T16:08:52.174636] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.equipment.OffState
+[2025-01-12T16:08:52.277587700] [HINT] Farm created successfully: 
+[2025-01-12T16:08:52.297367300] [HINT] Farm: My Farm
+|-- Fields
+|    - Field{cropType='Wheat', fieldSize=100, state=FreeState}
+|    - Field{cropType='Corn', fieldSize=50, state=PlantedState}
+|-- Farmers
+|    - Farmer{name='John Doe', age=35, currentState=RestingState}
+|    - Farmer{name='Jane Doe', age=28, currentState=WorkingState}
+|-- Buildings
+|    - Building Details:
+-----------------
+Name: Greenhouse 1
+Type: Greenhouse
+Capacity: 50
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: House 1
+Type: House
+Capacity: 3
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: Stable 1
+Type: Stable
+Capacity: 10
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: Warehouse 1
+Type: Warehouse
+Capacity: 100
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: Workshop 1
+Type: Workshop
+Capacity: 50
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: Barn 1
+Type: Barn
+Capacity: 100
+Current Usage: 0
+
+|-- Equipments
+|    - Equipment{name='Tractor', currentState=OnState}
+|    - Equipment{name='Shovel', currentState=OffState}
+|-- Animals
+|    - Animal{type='Cow', takesPlaces=4, dailyFoodIntake=5}
+|    - Animal{type='Sheep', takesPlaces=2, dailyFoodIntake=3}
+|-- Products
+|    - Product{name='Meat', price=20.0, weight=5, productType=meat}
+|    - Product{name='Milk', price=10.0, weight=2, productType=milk}
+|    - Product{name='Wool', price=15.0, weight=1, productType=wool}
+|-- Product Price: $45.0
+
+[2025-01-12T16:08:52.509253600] [HINT] Farm name: My Farm
+[2025-01-12T16:08:52.519348200] [HINT] Observers have been added to the subjects.
+[2025-01-12T16:08:52.731779400] [HINT] 
+Processing random events...
+[2025-01-12T16:08:52.971107200] [HINT] Event #1
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T16:08:52.976136600] [INFO] John Doe is already resting.
+[2025-01-12T16:08:53.188258200] [HINT] Event #2
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T16:08:53.189771900] [INFO] John Doe goes to sleep after resting.
+[2025-01-12T16:08:53.393399600] [HINT] Event #3
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T16:08:53.395403100] [INFO] The field is now planted.
+[2025-01-12T16:08:53.610668900] [HINT] Event #4
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T16:08:53.619232100] [INFO] The field is now ready for applying pesticides.
+[2025-01-12T16:08:53.833812300] [HINT] Event #5
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T16:08:53.839338600] [INFO] The field with pesticides is not ready for harvesting.
+[2025-01-12T16:08:54.043103900] [HINT] Event #6
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T16:08:54.044103500] [INFO] The field with pesticides is not ready for planting.
+[2025-01-12T16:08:54.245229300] [HINT] Event #7
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T16:08:54.248168300] [INFO] Tractor is turning OFF.
+[2025-01-12T16:08:54.462508400] [HINT] Event #8
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T16:08:54.464502200] [INFO] The field with pesticides is not ready for harvesting.
+[2025-01-12T16:08:54.681023400] [HINT] Event #9
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T16:08:54.682001900] [INFO] The field already has pesticides applied.
+[2025-01-12T16:08:54.898068800] [HINT] Event #10
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T16:08:54.919071500] [INFO] John Doe is already sleeping.

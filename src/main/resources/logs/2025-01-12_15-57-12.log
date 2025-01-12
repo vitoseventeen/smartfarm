@@ -1,0 +1,378 @@
+[2025-01-12T15:57:12.087286400] [HINT] Would you like to load the farm data from a JSON file? (yes/no): 
+[2025-01-12T15:57:13.908921400] [HINT] Enter the name of the JSON file (e.g., config_1, config_2): 
+[2025-01-12T15:57:14.964658900] [WARNING] File not found. Would you like to try again? (yes/no): 
+[2025-01-12T15:57:18.648334300] [HINT] Enter the name of the JSON file (e.g., config_1, config_2): 
+[2025-01-12T15:57:22.794888900] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.field.FreeState
+[2025-01-12T15:57:22.795859500] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.field.PlantedState
+[2025-01-12T15:57:22.806376400] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.farmer.RestingState
+[2025-01-12T15:57:22.808377] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.farmer.WorkingState
+[2025-01-12T15:57:22.911057600] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.equipment.OnState
+[2025-01-12T15:57:22.919611300] [INFO] Updated class name: cz.cvut.fel.omo.smartfarm.state.equipment.OffState
+[2025-01-12T15:57:23.004214500] [HINT] Farm created successfully: 
+[2025-01-12T15:57:23.033791900] [HINT] Farm: My Farm
+|-- Fields
+|    - Field{cropType='Wheat', fieldSize=100, state=FreeState}
+|    - Field{cropType='Corn', fieldSize=50, state=PlantedState}
+|-- Farmers
+|    - Farmer{name='John Doe', age=35, currentState=RestingState}
+|    - Farmer{name='Jane Doe', age=28, currentState=WorkingState}
+|-- Buildings
+|    - Building Details:
+-----------------
+Name: Greenhouse 1
+Type: Greenhouse
+Capacity: 50
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: House 1
+Type: House
+Capacity: 3
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: Stable 1
+Type: Stable
+Capacity: 10
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: Warehouse 1
+Type: Warehouse
+Capacity: 100
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: Workshop 1
+Type: Workshop
+Capacity: 50
+Current Usage: 0
+
+|    - Building Details:
+-----------------
+Name: Barn 1
+Type: Barn
+Capacity: 100
+Current Usage: 0
+
+|-- Equipments
+|    - Equipment{name='Tractor', currentState=OnState}
+|    - Equipment{name='Shovel', currentState=OffState}
+|-- Animals
+|    - Animal{type='Cow', takesPlaces=4, dailyFoodIntake=5}
+|    - Animal{type='Sheep', takesPlaces=2, dailyFoodIntake=3}
+|-- Products
+|    - Product{name='Meat', price=20.0, weight=5, productType=meat}
+|    - Product{name='Milk', price=10.0, weight=2, productType=milk}
+|    - Product{name='Wool', price=15.0, weight=1, productType=wool}
+|-- Product Price: $45.0
+
+[2025-01-12T15:57:23.239713900] [HINT] Farm name: My Farm
+[2025-01-12T15:57:23.322420100] [HINT] Observers have been added to the subjects.
+[2025-01-12T15:57:23.634013900] [HINT] 
+Processing random events...
+[2025-01-12T15:57:23.858075600] [HINT] Event #1
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:57:23.927814300] [INFO] Tractor is ON and doesn't need repairs.
+[2025-01-12T15:57:24.141933600] [HINT] Event #2
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:57:24.149990600] [INFO] The field is free. No need for applying pesticides.
+[2025-01-12T15:57:24.355993500] [HINT] Event #3
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:24.358990600] [INFO] John Doe is already resting.
+[2025-01-12T15:57:24.571904900] [HINT] Event #4
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:24.574907] [INFO] John Doe goes to sleep after resting.
+[2025-01-12T15:57:24.789683800] [HINT] Event #5
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:24.792230200] [INFO] The field is now planted.
+[2025-01-12T15:57:25.006305700] [HINT] Event #6
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:25.007307900] [INFO] John Doe cannot rest while sleeping.
+[2025-01-12T15:57:25.208899600] [HINT] Event #7
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:25.218502500] [INFO] John Doe cannot rest while sleeping.
+[2025-01-12T15:57:25.427805800] [HINT] Event #8
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:57:25.429821900] [INFO] Tractor is turning OFF.
+[2025-01-12T15:57:25.644618900] [HINT] Event #9
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:57:25.645621400] [INFO] Tractor is already OFF.
+[2025-01-12T15:57:25.848037300] [HINT] Event #10
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:57:25.850036100] [INFO] Tractor is OFF and doesn't need repairs.
+[2025-01-12T15:57:26.067550700] [HINT] Event #11
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:57:26.071087800] [INFO] Tractor is OFF and doesn't need repairs.
+[2025-01-12T15:57:26.282971100] [HINT] Event #12
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:26.285998200] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:26.489363300] [HINT] Event #13
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:26.489363300] [INFO] Tractor is turning ON.
+[2025-01-12T15:57:26.693833900] [HINT] Event #14
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:26.693833900] [INFO] Tractor is already ON.
+[2025-01-12T15:57:26.906806100] [HINT] Event #15
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:26.908796100] [INFO] The field is already planted.
+[2025-01-12T15:57:27.109288500] [HINT] Event #16
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:27.111804300] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:27.315909400] [HINT] Event #17
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:57:27.316909] [INFO] Tractor is turning OFF.
+[2025-01-12T15:57:27.518750900] [HINT] Event #18
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:57:27.519755] [INFO] Tractor is breaking down while OFF.
+[2025-01-12T15:57:27.736885800] [HINT] Event #19
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:57:27.736885800] [INFO] Tractor is already broken.
+[2025-01-12T15:57:27.939364400] [HINT] Event #20
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:57:27.941365200] [INFO] Tractor is already broken.
+[2025-01-12T15:57:28.146225100] [HINT] Event #21
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:28.152328200] [INFO] Tractor is broken and cannot be turned ON.
+[2025-01-12T15:57:28.355505200] [HINT] Event #22
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:28.355505200] [INFO] John Doe cannot rest while sleeping.
+[2025-01-12T15:57:28.569584500] [HINT] Event #23
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:28.571092800] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:28.773640] [HINT] Event #24
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:57:28.775633600] [INFO] Tractor is refueled to 100.
+[2025-01-12T15:57:29.004575700] [HINT] Event #25
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:29.009578] [INFO] John Doe cannot rest while sleeping.
+[2025-01-12T15:57:29.224773100] [HINT] Event #26
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:29.227751] [INFO] Tractor is broken and cannot be turned ON.
+[2025-01-12T15:57:29.440155100] [HINT] Event #27
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:57:29.441159200] [INFO] The field is not ready for harvesting.
+[2025-01-12T15:57:29.656756300] [HINT] Event #28
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:29.658732900] [INFO] The field is already planted.
+[2025-01-12T15:57:29.873474900] [HINT] Event #29
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:57:29.883060700] [INFO] Tractor is already OFF and broken.
+[2025-01-12T15:57:30.088015] [HINT] Event #30
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:57:30.090011100] [INFO] Tractor is refueled to 100.
+[2025-01-12T15:57:30.304434500] [HINT] Event #31
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:57:30.304434500] [INFO] Tractor is already OFF and broken.
+[2025-01-12T15:57:30.520046200] [HINT] Event #32
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:57:30.520046200] [INFO] Tractor is refueled to 100.
+[2025-01-12T15:57:30.721403800] [HINT] Event #33
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:30.723444100] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:30.939234200] [HINT] Event #34
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:30.941235700] [INFO] Tractor is broken and cannot be turned ON.
+[2025-01-12T15:57:31.162408] [HINT] Event #35
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:57:31.170428700] [INFO] The field is now ready for applying pesticides.
+[2025-01-12T15:57:31.374604100] [HINT] Event #36
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:57:31.376611600] [INFO] Tractor is being repaired.
+[2025-01-12T15:57:31.584863600] [HINT] Event #37
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:57:31.585862] [INFO] Tractor is refueled to 100.
+[2025-01-12T15:57:31.787539900] [HINT] Event #38
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:57:31.787539900] [INFO] John Doe is waking up and starting to work.
+[2025-01-12T15:57:31.989081700] [HINT] Event #39
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:57:31.991071300] [INFO] The field already has pesticides applied.
+[2025-01-12T15:57:32.207036600] [HINT] Event #40
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:57:32.209040200] [INFO] The field is not ready for applying pesticides.
+[2025-01-12T15:57:32.446117100] [HINT] Event #41
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:57:32.459644300] [INFO] Tractor is repaired and ready to perform actions.
+[2025-01-12T15:57:32.671275300] [HINT] Event #42
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:57:32.671275300] [INFO] Tractor is OFF after repairs.
+[2025-01-12T15:57:32.875312600] [HINT] Event #43
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:32.876313800] [INFO] John Doe is too tired from working and goes to sleep.
+[2025-01-12T15:57:33.079016900] [HINT] Event #44
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:33.080021500] [INFO] The field is already planted.
+[2025-01-12T15:57:33.281030300] [HINT] Event #45
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:33.281030300] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:33.483957100] [HINT] Event #46
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:33.486951] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:33.711771400] [HINT] Event #47
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:33.724392600] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:33.933370900] [HINT] Event #48
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:57:33.935384200] [INFO] The field was harvested.
+[2025-01-12T15:57:34.154958800] [HINT] Event #49
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:57:34.155950600] [INFO] The field is free. No need for harvesting.
+[2025-01-12T15:57:34.368424400] [HINT] Event #50
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:57:34.369424200] [INFO] Tractor is OFF and doesn't need repairs.
+[2025-01-12T15:57:34.573186] [HINT] Event #51
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:34.574184900] [INFO] John Doe cannot rest while sleeping.
+[2025-01-12T15:57:34.776202300] [HINT] Event #52
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:34.813997600] [INFO] John Doe cannot rest while sleeping.
+[2025-01-12T15:57:35.022121400] [HINT] Event #53
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:35.023112300] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:35.224929400] [HINT] Event #54
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:57:35.224929400] [INFO] The field is free. No need for applying pesticides.
+[2025-01-12T15:57:35.429067900] [HINT] Event #55
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:57:35.429067900] [INFO] Tractor is OFF and cannot perform any actions.
+[2025-01-12T15:57:35.650979] [HINT] Event #56
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:35.652001700] [INFO] Tractor is turning ON.
+[2025-01-12T15:57:35.864604600] [HINT] Event #57
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:57:35.866610500] [INFO] The field is free. No need for harvesting.
+[2025-01-12T15:57:36.081316900] [HINT] Event #58
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:57:36.082336400] [INFO] John Doe is waking up and starting to work.
+[2025-01-12T15:57:36.297718800] [HINT] Event #59
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:36.298787800] [INFO] The field is now planted.
+[2025-01-12T15:57:36.513479500] [HINT] Event #60
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:36.516469] [INFO] John Doe is taking a rest after working.
+[2025-01-12T15:57:36.719965800] [HINT] Event #61
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:57:36.722483800] [INFO] Tractor is performing its action.
+[2025-01-12T15:57:36.933700800] [HINT] Event #62
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:57:36.934677600] [INFO] Tractor is ON and doesn't need repairs.
+[2025-01-12T15:57:37.150036100] [HINT] Event #63
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:57:37.151033800] [INFO] Tractor is ON and doesn't need repairs.
+[2025-01-12T15:57:37.368360900] [HINT] Event #64
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:37.369361600] [INFO] The field is already planted.
+[2025-01-12T15:57:37.586717] [HINT] Event #65
+Event{type=REPAIR, description='Random event description'}
+[2025-01-12T15:57:37.587712700] [INFO] Tractor is ON and doesn't need repairs.
+[2025-01-12T15:57:37.788570100] [HINT] Event #66
+Event{type=BREAK_DOWN, description='Random event description'}
+[2025-01-12T15:57:37.788570100] [INFO] Tractor is breaking down.
+[2025-01-12T15:57:37.993312900] [HINT] Event #67
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:57:37.999340500] [INFO] Tractor is already OFF and broken.
+[2025-01-12T15:57:38.209356500] [HINT] Event #68
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:57:38.210344300] [INFO] The field is now ready for applying pesticides.
+[2025-01-12T15:57:38.427868100] [HINT] Event #69
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:38.429860] [INFO] John Doe is already resting.
+[2025-01-12T15:57:38.665519] [HINT] Event #70
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:57:38.674058100] [INFO] John Doe feels rested and starts working.
+[2025-01-12T15:57:38.876974500] [HINT] Event #71
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:57:38.877975300] [INFO] The field with pesticides is not ready for harvesting.
+[2025-01-12T15:57:39.092366900] [HINT] Event #72
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:57:39.094390400] [INFO] Tractor is refueled to 100.
+[2025-01-12T15:57:39.314184600] [HINT] Event #73
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:39.315187] [INFO] John Doe is too tired from working and goes to sleep.
+[2025-01-12T15:57:39.528114400] [HINT] Event #74
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:57:39.529113900] [INFO] Tractor is broken and cannot perform any actions.
+[2025-01-12T15:57:39.729314400] [HINT] Event #75
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:57:39.732637800] [INFO] John Doe is waking up and starting to work.
+[2025-01-12T15:57:39.946406800] [HINT] Event #76
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:39.948310300] [INFO] John Doe is too tired from working and goes to sleep.
+[2025-01-12T15:57:40.161805] [HINT] Event #77
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:57:40.164850900] [INFO] John Doe is waking up and starting to work.
+[2025-01-12T15:57:40.376299900] [HINT] Event #78
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:57:40.378297600] [INFO] Tractor is broken and cannot perform any actions.
+[2025-01-12T15:57:40.580345400] [HINT] Event #79
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:40.582622600] [INFO] The field with pesticides is not ready for planting.
+[2025-01-12T15:57:40.813288400] [HINT] Event #80
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:40.816315100] [INFO] Tractor is broken and cannot be turned ON.
+[2025-01-12T15:57:41.017598600] [HINT] Event #81
+Event{type=FARMER_REST, description='Random event description'}
+[2025-01-12T15:57:41.019586300] [INFO] John Doe is taking a rest after working.
+[2025-01-12T15:57:41.221155900] [HINT] Event #82
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:41.222306300] [INFO] The field with pesticides is not ready for planting.
+[2025-01-12T15:57:41.425510200] [HINT] Event #83
+Event{type=REFUEL, description='Random event description'}
+[2025-01-12T15:57:41.479462300] [INFO] Tractor is refueled to 100.
+[2025-01-12T15:57:41.681212] [HINT] Event #84
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:41.683644400] [INFO] Tractor is broken and cannot be turned ON.
+[2025-01-12T15:57:41.887105100] [HINT] Event #85
+Event{type=TURN_ON, description='Random event description'}
+[2025-01-12T15:57:41.888114] [INFO] Tractor is broken and cannot be turned ON.
+[2025-01-12T15:57:42.100151400] [HINT] Event #86
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:57:42.102571500] [INFO] John Doe feels rested and starts working.
+[2025-01-12T15:57:42.327341] [HINT] Event #87
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:57:42.328332500] [INFO] Tractor is broken and cannot perform any actions.
+[2025-01-12T15:57:42.537612900] [HINT] Event #88
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:57:42.539614600] [INFO] Tractor is broken and cannot perform any actions.
+[2025-01-12T15:57:42.769978600] [HINT] Event #89
+Event{type=TURN_OFF, description='Random event description'}
+[2025-01-12T15:57:42.772459500] [INFO] Tractor is already OFF and broken.
+[2025-01-12T15:57:42.987959400] [HINT] Event #90
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:42.988956100] [INFO] The field with pesticides is not ready for planting.
+[2025-01-12T15:57:43.213090800] [HINT] Event #91
+Event{type=PLANT_CROPS, description='Random event description'}
+[2025-01-12T15:57:43.214101300] [INFO] The field with pesticides is not ready for planting.
+[2025-01-12T15:57:43.421104500] [HINT] Event #92
+Event{type=FARMER_WORK, description='Random event description'}
+[2025-01-12T15:57:43.422126900] [INFO] John Doe is already working.
+[2025-01-12T15:57:43.638993600] [HINT] Event #93
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:43.641538500] [INFO] John Doe is too tired from working and goes to sleep.
+[2025-01-12T15:57:43.877650700] [HINT] Event #94
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:57:43.883196] [INFO] The field with pesticides is not ready for harvesting.
+[2025-01-12T15:57:44.087232100] [HINT] Event #95
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:57:44.087232100] [INFO] The field already has pesticides applied.
+[2025-01-12T15:57:44.287982500] [HINT] Event #96
+Event{type=APPLY_PESTICIDE, description='Random event description'}
+[2025-01-12T15:57:44.287982500] [INFO] The field is not ready for applying pesticides.
+[2025-01-12T15:57:44.489503] [HINT] Event #97
+Event{type=FARMER_SLEEP, description='Random event description'}
+[2025-01-12T15:57:44.491020] [INFO] John Doe is already sleeping.
+[2025-01-12T15:57:44.693492700] [HINT] Event #98
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:57:44.695493400] [INFO] The field was harvested.
+[2025-01-12T15:57:44.899440100] [HINT] Event #99
+Event{type=HARVEST_CROPS, description='Random event description'}
+[2025-01-12T15:57:44.901962600] [INFO] The field is free. No need for harvesting.
+[2025-01-12T15:57:45.105006800] [HINT] Event #100
+Event{type=PERFORM_ACTION, description='Random event description'}
+[2025-01-12T15:57:45.105006800] [INFO] Tractor is broken and cannot perform any actions.
+[2025-01-12T15:57:45.307107300] [HINT] Would you like to save the current farm data to a JSON file? (yes/no): 
