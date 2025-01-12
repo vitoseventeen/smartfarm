@@ -57,13 +57,18 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
             AppLogger.getInstance().logHint("Do you want to add a " + itemType + "? (yes/no): ");
             String answer = scanner.nextLine().trim().toLowerCase();
 
-            if ("yes".equals(answer)) {
-                list.add(reader.get());
-            } else if ("no".equals(answer)) {
-                break;
-            } else {
-                AppLogger.getInstance().logError("Invalid input. Please answer with 'yes' or 'no'.");
+            try {
+                if ("yes".equals(answer)) {
+                    list.add(reader.get());
+                } else if ("no".equals(answer)) {
+                    break;
+                } else {
+                    AppLogger.getInstance().logError("Invalid input. Please answer with 'yes' or 'no'.");
+                }
+            } catch (RuntimeException e) {
+                AppLogger.getInstance().logError(e.getMessage());
             }
+
         }
         return list;
     }

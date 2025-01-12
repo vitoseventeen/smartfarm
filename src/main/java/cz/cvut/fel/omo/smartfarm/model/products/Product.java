@@ -1,6 +1,6 @@
 package cz.cvut.fel.omo.smartfarm.model.products;
 
-public abstract class Product {
+public abstract class Product<T extends Product<T>> {
     private final String name;
     private final double price;
     private final int weight;
@@ -39,15 +39,7 @@ public abstract class Product {
                 '}';
     }
 
-    public Product copyWith(String name, Double price, Integer weight, ProductType productType) {
-        return new Product(
-                name != null ? name : this.name,
-                price != null ? price : this.price,
-                weight != null ? weight : this.weight,
-                productType != null ? productType : this.productType
-        ) {
-        };
-    }
 
+    public abstract T copyWith(String name, double price, int weight);
 }
 

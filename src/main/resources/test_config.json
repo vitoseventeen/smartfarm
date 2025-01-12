@@ -1,0 +1,22 @@
+{
+  "name": "fdsdfs",
+  "fields": [],
+  "farmers": [],
+  "buildings": [],
+  "equipments": [],
+  "animals": [],
+  "products": [
+    {
+      "productType": "WOOL",
+      "name": "asdfasdf",
+      "price": 12.0,
+      "weight": 12
+    },
+    {
+      "productType": "MILK",
+      "name": "fsdf",
+      "price": 12.421,
+      "weight": 12
+    }
+  ]
+}
