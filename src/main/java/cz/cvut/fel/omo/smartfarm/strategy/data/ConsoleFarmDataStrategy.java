@@ -22,13 +22,25 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.function.Supplier;
 
+/**
+ * This class implements the FarmDataStrategy interface and provides methods to read farm data from the console.
+ * It allows the user to input information about the farm, including fields, farmers, buildings, equipment, animals, and products.
+ */
 public class ConsoleFarmDataStrategy implements FarmDataStrategy {
     private final Scanner scanner;
 
+    /**
+     * Constructor that initializes the ConsoleFarmDataStrategy with a new Scanner instance for reading user input.
+     */
     public ConsoleFarmDataStrategy() {
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Reads farm data from the console and creates a Farm object based on the input.
+     *
+     * @return An Optional containing the created Farm, or an empty Optional if the input is invalid.
+     */
     @Override
     public Optional<Farm> read() {
         String name = readString("Enter farm name: ");
@@ -51,6 +63,15 @@ public class ConsoleFarmDataStrategy implements FarmDataStrategy {
         return Optional.ofNullable(builder.build());
     }
 
+    /**
+     * Reads a list of items (fields, farmers, buildings, etc.) from the console.
+     * The user is prompted whether to add each item, and the list is populated accordingly.
+     *
+     * @param itemType The type of item being read (e.g., "field", "farmer", "building").
+     * @param reader   A function that reads an individual item.
+     * @param <T>      The type of the items in the list.
+     * @return A list of items based on user input.
+     */
     private <T> List<T> readList(String itemType, Supplier<T> reader) {
         List<T> list = new ArrayList<>();
         while (true) {
